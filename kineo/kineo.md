@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Kineo
-permalink: /kineo/
+permalink: /
 ---
 
 Kineo is very much a fun thing yay.
