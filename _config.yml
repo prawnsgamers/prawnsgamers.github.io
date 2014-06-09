@@ -6,5 +6,6 @@ baseurl: ""
 url: "http://prawnsgame.org.uk"
 
 # Build settings
+
 markdown: kramdown
 permalink: pretty
