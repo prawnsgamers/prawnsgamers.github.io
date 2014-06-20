@@ -3,7 +3,7 @@ layout: page
 title: Kalamala Rules
 permalink: /rules/
 published: true
-link1name: Home
+link1name: Homeis
 link2name: Rules
 link3name: Play
 ---
