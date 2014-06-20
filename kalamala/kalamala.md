@@ -5,7 +5,7 @@ folder: kalamala
 permalink: /
 published: true
 link1name: Home
-link2name: Rules
+link2name: Rulesies
 link3name: Play
 ---
 

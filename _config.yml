@@ -15,6 +15,6 @@ defaults:
     scope:
       path: ""
     values:
-      link1name: Home
-      link2name: Rules
-      link3name: Play
+      link1name: "Home"
+      link2name: "Rules"
+      link3name: "Play"
