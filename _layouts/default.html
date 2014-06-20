@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
-
-  {% include head.html %}
-
+	{% include head.html %}
     <body>
-
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrap">
-      {{ content }}
-      </div>
-    </div>
-
-    {% include footer.html %}
-
+        {% include header.html %}
+            <div id="focus">
+                <div><img src="http://i.imgur.com/aE6nhpy.png"></div>
+                <div><img src="http://i.imgur.com/refTGgG.png"></div>
+                <div><img src="http://i.imgur.com/RX5eJXW.png"></div>
+            </div>
+            <div id="content">
+				{{ content }}
+            </div>
+        </div>
+		{% include footer.html %}
     </body>
 </html>
