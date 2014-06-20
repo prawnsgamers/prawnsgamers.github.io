@@ -337,7 +337,7 @@ body {
         width: 95%;
         max-width: 1200px;
         background: #cccccc;
-        margin: 0 auto -50;
+        margin: 0 auto -50px;
       }
       #top {
         overflow: auto;
@@ -377,11 +377,11 @@ body {
         background: linear-gradient(#55cc00 0%, #108000 100%);
       }
       #focus > div {
-        height: 350;
-        width: 350;
+        height: 350px;
+        width: 350px;
         position: absolute;
         left: 50%;
-        margin: 0 0 0 -175;
+        margin: 0 0 0 -175px;
       	opacity: 0;
         color: #cccccc;
         text-align: center;
