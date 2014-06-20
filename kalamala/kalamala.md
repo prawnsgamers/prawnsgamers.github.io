@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Kineo
+folder: kalamala
 permalink: /
 published: true
 ---

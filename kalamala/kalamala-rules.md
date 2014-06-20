@@ -1,11 +1,10 @@
 ---
 layout: page
 title: Kalamala Rules
+folder: kalamala
 permalink: /rules/
 published: true
-link1name: Homeis
-link2name: Rules
-link3name: Play
+link1path: Home
 ---
 
 The rules to play Kalamala are very good.
