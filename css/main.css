@@ -212,8 +212,8 @@ body {
     margin: 5px 0 0 35px
 }
 #content img {
-    max-height: 400px;
-    max-width: 400px;
+    max-height: 250px;
+    max-width: 250px;
 }
 #page:after {
     content: "";
