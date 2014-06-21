@@ -36,15 +36,6 @@ Setup
 
 ![starting position for kalamala]({{ site.baseurl }}/images/kalamala/start.png)
 
-| | | | | | | | |
-| | | | | | | | |
-| | | |o|x| | | |
-| | |o| | |x| | |
-| | |x| | |o| | |
-| | | |x|o| | | |
-| | | | | | | | |
-| | | | | | | | |
-
 Each player starts with 4 stones on the board (as shown above), and keeps 4 more stones off the board.
 
 These are called unplaced stones.
