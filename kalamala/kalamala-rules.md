@@ -2,7 +2,7 @@
 layout: page
 title: Kalamala Rules
 folder: kalamala
-permalink: /rules/
+permalink: /kalamala/rules/
 published: true
 link1path: Home
 ---

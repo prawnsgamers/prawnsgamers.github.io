@@ -3,6 +3,7 @@ title: Prawnsgame
 email: prawnsgame@gmail.com
 description: "Prawnsgame is a website dedicated to bringing you new and interesting abstract strategy board games. Enjoy!!"
 baseurl: "http://prawnsgamers.github.io"
+#baseurl: ""
 url: "http://prawnsgame.org.uk"
 
 # Build settings
