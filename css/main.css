@@ -202,6 +202,7 @@ body {
 }
 #content > a, #content > p > a {
     color: #66cc00;
+    font-weight: bold;
     text-decoration: none;
 }
 #page:after {
