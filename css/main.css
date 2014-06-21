@@ -199,7 +199,7 @@ body {
     font-size: 30px;
     font-weight: bold;
 }
-#content > a {
+#content > a, #content > p > a {
     color: #66cc00;
     font-decoration: none;
 }
