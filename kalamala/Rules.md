@@ -34,6 +34,8 @@ Equipment
 Setup
 =====
 
+![starting position for kalamala]({{ site.baseurl }}/images/kalamala/start.png)
+
 | | | | | | | | |
 | | | | | | | | |
 | | | |o|x| | | |
