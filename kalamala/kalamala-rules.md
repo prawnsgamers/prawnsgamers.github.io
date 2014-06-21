@@ -1,8 +1,9 @@
 ---
 layout: page
-title: Kalamala Rules
+title: Rules
+game: Kalamala
 folder: kalamala
-permalink: /kalamala/rules/
+permalink: /rules/
 published: true
 link1path: Home
 ---

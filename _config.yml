@@ -3,20 +3,14 @@ title: Prawnsgame
 email: prawnsgame@gmail.com
 description: "Prawnsgame is a website dedicated to bringing you new and interesting abstract strategy board games. Enjoy!!"
 baseurl: "http://prawnsgamers.github.io"
-#baseurl: ""
 url: "http://prawnsgame.org.uk"
 
 # Build settings
 markdown: kramdown
 permalink: pretty
 
-#Default variable settings
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      title: "Prawnsgame" 
-      link1name: "Home"
-      link2name: "Rules"
-      link3name: "Play"
+#Collections
+collections:
+  cavalry:
+    output: true
+    name: Cavalry
