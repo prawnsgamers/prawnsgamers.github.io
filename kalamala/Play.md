@@ -15,7 +15,7 @@ link1path: /
 link1here: false
 link2name: Rules
 link2path: /rules/
-link2here: true
+link2here: false
 link3name: Play
 link3path: /play/
 link3here: true
