@@ -194,22 +194,26 @@ body {
 #content {
     padding: 10px;
 }
-#content > h1 {
+#content h1 {
     margin: 20px 0 0 0;
     color: #66cc00;
     font-size: 30px;
     font-weight: bold;
 }
-#content > p {
+#content p {
     margin: 10px 0;
 }
-#content > a, #content > p > a {
+#content a {
     color: #66cc00;
     font-weight: bold;
     text-decoration: none;
 }
-li {
+#content li {
     margin: 5px 0 0 35px
+}
+#content img {
+    max-height: 400px;
+    max-width: 400px;
 }
 #page:after {
     content: "";
