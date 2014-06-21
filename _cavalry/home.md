@@ -2,7 +2,7 @@
 layout: page
 title: Kineo
 folder: kalamala
-permalink: /
+permalink: /blah/
 published: true
 link1name: Home
 link2name: Rulesies
