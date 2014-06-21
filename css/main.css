@@ -197,7 +197,11 @@ body {
 #content > h1 {
     color: #66cc00;
     font-size: 30px;
-    font-weight:bold;
+    font-weight: bold;
+}
+#content > a {
+    color: #66cc00;
+    font-decoration: none;
 }
 #page:after {
     content: "";
