@@ -195,6 +195,7 @@ body {
     padding: 5px;
 }
 #content > h1 {
+    margin: 10px 0 0 0;
     color: #66cc00;
     font-size: 30px;
     font-weight: bold;
@@ -208,7 +209,7 @@ body {
     text-decoration: none;
 }
 li {
-    margin: 5px 0 0 20px
+    margin: 5px 0 0 35px
 }
 #page:after {
     content: "";
