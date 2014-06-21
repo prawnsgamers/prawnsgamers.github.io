@@ -6,7 +6,7 @@ zone: Prawnsgame
 #Path and Metadata
 folder: 
 permalink: /about/
-layout: page
+layout: default
 published: true
 
 #Links

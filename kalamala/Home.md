@@ -6,7 +6,7 @@ zone: Kalamala
 #Path and Metadata
 folder: /kalamala
 permalink: /
-layout: page
+layout: default
 published: true
 
 #Links
