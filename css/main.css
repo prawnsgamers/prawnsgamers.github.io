@@ -199,10 +199,16 @@ body {
     font-size: 30px;
     font-weight: bold;
 }
+#content > p {
+    margin: 10px 0;
+}
 #content > a, #content > p > a {
     color: #66cc00;
     font-weight: bold;
     text-decoration: none;
+}
+li {
+    margin: 5px 0 0 20px
 }
 #page:after {
     content: "";

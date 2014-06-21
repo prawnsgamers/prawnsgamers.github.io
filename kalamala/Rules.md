@@ -25,13 +25,11 @@ Chosen due to clarity and a lack of the vagueness that snuck in to the ultra-con
 
 Please note, however, that the terms used in this ruleset are by no means fixed.
 
-
 Equipment
 =========
 
  - 1 8x8 square gameboard
  - 16 stones (8 of each colour, with each colour representing a player)
-
 
 Setup
 =====
@@ -49,12 +47,10 @@ Each player starts with 4 stones on the board (as shown above), and keeps 4 more
 
 These are called unplaced stones.
 
-
 Objective
 =========
 
 Put your opponent in a position where it is their turn, but they are unable to do anything.
-
 
 Turns
 =====
@@ -63,12 +59,10 @@ Players must decide before the game who goes takes the first turn.
 
  - Play alternates, with each player making one movement or one placement in each turn.
 
-
 Placement
 =========
 
  - In a placement, the player takes one of his unplaced pieces and puts it in any empty square on the board.
-
 
 Movement
 ========
@@ -89,7 +83,6 @@ The line that defines the group is the one on which all the stones in that group
     + Stones in the P-group must not pass through, or land on an occupied space, but can land off of the board.
     + Any stones in the P-group that are pushed off the board are removed from play.
 
-
 Progression Enforcement
 =======================
 
@@ -99,7 +92,6 @@ A turn is illegal if:
 
  - It makes no change to the state of the game.
  - It causes the state of the game to be identical to one earlier in the game.
-
 
 End of the Game
 ===============
