@@ -7,9 +7,9 @@
 					<a href="#"><img src="http://i.imgur.com/RX5eJXW.png"> Cavalry</a>
 				</div>
 				<div id="pages">
-					<a href="#" class="here">{{ page.link1name }}</a>
-					<a href="#">{{ page.link2name }}</a>
-					<a href="#">{{ page.link3name }}</a>
+					<a href="{{ site.url }}{{ page.folder }}{{ page.link1path }}" {% if page.link1here %} class="here" {% endif %}> {{ page.link1name }}</a>
+					<a href="{{ site.url }}{{ page.folder }}{{ page.link2path }}" {% if page.link2here %} class="here" {% endif %}> {{ page.link2name }}</a>
+					<a href="{{ site.url }}{{ page.folder }}{{ page.link3path }}" {% if page.link3here %} class="here" {% endif %}> {{ page.link3name }}</a>
 				</div>
 			</div>
         </div>
@@ -18,8 +18,8 @@
                 <div></div>
                 <div></div>
                 <div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
             </div>
