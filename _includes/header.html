@@ -1,16 +1,16 @@
 		<div id="head">
 			<div id="bar">
-				<a href="{{ site.url }}">Prawnsgame</a>
+				<a href="/">Prawnsgame</a>
 				<div id="sites">
-                    {% if page.zone == "Prawnsgame" %} <a class="here"><!--<img src="http://i.imgur.com/aE6nhpy.png">-->| Games</a> {% endif %}
-					<!--<a href="{{ site.url }}/prawns/" {% if page.zone == "Prawns" %} class="here" {% endif %}><img src="http://i.imgur.com/aE6nhpy.png"> Prawns</a>-->
-					<a href="{{ site.url }}/kalamala/" {% if page.zone == "Kalamala" %} class="here" {% endif %}><img src="http://i.imgur.com/refTGgG.png"> Kalamala</a>
-					<!--<a href="{{ site.url }}/cavalry/" {% if page.zone == "Cavalry" %} class="here" {% endif %}><img src="http://i.imgur.com/RX5eJXW.png"> Cavalry</a>-->
+                    {% if page.zone == "Prawnsgame" %} <a class="here"><img src="{{ site.baseurl }}/images/list.png"> Games</a> {% endif %}
+					<!--<a href="/prawns/" {% if page.zone == "Prawns" %} class="here" {% endif %}><img src="{{ site.baseurl }}/images/prawns.png"> Prawns</a>-->
+					<a href="/kalamala/" {% if page.zone == "Kalamala" %} class="here" {% endif %}><img src="{{ site.baseurl }}/images/kalamala.png"> Kalamala</a>
+					<!--<a href="/cavalry/" {% if page.zone == "Cavalry" %} class="here" {% endif %}><img src="{{ site.baseurl }}/images/cavalry.png"> Cavalry</a>-->
 				</div>
 				<div id="pages">
-					<a href="{{ site.url }}{{ page.folder }}{{ page.link1path }}" {% if page.link1here %} class="here" {% endif %}> {{ page.link1name }}</a>
-					<a href="{{ site.url }}{{ page.folder }}{{ page.link2path }}" {% if page.link2here %} class="here" {% endif %}> {{ page.link2name }}</a>
-					<a href="{{ site.url }}{{ page.folder }}{{ page.link3path }}" {% if page.link3here %} class="here" {% endif %}> {{ page.link3name }}</a>
+					<a href="{{ page.folder }}{{ page.link1path }}" {% if page.link1here %} class="here" {% endif %}> {{ page.link1name }}</a>
+					<a href="{{ page.folder }}{{ page.link2path }}" {% if page.link2here %} class="here" {% endif %}> {{ page.link2name }}</a>
+					<a href="{{ page.folder }}{{ page.link3path }}" {% if page.link3here %} class="here" {% endif %}> {{ page.link3name }}</a>
 				</div>
 			</div>
         </div>
