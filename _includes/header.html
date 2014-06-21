@@ -1,10 +1,11 @@
 		<div id="head">
 			<div id="bar">
-				<a href="#">Prawnsgame</a>
+				<a href="{{ site.url }}">Prawnsgame</a>
 				<div id="sites">
-					<a href="#"><img src="http://i.imgur.com/aE6nhpy.png"> Prawns</a>
-					<a href="#" class="here"><img src="http://i.imgur.com/refTGgG.png"> Kalamala</a>
-					<a href="#"><img src="http://i.imgur.com/RX5eJXW.png"> Cavalry</a>
+                    {% if page.zone == "Prawnsgame" %} <a class="here"><!--<img src="http://i.imgur.com/aE6nhpy.png">-->| Games</a> {% endif %}
+					<!--<a href="{{ site.url }}/prawns/" {% if page.zone == "Prawns" %} class="here" {% endif %}><img src="http://i.imgur.com/aE6nhpy.png"> Prawns</a>-->
+					<a href="{{ site.url }}/kalamala/" {% if page.zone == "Kalamala" %} class="here" {% endif %}><img src="http://i.imgur.com/refTGgG.png"> Kalamala</a>
+					<!--<a href="{{ site.url }}/cavalry/" {% if page.zone == "Cavalry" %} class="here" {% endif %}><img src="http://i.imgur.com/RX5eJXW.png"> Cavalry</a>-->
 				</div>
 				<div id="pages">
 					<a href="{{ site.url }}{{ page.folder }}{{ page.link1path }}" {% if page.link1here %} class="here" {% endif %}> {{ page.link1name }}</a>
