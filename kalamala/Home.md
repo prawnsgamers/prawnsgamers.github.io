@@ -5,7 +5,7 @@ zone: Kalamala
 
 #Path and Metadata
 folder: /kalamala
-permalink: /
+permalink: /kalamala/
 layout: page
 published: true
 
