@@ -21,4 +21,4 @@ link3path: /play/
 link3here: true
 ---
 
-The rules to play Kalamala are very good.
+We're currently working on a way to let you play Kalamala, both as an app and on this very webpage. Check back later.
