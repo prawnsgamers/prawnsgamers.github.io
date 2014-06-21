@@ -201,7 +201,7 @@ body {
 }
 #content > a, #content > p > a {
     color: #66cc00;
-    font-decoration: none;
+    text-decoration: none;
 }
 #page:after {
     content: "";
