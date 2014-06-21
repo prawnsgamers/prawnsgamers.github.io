@@ -89,6 +89,9 @@ body {
 #sites:hover > a {
     display: block;
 }
+#sites:hover > a.listitle {
+    display: none;
+}
 #sites > a:hover {
     height: 59px;
     border-bottom: 5px solid #ffffff;
