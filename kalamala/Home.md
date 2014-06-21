@@ -1,11 +1,11 @@
 ---
 #Title and Zone:
-title: Rules
+title: Home
 zone: Kalamala
 
 #Path and Metadata
 folder: /kalamala
-permalink: /kalamala/
+permalink: /
 layout: page
 published: true
 
