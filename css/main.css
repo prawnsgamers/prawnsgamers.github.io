@@ -66,19 +66,6 @@ html, body {
     height: 59px;
     border-bottom: 5px solid #ffffff;
 }
-#top > div > div {
-    float: right;
-    height: 80px;
-    width: 72px;
-    margin: 0 10px;
-}
-#top > div:nth-child(3) {
-    float: right;
-    overflow: auto;
-    height:auto;
-    width: auto;
-    margin: 0;
-}
 #sites, #top > div:nth-child(2) {
     float:left;
 }
@@ -110,7 +97,7 @@ html, body {
 #sites:hover > a.listitle {
     display: none;
 }
-#pages {
+#pages, #top > div:nth-child(3) {
     float: right;
     padding: 0 1px 0 0;
 }
@@ -132,6 +119,18 @@ html, body {
     height: 59px;
     border-bottom: 5px solid #ffffff;
 }
+#top > div > div {
+    float: right;
+    height: 80px;
+    width: 72px;
+    margin: 0 10px;
+}
+
+
+
+
+
+
 #page {
     min-height: 100%;
     width: 95%;
