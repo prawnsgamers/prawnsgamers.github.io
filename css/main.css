@@ -112,15 +112,15 @@ html, body {
     margin: 0 auto -80px;
 }
 #focus {
+    overflow: auto;
+    height: 350px;
+    width: 100%;
     position: relative;
     padding: 25px 0;
 }
-#focus, focus > div {
-    height: 350px;
-    width: 100%;
-}
 #focus > div {
-    max-width: 350px;
+    height: 350px;
+    width: 350px;
     position: absolute;
     left: 50%;
     margin: 0 0 0 -175px;
