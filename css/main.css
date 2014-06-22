@@ -50,7 +50,7 @@ html, body {
     overflow: auto;
     min-height: 80px;
 }
-#bar > a, top > div:nth-child(1) {
+#bar > a, #top > div:nth-child(1) {
     display: block;
     float: left;
     height: 65px;
@@ -61,9 +61,6 @@ html, body {
     font-weight: bold;
     text-decoration: none;
     transition: border 0.2s ease;
-}
-top > div:nth-child(1) {
-    background: blue;
 }
 #bar > a:hover {
     height: 59px;
