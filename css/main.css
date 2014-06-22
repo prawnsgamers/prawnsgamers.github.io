@@ -37,12 +37,14 @@ html, body {
     z-index: 100;
 }
 #bar {
-    overflow: auto;
-    min-height: 80px;
     width: 95%;
     max-width: 1200px;
     background: #0d0d0d;
     margin: 0 auto;
+}
+#bar {
+    overflow: auto;
+    min-height: 80px;
     color: #ffffff;
     opacity: 0.8;
 }
@@ -61,6 +63,36 @@ html, body {
 #bar > a:hover {
     height: 59px;
     border-bottom: 5px solid #ffffff;
+}
+#top {
+    overflow: auto;
+    min-height: 80px;
+}
+#top > div {
+    float: left;
+    height: 80px;
+    width: 72px;
+    margin: 0 10px;
+}
+#top > div > div {
+    float: right;
+    height: 80px;
+    width: 72px;
+    margin: 0 10px;
+}
+#top > div:nth-child(1) {
+    width: 195px;
+}
+#top > div:nth-child(2) {
+    width: 112px;
+    margin: 0 10px 0 0;
+}
+#top > div:nth-child(3) {
+    float: right;
+    overflow: auto;
+    height:auto;
+    width: auto;
+    margin: 0;
 }
 #sites {
     float:left;
@@ -122,36 +154,7 @@ html, body {
     background: #ffffff;
     margin: 0 auto -50px;
 }
-#top {
-    overflow: auto;
-    min-height: 80px;
-}
-#top > div {
-    float: left;
-    height: 80px;
-    width: 72px;
-    margin: 0 10px;
-}
-#top > div > div {
-    float: right;
-    height: 80px;
-    width: 72px;
-    margin: 0 10px;
-}
-#top > div:nth-child(1) {
-    width: 195px;
-}
-#top > div:nth-child(2) {
-    width: 112px;
-    margin: 0 10px 0 0;
-}
-#top > div:nth-child(3) {
-    float: right;
-    overflow: auto;
-    height:auto;
-    width: auto;
-    margin: 0;
-}
+
 #focus {
     height: 350px;
     width: 100%;
