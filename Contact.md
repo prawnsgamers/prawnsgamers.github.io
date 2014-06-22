@@ -20,4 +20,10 @@ link4name: Contact Us
 link4path: /contact/
 ---
 
-Blame Salih.
+The easiest way to contact us is by email, and we would love to hear from you (especially if you've spotted a mistake we should fix somewhere on this site). Each member has their own email adress, listed below:
+
+| Zachary Barnett | [zachary@prawnsgame.org.uk](mailto:zachary@prawnsgame.org.uk) |
+| Daniel Sherlock | [daniel@prawnsgame.org.uk](mailto:daniel@prawnsgame.org.uk) |
+| Salih Kadri | [salih@prawnsgame.org.uk](mailto:salih@prawnsgame.org.uk) |
+
+If you find a really serious issue that we can't fix, please feel free to do as Daniel does, and blame Salih.
