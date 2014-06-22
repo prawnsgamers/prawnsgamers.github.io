@@ -18,7 +18,7 @@
 }
 @-webkit-keyframes fade {
     0% {opacity: 0;}
-      11.11% {opacity: 1;}
+    11.11% {opacity: 1;}
     30.55% {opacity: 1;}
     36.11% {opacity: 0;}
 }
@@ -32,7 +32,6 @@ html {
 }
 body {
     height: 100%;
-    background: linear-gradient(#108000 10%, #55cc00 100%) fixed;
     font-family: 'Open Sans',  sans-serif;
 }
 #head {
@@ -161,7 +160,6 @@ body {
     width: 100%;
     position: relative;
     padding: 25px 0;
-    background: linear-gradient(#55cc00 0%, #108000 100%);
 }
 #focus > div {
     height: 350px;
@@ -196,7 +194,6 @@ body {
 }
 #content h1 {
     margin: 20px 0 0 0;
-    color: #66cc00;
     font-size: 30px;
     font-weight: bold;
 }
@@ -204,7 +201,6 @@ body {
     margin: 10px 0;
 }
 #content a {
-    color: #66cc00;
     font-weight: bold;
     text-decoration: none;
 }
@@ -231,4 +227,17 @@ body {
     background: #333333;
     text-align: center;
     color: #ffffff;
+}
+
+
+//Custom Colours
+
+body {
+    background: linear-gradient(#108000 10%, #55cc00 100%) fixed;
+}
+#focus {
+    background: linear-gradient(#55cc00 0%, #108000 100%);
+}
+#content h1, #content a {
+    color: #66cc00;
 }
