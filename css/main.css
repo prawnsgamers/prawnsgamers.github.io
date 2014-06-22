@@ -72,10 +72,6 @@ html, body {
     width: 72px;
     margin: 0 10px;
 }
-#top > div:nth-child(2) {
-    width: 112px;
-    margin: 0 10px 0 0;
-}
 #top > div:nth-child(3) {
     float: right;
     overflow: auto;
@@ -83,7 +79,7 @@ html, body {
     width: auto;
     margin: 0;
 }
-#sites {
+#sites, #top > div:nth-child(2) {
     float:left;
 }
 #sites > a {
