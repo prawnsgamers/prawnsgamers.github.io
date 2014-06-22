@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Site Works!"
+title:  "Kalamala Rules Uploaded"
 date:   2014-06-22 12:00:00
 categories: blog
 ---
