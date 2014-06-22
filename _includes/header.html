@@ -17,7 +17,7 @@
         <div id="page">
             <div id="top">
                 <div>Prawnsgame</div>
-                <div>{{ page.zone }}</div>
+                <div>{% if page.zone == "Prawnsgame" %}Games{% else %}{{ page.zone }}{% endif %}</div>
                 <div>
                     <div>{{ page.link1name }}</div>
                     <div>{{ page.link2name }}</div>
