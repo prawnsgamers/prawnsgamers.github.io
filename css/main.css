@@ -50,7 +50,7 @@ html, body {
     overflow: auto;
     min-height: 80px;
 }
-#bar > a {
+#bar > a, top > div:first-child {
     display: block;
     float: left;
     height: 65px;
