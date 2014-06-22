@@ -210,6 +210,6 @@ body {
 #content h1, #content a {
     color: #66cc00;
 }
-#content > a.post {
+#content a.post {
     background: #66cc00;
 }
