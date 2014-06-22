@@ -169,13 +169,15 @@ html, body {
     max-height: 250px;
     max-width: 250px;
 }
-#content > blockquote {
+#content a.post {
+    display: block;
     margin: 20px;
 }
-#content > blockquote > p {
-    margin: 0;
+#content a.post p {
+    margin: 5px 0 0 15px;
 }
-#content > blockquote > h1 {
+#content a.post h2 {
+    font-size: 25px;
     color: #ffffff;
     font-weight: normal;
 }
