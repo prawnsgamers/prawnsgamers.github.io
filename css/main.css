@@ -42,7 +42,7 @@ html, body {
     color: #ffffff;
     opacity: 0.8;
 }
-#bar, #page {
+#bar, #page, #foot {
     width: 95%;
     max-width: 1200px;
 }
@@ -109,7 +109,7 @@ html, body {
 #page {
     min-height: 100%;
     background: #ffffff;
-    margin: 0 auto -50px;
+    margin: 0 auto -80px;
 }
 #focus {
     position: relative;
@@ -171,12 +171,10 @@ html, body {
 #page:after {
     content: "";
     display: block;
-    height: 50px;
+    height: 80px;
 }
 #foot {
-    height: 30px;
-    width: 95%;
-    max-width: 1200px;
+    height: 60px;
     overflow: auto;
     padding: 10px 0 0 0;
     border-top: 10px solid #ffffff;
