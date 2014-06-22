@@ -8,7 +8,7 @@
 					<!--<a href="/cavalry/" {% if page.zone == "Cavalry" %} class="here" {% endif %}><img src="{{ site.baseurl }}/images/cavalry/icon.png"> Cavalry</a>-->
 				</div>
 				<div id="pages">
-					<a href="{{ page.folder }}{{ page.link1path }}" {% if page.link1path == page.permalink %} class="here" {% endif %}> {{ page.link1name }}</a>
+					{% if page.link1name %}<a href="{{ page.folder }}{{ page.link1path }}" {% if page.link1path == page.permalink %} class="here" {% endif %}> {{ page.link1name }}</a>{% endif %}
 					<a href="{{ page.folder }}{{ page.link2path }}" {% if page.link2path == page.permalink %} class="here" {% endif %}> {{ page.link2name }}</a>
 					<a href="{{ page.folder }}{{ page.link3path }}" {% if page.link3path == page.permalink %} class="here" {% endif %}> {{ page.link3name }}</a>
 				</div>
