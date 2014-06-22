@@ -22,8 +22,10 @@ link4path: /contact/
 
 This blog is where we will be posting any news about website updates, new games or rules, app releases and more! Check back often to see what's going on.
 
-Posts
-=====
+Posts:
+======
+
+(Newest to oldest)
 
 {% for post in site.posts %}
 <div>
