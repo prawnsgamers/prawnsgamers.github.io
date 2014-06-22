@@ -1,2 +1,4 @@
 User-agent: *
+Allow: /css/
+Allow: /images/
 Disallow: /
