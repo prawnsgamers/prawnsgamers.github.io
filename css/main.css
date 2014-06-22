@@ -82,7 +82,7 @@ html, body {
     display: block;
 }
 #top > div:nth-child(2) {
-    margin: 0 10px 0 47px;
+    margin: 0 10px 0 48px;
 }
 #sites > a:hover {
     height: 59px;
