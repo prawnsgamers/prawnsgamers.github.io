@@ -4,8 +4,7 @@ title: "The Site Works!"
 zone: Prawnsgame
 
 #Path and Metadata
-folder: 
-permalink: /contact/
+folder:
 layout: post
 published: true
 date: 2014-06-21 12:00:00
