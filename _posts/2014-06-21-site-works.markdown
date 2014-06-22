@@ -7,6 +7,7 @@ zone: Prawnsgame
 folder:
 layout: post
 published: true
+author: "Daniel"
 date: 2014-06-21 12:00:00
 categories: blog
 
