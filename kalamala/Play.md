@@ -10,7 +10,7 @@ layout: default
 published: true
 
 #Links
-link1name: Home
+link1name:
 link1path: /
 link2name: Rules
 link2path: /rules/
