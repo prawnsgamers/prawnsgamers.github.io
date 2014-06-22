@@ -14,9 +14,13 @@ link1name: Home
 link1path: /
 link2name: About
 link2path: /about/
-link3name: Contact Us
-link3path: /contact/
+link3name: Blog
+link3path: /blog/
+link4name: Contact Us
+link4path: /contact/
 ---
+
+This blog is where we will be posting any news about website updates, new games or rules, app releases and more! Check back often to see what's going on.
 
 Posts
 =====
