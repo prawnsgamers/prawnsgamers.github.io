@@ -96,23 +96,19 @@ html, body {
     max-height: 30px;
     margin: 0 0 -5px 0;
 }
-#sites > a.here {
+#sites > a.here, #sites:hover > a, #top > div:nth-child(2) {
     display: block;
 }
-#sites:hover > a {
-    display: block;
-}
-#sites:hover > a.listitle {
-    display: none;
+#top > div:nth-child(2) {
+    margin: 0 10px 0 47px;
 }
 #sites > a:hover {
     height: 59px;
     border-bottom: 5px solid #ffffff;
     margin: 15px 10px 30px;
 }
-#top > div:nth-child(2) {
-    display: block;
-    margin: 0 10px 0 47px;
+#sites:hover > a.listitle {
+    display: none;
 }
 #pages {
     float: right;
