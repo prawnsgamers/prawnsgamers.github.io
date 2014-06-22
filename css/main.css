@@ -107,7 +107,7 @@ html, body {
     text-decoration: none;
     transition: border 0.2s ease;
 }
-#pages > a.here {
+#pages > a.here, #top > div > div.here {
     font-weight: bold;
 }
 #pages > a:hover {
