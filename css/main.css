@@ -110,6 +110,10 @@ html, body {
     border-bottom: 5px solid #ffffff;
     margin: 15px 10px 30px;
 }
+#top > div:nth-child(2) {
+    display: block;
+    margin: 0 10px 0 35px;
+}
 #pages {
     float: right;
     padding: 0 1px 0 0;
