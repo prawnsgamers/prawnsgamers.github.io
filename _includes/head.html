@@ -9,13 +9,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
     <script type="text/javascript">
-        window.onscroll = handleScroll();
-        /*
-        function scroll () {
+        window.onscroll = scroll () {
             alert("scroll event detected! " + window.pageXOffset + " " + window.pageYOffset);
-        }*/
-        function handleScroll() {
-        	document.getElementById('head').style.left = "-"+window.pageXOffset+"px";
         }
+        /*function handleScroll() {
+        	document.getElementById('head').style.left = "-"+window.pageXOffset+"px";
+        }*/
     </script>
 </head>
