@@ -22,10 +22,12 @@ Posts
 =====
 
 {% for post in site.posts %}
+<div>
 <a href="{{ site.url }}{{ post.url }}">
 <p>{{ post.date | date: "%b %-d, %Y" }}</p>
 <h2>{{ post.title }}</h2>
 </a>
+<div>
 {% endfor %}
 
 <!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
