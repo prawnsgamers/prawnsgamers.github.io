@@ -22,11 +22,12 @@ Posts
 =====
 
 {% for post in site.posts %}
+[
  > {{ post.date | date: "%b %-d, %Y" }}
  > 
- > [{{ post.title }}]({{ site.url }}{{ post.url }})
+ > {{ post.title }}
  > ================================================
-  
+]({{ site.url }}{{ post.url }})
 {% endfor %}
 
 <!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
