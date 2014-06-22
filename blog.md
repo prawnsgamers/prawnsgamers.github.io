@@ -23,10 +23,10 @@ Posts
 
 {% for post in site.posts %}
 <a href="{{ site.url }}{{ post.url }}">
- > {{ post.date | date: "%b %-d, %Y" }}
- > 
- > {{ post.title }}
- > ================================================
+{{ post.date | date: "%b %-d, %Y" }}
+
+{{ post.title }}
+================
 </a>
 {% endfor %}
 
