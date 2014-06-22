@@ -66,12 +66,6 @@ html, body {
     height: 59px;
     border-bottom: 5px solid #ffffff;
 }
-#top > div {
-    float: left;
-    height: 80px;
-    width: 72px;
-    margin: 0 10px;
-}
 #top > div > div {
     float: right;
     height: 80px;
