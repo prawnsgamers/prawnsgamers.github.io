@@ -172,9 +172,11 @@ html, body {
 #content a.post {
     display: block;
     margin: 20px;
+    padding: 5px;
 }
 #content a.post p {
     margin: 5px 0 0 15px;
+    color: #ffffff;
 }
 #content a.post h2 {
     font-size: 25px;
