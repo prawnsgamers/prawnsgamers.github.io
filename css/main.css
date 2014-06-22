@@ -112,14 +112,14 @@ html, body {
     margin: 0 auto -50px;
 }
 #focus {
-    height: 350px;
-    width: 100%;
     position: relative;
     padding: 25px 0;
 }
-#focus > div {
+#focus, #focus > div {
     height: 350px;
-    width: 350px;
+    width: 100%;
+}
+#focus > div {
     position: absolute;
     left: 50%;
     margin: 0 0 0 -175px;
