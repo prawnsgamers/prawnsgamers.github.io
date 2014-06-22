@@ -9,8 +9,10 @@
 				</div>
 				<div id="pages">
 					{% if page.link1name %}<a href="{{ page.folder }}{{ page.link1path }}" {% if page.link1path == page.permalink %} class="here" {% endif %}> {{ page.link1name }}</a>{% endif %}
-					<a href="{{ page.folder }}{{ page.link2path }}" {% if page.link2path == page.permalink %} class="here" {% endif %}> {{ page.link2name }}</a>
-					<a href="{{ page.folder }}{{ page.link3path }}" {% if page.link3path == page.permalink %} class="here" {% endif %}> {{ page.link3name }}</a>
+					{% if page.link2name %}<a href="{{ page.folder }}{{ page.link2path }}" {% if page.link2path == page.permalink %} class="here" {% endif %}> {{ page.link2name }}</a>{% endif %}
+					{% if page.link3name %}<a href="{{ page.folder }}{{ page.link3path }}" {% if page.link3path == page.permalink %} class="here" {% endif %}> {{ page.link3name }}</a>{% endif %}
+                    {% if page.link4name %}<a href="{{ page.folder }}{{ page.link4path }}" {% if page.link4path == page.permalink %} class="here" {% endif %}> {{ page.link4name }}</a>{% endif %}
+                    {% if page.link5name %}<a href="{{ page.folder }}{{ page.link5path }}" {% if page.link5path == page.permalink %} class="here" {% endif %}> {{ page.link5name }}</a>{% endif %}
 				</div>
 			</div>
         </div>
@@ -19,8 +21,10 @@
                 <div>Prawnsgame</div>
                 <div>{% if page.zone == "Prawnsgame" %}Games{% else %}{{ page.zone }}{% endif %}</div>
                 <div>
-                    <div {% if page.link1path == page.permalink %} class="here" {% endif %}>{{ page.link1name }}</div>
-                    <div {% if page.link2path == page.permalink %} class="here" {% endif %}>{{ page.link2name }}</div>
-                    <div {% if page.link3path == page.permalink %} class="here" {% endif %}>{{ page.link3name }}</div>
+                    {% if page.link1name %}<div {% if page.link1path == page.permalink %} class="here" {% endif %}>{{ page.link1name }}</div>{% endif %}
+                    {% if page.link2name %}<div {% if page.link2path == page.permalink %} class="here" {% endif %}>{{ page.link2name }}</div>{% endif %}
+                    {% if page.link3name %}<div {% if page.link3path == page.permalink %} class="here" {% endif %}>{{ page.link3name }}</div>{% endif %}
+                    {% if page.link4name %}<div {% if page.link4path == page.permalink %} class="here" {% endif %}>{{ page.link4name }}</div>{% endif %}
+                    {% if page.link5name %}<div {% if page.link5path == page.permalink %} class="here" {% endif %}>{{ page.link5name }}</div>{% endif %}
                 </div>
             </div>
