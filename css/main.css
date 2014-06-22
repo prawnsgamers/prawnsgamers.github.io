@@ -55,10 +55,10 @@ html, body {
     margin: 0 0 0 10px;
     font-weight: bold;
 }
-#bar > a, #top > div:nth-child(1), #sites, #top > div:nth-child(2) {
+#bar > a, #top > div:nth-child(1), #sites, #pages > a, #top > div:nth-child(2), #top > div > div {
     float:left;
 }
-#bar > a, #top > div:nth-child(1), #sites > a, #top > div:nth-child(2) {
+#bar > a, #top > div:nth-child(1), #sites > a, #pages > a, #top > div:nth-child(2), #top > div > div {
     height: 65px;
     padding: 15px 0 0 0;
     color: #ffffff;
@@ -78,7 +78,7 @@ html, body {
     max-height: 30px;
     margin: 0 0 -5px 0;
 }
-#sites > a.here, #sites:hover > a, #top > div:nth-child(2) {
+#sites > a.here, #sites:hover > a, #pages > a, #top > div:nth-child(2), #top > div > div {
     display: block;
 }
 #top > div:nth-child(2) {
@@ -97,15 +97,7 @@ html, body {
     padding: 0 1px 0 0;
 }
 #pages > a, #top > div > div {
-    display: block;
-    float: left;
-    height: 65px;
-    padding: 15px 0 0;
     margin: 0 10px;
-    color: #ffffff;
-    font-size: 30px;
-    text-decoration: none;
-    transition: border 0.2s ease;
 }
 #pages > a.here, #top > div > div.here {
     font-weight: bold;
