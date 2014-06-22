@@ -107,12 +107,13 @@ html, body {
     border-bottom: 5px solid #ffffff;
 }
 #page {
+    overflow: auto;
     min-height: 100%;
     background: #ffffff;
     margin: 0 auto -80px;
 }
 #focus {
-    overflow: auto;
+    /*overflow: auto;*/
     height: 350px;
     width: 100%;
     position: relative;
