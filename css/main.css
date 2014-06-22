@@ -37,16 +37,18 @@ html, body {
     z-index: 100;
 }
 #bar {
+    color: #ffffff;
+    opacity: 0.8;
+}
+#bar {
     width: 95%;
     max-width: 1200px;
     background: #0d0d0d;
     margin: 0 auto;
 }
-#bar {
+#bar, #top {
     overflow: auto;
     min-height: 80px;
-    color: #ffffff;
-    opacity: 0.8;
 }
 #bar > a {
     display: block;
@@ -64,10 +66,6 @@ html, body {
     height: 59px;
     border-bottom: 5px solid #ffffff;
 }
-#top {
-    overflow: auto;
-    min-height: 80px;
-}
 #top > div {
     float: left;
     height: 80px;
@@ -79,9 +77,6 @@ html, body {
     height: 80px;
     width: 72px;
     margin: 0 10px;
-}
-#top > div:nth-child(1) {
-    width: 195px;
 }
 #top > div:nth-child(2) {
     width: 112px;
