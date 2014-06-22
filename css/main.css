@@ -112,14 +112,14 @@ html, body {
     margin: 0 auto -50px;
 }
 #focus {
+    height: 350px;
+    width: 100%;
     position: relative;
     padding: 25px 0;
 }
-#focus, #focus > div {
-    height: 350px;
-    width: 100%;
-}
 #focus > div {
+    height: 350px;
+    max-width: 350px;
     position: absolute;
     left: 50%;
     margin: 0 0 0 -175px;
@@ -142,7 +142,7 @@ html, body {
 #focus > div > img {
     display: block;
     max-height: 350px;
-    max-width: 350px;
+    max-width: 100%;
     margin: auto;
 }
 #content {
