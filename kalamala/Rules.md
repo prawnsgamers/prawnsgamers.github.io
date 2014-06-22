@@ -12,13 +12,10 @@ published: true
 #Links
 link1name: Home
 link1path: /
-link1here: false
 link2name: Rules
 link2path: /rules/
-link2here: true
 link3name: Play
 link3path: /play/
-link3here: false
 ---
 
 Chosen due to clarity and a lack of the vagueness that snuck in to the ultra-concise version, while still retaining brevity because it only explains the points essential for the perceived average reader to start playing the game.
