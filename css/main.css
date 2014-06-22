@@ -169,6 +169,16 @@ html, body {
     max-height: 250px;
     max-width: 250px;
 }
+#content > blockquote {
+    margin: 20px;
+}
+#content > blockquote > p {
+    margin: 0;
+}
+#content > blockquote > h1 {
+    color: #ffffff;
+    font-weight: normal;
+}
 #page:after {
     content: "";
     display: block;
@@ -197,4 +207,7 @@ body {
 }
 #content h1, #content a {
     color: #66cc00;
+}
+#content > blockquote {
+    background: #66cc00;
 }
