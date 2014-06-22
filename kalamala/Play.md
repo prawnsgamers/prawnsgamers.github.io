@@ -18,4 +18,4 @@ link3name: Play
 link3path: /play/
 ---
 
-We're currently working on a way to let you play Kalamala, both as an app and on this very webpage. Check back later.
+We're currently working on a way to let you play Kalamala, both as an app and on this very webpage. Check back later, or take a look at our [Blog](/blog/) to see if there has been any news regarding progress.
