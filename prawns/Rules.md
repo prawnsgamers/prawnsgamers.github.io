@@ -38,12 +38,13 @@ Species of Prawn
 ================
 
 There are many different species of prawn, with their own symbols and their own moves and abilities, as explained in the table below:
+
 | New (Standard) Name | Old (Outdated) Name | Symbol | Description of Move | Diagram showing Move |
 |---------------------+---------------------+--------+---------------------+----------------------+
-| Krill | Unflavoured Prawn | ![Symbol of krill]({{ site.baseurl }}/images/prawns/krill.png) | Moves one space in any direction. | ![Move of krill]({{ site.baseurl }}/images/prawns/krillmove.png) |
-| Shrimp | L-Flavoured Prawn | ![Symbol of shrimp]({{ site.baseurl }}/images/prawns/shrimp.png) | Jumps in an L-shape or moves one space diagonally. | ![Move of shrimp]({{ site.baseurl }}/images/prawns/shrimpmove.png) |
-| Crab | Perpendicularly-Flavoured Prawn | ![Symbol of crab]({{ site.baseurl }}/images/prawns/crab.png) | Moves any distance along a row or a column. | ![Move of crab]({{ site.baseurl }}/images/prawns/crabmove.png) |
-| Lobster | Diagonally-Flavoured Prawn | ![Symbol of lobster]({{ site.baseurl }}/images/prawns/lobster.png) | Moves any distance along a diagonal. | ![Move of lobster]({{ site.baseurl }}/images/prawns/lobstermove.png) |
+| Krill | Unflavoured Prawn | ![Symbol of krill]({{ site.baseurl }}/images/prawns/krill.png) | Moves one space in any direction. | ![Move of krill]({{ site.baseurl }}/images/prawns/krillmove.gif) |
+| Shrimp | L-Flavoured Prawn | ![Symbol of shrimp]({{ site.baseurl }}/images/prawns/shrimp.png) | Jumps in an L-shape or moves one space diagonally. | ![Move of shrimp]({{ site.baseurl }}/images/prawns/shrimpmove.gif) |
+| Crab | Perpendicularly-Flavoured Prawn | ![Symbol of crab]({{ site.baseurl }}/images/prawns/crab.png) | Moves any distance along a row or a column. | ![Move of crab]({{ site.baseurl }}/images/prawns/crabmove.gif) |
+| Lobster | Diagonally-Flavoured Prawn | ![Symbol of lobster]({{ site.baseurl }}/images/prawns/lobster.png) | Moves any distance along a diagonal. | ![Move of lobster]({{ site.baseurl }}/images/prawns/lobstermove.gif) |
 
 In the diagrams showing the moves, the first image shows that prawn in an arbitrary starting position, while the second, shows where it could go from that position (remember that you can click on pictures to see them enlarged in a new tab).
 
