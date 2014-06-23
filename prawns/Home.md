@@ -26,6 +26,6 @@ Prawns was born when its creators were bored of Chess (we don't have the longest
 
 As an extention to the fact that the game itself is very comedic, the play environment (often termed the meta-game) is also very relaxed and enternatining. For example, we suggest that you listen, or hum to some crazy-fun-music, while bobbing your head up and down. If you don't know where to get started, we would like to reccomend a bit of Jean-Michelle Jarre, but advanced players will be able to sing or hum their own rythms, even demonstrating great skill at Prawns by consistently harmonising off each other mid-game.
 
-The game itself is considered stable and it is now likely that most new aspects when it comes to the game will come in the form of spin offs which we hope to documente well.
+The game itself is considered stable and it is now likely that most new aspects when it comes to the game will come in the form of spin offs which we hope to document well.
 
 NB: As Prawns was actually the first game invented and then finished by Prawnsgame, it has ended up giving its name to the Disorganisation the website of which you are currently reading.
