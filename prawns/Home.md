@@ -14,8 +14,6 @@ link1name: Home
 link1path: /
 link2name: Rules
 link2path: /rules/
-link3name: Play
-link3path: /play/
 ---
 
 The game of Prawns is (in its standard form) an abstract two player board game, requiring concentration, problem solving, and strategy. Like Kalamala, it was invented by two people (in this case Zachary Barnett and Daniel Sherlock), but is in general taken far less seriously (this is no less fun, and often makes for a nice change).

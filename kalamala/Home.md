@@ -14,6 +14,8 @@ link1name: Home
 link1path: /
 link2name: Rules
 link2path: /rules/
+link3name: Play
+link3path: /play/
 ---
 
 Kalamala is a board game, more precisely defined as an abstract strategy game (which is to say an unthemed, perfect-information, luckless, non-legacy game) akin to the likes of Chess and Abalone. The play time can range from 10 to 20 minutes, and is highly dependant on the confidence of the players. The game is highly intuitive and, while increased experience does lead to an overall higher quality of play, the contestant with less experience is often able to win if they strategise enough.
