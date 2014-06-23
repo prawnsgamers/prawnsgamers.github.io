@@ -16,7 +16,7 @@ link2name: Rules
 link2path: /rules/
 ---
 
-NB: In these rules, small italic text is a caption, and any picture can be clicked on to display it as a full size image in another tab.
+NB: In these rules, italic text is a caption<!--, and ~~any picture can be clicked on to display it as a full size image in another tab~~ not yet, unfortunately-->.
 
 The Meaning Of Life
 ===================
@@ -32,7 +32,7 @@ A prawn must, if possible, stay within the sea, however, in a very particular ca
 
 ![Diagram of a prawns board (The sea)]({{ site.baseurl }}/images/prawns/board.png)
 
-The board used in all the diagrams in these rules, showing what its layout is.
+*The board used in all the diagrams in these rules, showing what its layout is.*
 
 Species of Prawn
 ================
@@ -51,3 +51,32 @@ In the diagrams showing the moves, the first image shows that prawn in an arbitr
 You'll notice that every species of prawn has two names, a new one and an old one. Everyone should really now use the new names, however, it might help to learn the old ones because people may accidentally use those names when talking.
 
 The symbols shown are the official ones that are on the pieces in Prawns sets, and are the ones that are used in diagrams throughout these rules. They are relatively easy to learn because they actually show the moves the pieces make (apart from krill, which has the most basic symbol).
+
+The Gene Pool
+=============
+
+The player starts with the gene pool (like an inventory) of the following prawns:
+
+ - 8 x Krill
+ - 2 x Shrimp
+ - 2 x Crab
+ - 2 x Lobster
+
+All prawns come from the gene pool, and, when they die (are eaten) they must return to the gene pool. This is in contrast to other strategy games like Chess or Draughts where the taker gets to keep a taken piece - in Prawns the piece returns to the original owner, where it can, if wanted, be used again (see the eating and evolution rules).
+
+As will be revealed later on, there are usually four more pieces that do not belong to any player and mark the four corners of the sea. These are necessary for the evaporation rule.
+
+The Primordial Soup
+===================
+
+To begin the game, the board is set out like this:
+
+![The initial board setup.]({{ site.baseurl }}/images/prawns/setup.png)
+
+*The different coloured pieces signify different sides (i.e. player 1 is blue and player 2 is green - note that the pieces in a Prawns set do not have to be blue and green, any two easily differentiable colours are fine).*
+
+The player places the 8 unflavoured prawns in their starting positions (see above) and then selects two of the remaining pieces to go in the "any" spaces. The selection the player chooses may be kept secret from the opponent until the start of the game, so the opponent can't make a decision based on the player's choice, and vice versa, which can be done by placing an object in the middle of the board so that the other side cannot see the chosen pieces, until both sides have placed their pieces and agree to remove the object. This is called a "Blind Start" and must be done should either side request it, although it can be omitted through the mutual agreement of both sides. Note that once the the game has been officially started, a player cannot modify his/her initial choice.
+
+
+
+
