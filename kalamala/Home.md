@@ -26,4 +26,4 @@ The game is intended to provide mental stimulation, enjoyment, competition and d
 
 The game itself is considered stable and it is now likely that most new aspects when it comes to the game will come in the form of spin offs which we hope to document well. For alternative methods to play the game, we currently have a team working to make it available on as many digital formats as possible. You can check their progress on the [Blog](/blog/) and the [Play](/kalamala/play/) page. 
 
-NB: The name Kalamala is actually incredibly new compared to the game. The older name is Kineo, and you will still find many who call it this. If you wish to 'correct' them (assuming one name is somehow more correct than any other), then please do so gently, and no more than once per hour, as it gets very annoying otherwise.
+NB: The name Kalamala is actually incredibly new compared to the game. The older name is Kineo, and you will still find many who call it this. If you wish to 'correct' them (assuming one name is somehow more correct than any other), then please do so gently, and infrequently as it is liable to cause offence.
