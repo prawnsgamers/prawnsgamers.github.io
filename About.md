@@ -26,4 +26,4 @@ The people behind it are (at the moment) Zachary Barnett, Daniel Sherlock, and S
 
 So far, we have designed numerous games, including Cavalry and Skopeo (working name), but the only two we would consider finished (these two are also our most well-known games) are Prawns and Kalamala (also known as Kineo). You can visit the [Kalamala mini-site](/kalamala/) which currently contains an introduction and a set of rules, but we haven't yet had time to upload the documentation for Prawns - I promise we will soon.
 
-As might be obvious, the Prawnsgame Disorganisation is named after the very first proper game it produced: Prawns. That said, we often play the other games (such as Kalamala) as we like each one for different reasons.
+As might be obvious, the Prawnsgame Disorganisation is named after the very first proper game it produced: Prawns. That said, we often play the other games (such as Kalamala) as we like playing each one for different reasons.
