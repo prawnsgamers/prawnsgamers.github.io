@@ -17,8 +17,11 @@ link2path: /rules/
 link3name: Play
 link3path: /play/
 ---
+These are the Quick rules for Kalamala and act as an instructional guide if necessary but primarily act as a reference guide.
 
-Chosen due to clarity and a lack of the vagueness that snuck in to the ultra-concise version, while still retaining brevity because it only explains the points essential for the perceived average reader to start playing the game.
+For a more instructional orienatated guide, we urge extreme patience as one will soon be uploaded.
+ 
+These rules are hhosen due to clarity and a lack of the vagueness that snuck in to the ultra-concise version, while still retaining brevity because it only explains the points essential for the perceived average reader to start playing the game.
 
 Please note, however, that the terms used in this ruleset are by no means fixed.
 
