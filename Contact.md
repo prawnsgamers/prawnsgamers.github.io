@@ -20,7 +20,7 @@ link4name: Contact Us
 link4path: /contact/
 ---
 
-The easiest way to contact us is by email, and we would love to hear from you (especially if you've spotted a mistake we should fix somewhere on this site). Each member has their own email adress, listed below:
+The easiest way to contact us is by email, and we would love to hear from you (especially if you've spotted a mistake we should fix somewhere on this site). Each member has their own email address, listed below:
 
 | Zachary Barnett:&nbsp;&nbsp; | [zachary@prawnsgame.org.uk](mailto:zachary@prawnsgame.org.uk) |
 | Daniel Sherlock:&nbsp;&nbsp; | [daniel@prawnsgame.org.uk](mailto:daniel@prawnsgame.org.uk) |
