@@ -229,7 +229,7 @@ What happens when the evaporation rule leaves a player with no available moves? 
 The Evolution Rule
 ==================
 
-Despite being more like the Pokemon version that its real counterpart, evolution in Prawns still turns one species into another, and is a very important part of the game. The least evolved stage is krill, with the equally developed species of shrimp, crab, and lobster making up the evolved stage.
+Despite being more like the Pokemon version than its real counterpart, evolution in Prawns still turns one species into another, and is a very important part of the game. The least evolved stage is krill, with the equally developed species of shrimp, crab, and lobster making up the evolved stage.
 
 ![The starting layout, with colour-coded end rows showing the evolution zones.]({{ site.baseurl }}/images/prawns/evolutionzones.png)
 
@@ -248,7 +248,7 @@ However, there is actually a second type of evolution: re-evolution. This is whe
 
 This rule has the effect that, once the sea is able to start shrinking, all re-evolution is banned.
 
-Finally, it is important to remember that there is no such thing as de-evolution. Anyone who tells you that there is is either lying or horribly mistaken (they may throw the excuse that 'the old rules had de-evolution in them' at you. If they say this they are still lying, it may have been harder to interpret the old rules correctly [and it may have also been a while since they last played, causeing them to forget a few exactitudes] but the only correct interpretation was [and still is] that there is not de-evolution).
+Finally, it is important to remember that there is no such thing as de-evolution. Anyone who tells you that there is is either lying or horribly mistaken (they may throw the excuse that 'the old rules had de-evolution in them' at you. If they say this they are still lying, it may have been harder to interpret the old rules correctly [and it may have also been a while since they last played, causing them to forget a few exactitudes] but the only correct interpretation was [and still is] that there is not de-evolution).
 
 Who's King Prawn?
 =================
