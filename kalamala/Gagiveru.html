@@ -1,0 +1,999 @@
+---
+#Title and Zone:
+title: Gagiveru
+zone: Kalamala
+
+#Path and Metadata
+folder: /kalamala
+permalink: /gagiveru/
+layout: default
+published: true
+
+#Links
+link1name: Home
+link1path: /
+link2name: Rules
+link2path: /rules/
+link3name: Play
+link3path: /play/
+---
+
+<style>
+*{
+    margin:0;
+}
+.light{
+    background-color: purple;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+}
+.dark{
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+}
+.replace{
+    background-color: pink;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+}
+.reinforce1{
+    display:inline;
+}
+.reinforce2{
+    display:inline;
+}
+.bluetoo{
+   
+    height: 50px;
+    width: 50px;
+    display:inline-block; background:url("http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Chess_pdt45.svg/50px-Chess_pdt45.svg.png");
+}
+.blueyou{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background: url("http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Chess_tile_pl.svg/50px-Chess_tile_pl.svg.png");
+}
+.gapstopper{
+    height: 50px;
+    width: 400px;
+}
+.anchor{
+    background-color:orange;
+}
+.poten{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background-color:green;
+}
+.sel{;
+    background-color:yellow;
+}
+.placesel{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background-color:yellow;
+}
+.potenpc{
+    background-image:url('http://upload.wikimedia.org/wikipedia/commons/thumb/0/07/LetterP.svg/50px-LetterP.svg.png');
+}
+.potenmv{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background-color:red;
+}
+.count{
+  width:400px;
+  text-align:center;
+  font-family:tahoma;
+}
+.winner{
+  width:400px;
+  text-align:center; 
+  font-family:tahoma;
+  background-image:url('http://i44.servimg.com/u/f44/14/74/52/91/prod_410.gif');
+}
+</style>
+
+<div id="game"></div>
+
+<script>
+var Board = [
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,1,2,0,0,0],
+    [0,0,1,0,0,2,0,0],
+    [0,0,2,0,0,1,0,0],
+    [0,0,0,2,1,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0]];
+var piecesel = 0;
+var placer=0;
+var placetype =0;
+var placeamount1 =4;
+var placeamount2 =4;
+var kill=0;
+var turns=0;
+var win=0;
+var connections=0;
+var block=0;
+function idraw (){
+var drawn = '';
+  if(win===0){
+    for(i=0;i<8;i++){
+    drawn += '<div id="row'+i+'" class="gapstopper">';
+        for(j=0;j<8;j++){
+            if((i+j)%2===0){colort='light';}else{colort='dark';}
+    drawn+= '<div id="row'+i+'col'+j+'" class="'+ colort +'" onclick="place('+i+','+j+')">';
+            if(Board[i][j]===2||Board[i][j]===4||Board[i][j]===6||Board[i][j]===8){ Board[i][j]=2;
+             drawn+='<div class="bluetoo" onclick="Cpiece(this,'+i+','+j+')"></div>';
+            }else if(Board[i][j]===1||Board[i][j]===3||Board[i][j]===5||Board[i][j]===7){
+              Board[i][j]=1;
+             drawn+='<div class="blueyou" onclick="Cpiece(this,'+i+','+j+')"></div>';
+            }
+            drawn+= '</div>';
+        }
+        drawn+='</div>';
+    }
+     drawn+='<div class="reinforce1">';
+   for(i=0;i<placeamount1;i++){
+       drawn+='<div class="replace"  id="piece1'+i+'" ><div class="blueyou" onclick="placinger(0,'+i+')"></div></div>';
+    }
+     drawn+='</div><div class="reinforce2">';
+   for(j=0;j<placeamount2;j++){
+       drawn+='<div class="replace"  id="piece2'+j+'" ><div class="bluetoo" onclick="placinger(1,'+j+')"></div></div>';
+   } 
+     drawn+='</div><div id="kill"><div id="button"></div></div>';
+   
+  if(turns===0){
+    drawn+='<div class="count">White\'s turn</div>';
+  }else{
+    drawn+='<div class="count">Black\'s turn</div>';
+  }
+    return drawn;} else {
+      
+    for(i=0;i<8;i++){
+    drawn += '<div id="row'+i+'" class="gapstopper">';
+        for(j=0;j<8;j++){
+            if((i+j)%2===0){colort='light';}else{colort='dark';}
+    drawn+= '<div id="row'+i+'col'+j+'" class="'+ colort +'" >';
+            if(Board[i][j]===2||Board[i][j]===4||Board[i][j]===6||Board[i][j]===8){ Board[i][j]=2;
+             drawn+='<div id="row'+i+'col'+j+'" class="bluetoo"></div>';
+            }else if(Board[i][j]===1||Board[i][j]===3||Board[i][j]===5||Board[i][j]===7){
+              Board[i][j]=1;
+             drawn+='<div class="blueyou" ></div>';
+            }
+            drawn+= '</div>';
+        }
+        drawn+='</div>';
+    }
+     drawn+='<div class="reinforce1">';
+   for(i=0;i<placeamount1;i++){
+       drawn+='<div class="replace"  id="piece1'+i+'" ><div class="blueyou"></div></div>';
+    }
+     drawn+='</div><div class="reinforce2">';
+   for(j=0;j<placeamount2;j++){
+       drawn+='<div class="replace"  id="piece2'+j+'" ><div class="bluetoo"></div></div>';
+   } drawn+='</div>';
+        if(turns===0){
+          drawn+='<div class="winner"> Black wins</div>';
+        }else{
+          drawn+='<div class="winner"> White wins</div>';
+        }
+    }
+   
+    return drawn;
+}
+document.getElementById("game").innerHTML = idraw();
+function removeElement(node) {
+    node.parentNode.removeChild(node);
+}
+function Remove(i,j){
+  Board[i][j]=0; 
+  if(turns===0){turns=1;}else{turns=0;}
+  document.getElementById("game").innerHTML = idraw();
+  winner();
+  piecesel=0;
+}
+function Cpiece(x,i,j){
+  if(piecesel===0&&(Board[i][j]===turns+1)){
+x.className += " anchor";
+    piecesel =1;
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+   fer=0;
+   var i1,i2,i3,i4,i5,i6;
+   var j1,j2,j3,j4,j5,j6;
+   i1=i2=i3=i4=i5=i6=i;
+   j1=j2=j3=j4=j5=j6=j;
+    for(;;i1++){
+      if(i1>7){
+        break;
+      } 
+     for(y = j1; y==j1;j1++){
+      
+       if(j1>7){
+        break;
+      }
+      if(Board[i1][j1]===1){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+      Board[i1][j1]=5;
+        fer=fer+1;
+      }else if(Board[i1][j1]===2){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+        Board[i1][j1] = 6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    }
+    
+   fer=0;
+    for(;;i2++){
+      if(i2>7){
+        break;
+      } 
+     for(y = j2; y==j2;j2--){
+      
+       if(j2<0){
+        break;
+      }
+      if(Board[i2][j2]===1){
+        document.getElementById('row'+i2+'col'+j2).className += 
+          " poten";
+      Board[i2][j2]=5;
+        fer=fer+1;
+      }else if(Board[i2][j2]===2){
+        document.getElementById('row'+i2+'col'+j2).className += 
+          " poten";
+        Board[i2][j2] = 6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i3--){
+      if(i3<0){
+        break;
+      } 
+     for(y = j3; y==j3;j3++){
+      
+       if(j3>7){
+        break;
+      }
+      if(Board[i3][j3]===1){
+        document.getElementById('row'+i3+'col'+j3).className += 
+          " poten";
+      Board[i3][j3]=5;
+        fer=fer+1;
+      }else if(Board[i3][j3]===2){
+        document.getElementById('row'+i3+'col'+j3).className += 
+          " poten";
+        Board[i3][j3] = 6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i4--){
+      if(i4<0){
+        break;
+      } 
+     for(y = j4; y==j4;j4--){
+      
+       if(j4<0){
+        break;
+      }
+      if(Board[i4][j4]===1){
+        document.getElementById('row'+i4+'col'+j4).className += 
+          " poten";
+      Board[i4][j4]=5;
+        fer=fer+1;
+      }else if(Board[i4][j4]===2){
+        document.getElementById('row'+i4+'col'+j4).className += 
+          " poten";
+        Board[i4][j4] =6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i5--){
+      if(i5<0){
+        break;
+      } 
+     
+      if(Board[i5][j]===1){
+        document.getElementById('row'+i5+'col'+j).className += 
+          " poten";
+      Board[i5][j]=5;
+        fer=fer+1;
+      
+       
+      } else if(Board[i5][j]===2){
+        document.getElementById('row'+i5+'col'+j).className += 
+          " poten";
+        Board[i5][j] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;j5--){
+      if(j5<0){
+        break;
+      } 
+     
+      if(Board[i][j5]===1){
+        document.getElementById('row'+i+'col'+j5).className += 
+          " poten";
+        fer=fer+1;
+      Board[i][j5]=5;
+       
+      } else if(Board[i][j5]===2){
+        document.getElementById('row'+i+'col'+j5).className += 
+          " poten";
+        Board[i][j5] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i6++){
+      if(i6>7){
+        break;
+      } 
+      if(Board[i6][j]===1){
+        document.getElementById('row'+i6+'col'+j).className += 
+          " poten";
+        Board[i6][j]= 5;
+        fer=fer+1;
+      
+       
+      } else if(Board[i6][j]===2){
+        document.getElementById('row'+i6+'col'+j).className += 
+          " poten";
+        Board[i6][j] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;j6++){
+      if(j6>7){
+        break;
+      } 
+      if(Board[i][j6]===1){
+        document.getElementById('row'+i+'col'+j6).className += 
+          " poten";
+        Board[i][j6] = 5;
+        fer=fer+1;
+      
+       
+      } else if(Board[i][j6]===2){
+        document.getElementById('row'+i+'col'+j6).className += 
+          " poten";
+        Board[i][j6] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+   
+  } else if(piecesel===1){
+    
+    if(Board[i][j]===3||Board[i][j]===4){
+      document.getElementById("game").innerHTML = idraw();
+      piecesel=0;
+    }else if(Board[i][j]===5){
+      piecesel=2;
+      document.getElementById('row'+i+'col'+j).className = "blueyou sel"; Board[i][j]=7;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===5){
+            Board[a][b]=1; 
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;
+          }else if(Board[a][b]===6){
+            Board[a][b]=2;  
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;     
+          }
+        }}
+        for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+       if(Board[a][b]===3||Board[a][b]===4){
+                var anchori = a;
+                var anchorb = b;
+        if(anchori<i){
+          if(anchorb<j){            
+          if(i===7||j===7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+          if(Board[i-1][j-1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j-1)).innerHTML = '<div id="row'+(i-1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j-1)+')"></div>';
+          }
+          if(Board[i+1][j+1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j+1)).innerHTML = '<div id="row'+(i+1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j+1)+')"></div>';
+            
+          }
+          } else if(anchorb===j){
+          
+          if(i===7){         
+            removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+          if(Board[i-1][j]===0){
+            document.getElementById('row'+(i-1)+'col'+(j)).innerHTML = '<div id="row'+(i-1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j)+')"></div>';
+          }
+          if(Board[i+1][j]===0){
+            document.getElementById('row'+(i+1)+'col'+(j)).innerHTML = '<div id="row'+(i+1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j)+')"></div>';
+            
+          }
+          }else{
+          
+          if(i===7||j===0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+          if(Board[i-1][j+1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j+1)).innerHTML = '<div id="row'+(i-1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j+1)+')"></div>';
+          }
+          if(Board[i+1][j-1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j-1)).innerHTML = '<div id="row'+(i+1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j-1)+')"></div>';
+          }
+        
+          }
+        }else if(anchori===i){
+        
+          if(j===0||j===7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+                  if(Board[i][j+1]===0){
+            document.getElementById('row'+(i)+'col'+(j+1)).innerHTML = '<div id="row'+(i)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i)+','+(j+1)+')"></div>';
+          }
+                    if(Board[i][j-1]===0){
+            document.getElementById('row'+(i)+'col'+(j-1)).innerHTML = '<div id="row'+(i)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i)+','+(j-1)+')"></div>';
+          }
+        
+          
+        }else{
+            
+        
+          if(anchorb<j){ 
+            
+          if(i===0||j===7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            if(Board[i+1][j-1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j-1)).innerHTML = '<div id="row'+(i+1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j-1)+')"></div>';
+          }if(Board[i-1][j+1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j+1)).innerHTML = '<div id="row'+(i-1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j+1)+')"></div>';
+          }
+        
+          } else if(anchorb===j){
+            
+          if(i===0){           
+            removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            if(Board[i+1][j]===0){
+            document.getElementById('row'+(i+1)+'col'+(j)).innerHTML = '<div id="row'+(i+1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j)+')"></div>';
+          }if(Board[i-1][j]===0){
+            document.getElementById('row'+(i-1)+'col'+(j)).innerHTML = '<div id="row'+(i-1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j)+')"></div>';
+          }
+        
+          }else{ 
+            
+          if(i===0||j===0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            if(Board[i+1][j+1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j+1)).innerHTML = '<div id="row'+(i+1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j+1)+')"></div>';
+          }if(Board[i-1][j-1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j-1)).innerHTML = '<div id="row'+(i-1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j-1)+')"></div>';
+          }
+          }
+        }
+        
+       }
+        }       
+        }
+      
+    }else if(Board[i][j]===6){
+      piecesel =2;
+       document.getElementById('row'+i+'col'+j).className = "bluetoo sel";
+      Board[i][j]=8;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===5){
+            Board[a][b]=1;  
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;
+          }else if(Board[a][b]===6){
+            Board[a][b]=2;   
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;
+          }
+        }
+      }
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+       if(Board[a][b]===3||Board[a][b]===4){
+                var anchora = a;
+                var anchorj = b;
+        if(anchora<i){
+          if(anchorj<j){
+          if(i===7||j===7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+          if(Board[i-1][j-1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j-1)).innerHTML = '<div id="row'+(i-1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j-1)+')"></div>';
+          }
+          if(Board[i+1][j+1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j+1)).innerHTML = '<div id="row'+(i+1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j+1)+')"></div>';
+            
+          }
+          } else if(anchorj===j){
+          if(i===7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+          if(Board[i-1][j]===0){
+            document.getElementById('row'+(i-1)+'col'+(j)).innerHTML = '<div id="row'+(i-1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j)+')"></div>';
+          }
+          if(Board[i+1][j]===0){
+            document.getElementById('row'+(i+1)+'col'+(j)).innerHTML = '<div id="row'+(i+1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j)+')"></div>';
+            
+          }
+          }else{         
+          if(i===7||j===0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+          if(Board[i-1][j+1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j+1)).innerHTML = '<div id="row'+(i-1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j+1)+')"></div>';
+          }
+          if(Board[i+1][j-1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j-1)).innerHTML = '<div id="row'+(i+1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j-1)+')"></div>';
+          }
+        
+          }
+        }else if(anchora===i){
+                 
+          if(j===0||j===7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+                  if(Board[i][j+1]===0){
+            document.getElementById('row'+(i)+'col'+(j+1)).innerHTML = '<div id="row'+(i)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i)+','+(j+1)+')"></div>';
+          }
+                    if(Board[i][j-1]===0){
+            document.getElementById('row'+(i)+'col'+(j-1)).innerHTML = '<div id="row'+(i)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i)+','+(j-1)+')"></div>';
+          }
+        
+          
+        }else{
+            
+        
+          if(anchorj<j){                
+          if(i===0||j===7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            if(Board[i+1][j-1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j-1)).innerHTML = '<div id="row'+(i+1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j-1)+')"></div>';
+          }if(Board[i-1][j+1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j+1)).innerHTML = '<div id="row'+(i-1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j+1)+')"></div>';
+          }
+        
+          } else if(anchorj===j){                
+          if(i===0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            if(Board[i+1][j]===0){
+            document.getElementById('row'+(i+1)+'col'+(j)).innerHTML = '<div id="row'+(i+1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j)+')"></div>';
+          }if(Board[i-1][j]===0){
+            document.getElementById('row'+(i-1)+'col'+(j)).innerHTML = '<div id="row'+(i-1)+'col'+(j)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j)+')"></div>';
+          }
+        
+          }else{ 
+                            
+          if(i===0||j===0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            if(Board[i+1][j+1]===0){
+            document.getElementById('row'+(i+1)+'col'+(j+1)).innerHTML = '<div id="row'+(i+1)+'col'+(j+1)+'" class="potenmv" onclick="Cpiece(this,'+(i+1)+','+(j+1)+')"></div>';
+          }if(Board[i-1][j-1]===0){
+            document.getElementById('row'+(i-1)+'col'+(j-1)).innerHTML = '<div id="row'+(i-1)+'col'+(j-1)+'" class="potenmv" onclick="Cpiece(this,'+(i-1)+','+(j-1)+')"></div>';
+          }
+          }
+        }
+      }
+        }}}
+   
+  }else if(piecesel===2){
+               if(Board[i][j]===3||Board[i][j]===4){
+      document.getElementById("game").innerHTML = idraw();
+      piecesel=0;
+    }else if(Board[i][j]===0){
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===7){
+            Board[a][b]=0;
+            Board[i][j]=1;
+            if(turns===0){turns=1;
+                         }else{turns=0;}
+            document.getElementById("game").innerHTML = idraw();
+            winner();
+            piecesel=0;
+          }
+          if(Board[a][b]===8){
+            Board[a][b]=0;
+            Board[i][j]=2;
+            if(turns===0){turns=1;
+                         }else{turns=0;}
+            document.getElementById("game").innerHTML = idraw();
+            winner();
+            piecesel=0;
+          }
+        }
+      }
+    }else if(Board[i][j]===7||Board[i][j]===8){
+      piecesel=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===3||Board[a][b]===4){document.getElementById("game").innerHTML = idraw();
+       Cpiece(document.getElementById('row'+a+'col'+b),a,b); 
+           
+          } else if(Board[a][b]===4){document.getElementById("game").innerHTML = idraw();
+Cpiece(document.getElementById('row'+a+'col'+b),a,b); 
+           
+          }
+        }
+      }
+        }
+    
+        }
+}
+  function placinger(i,j){
+    if(piecesel===0&&placer===0&&(i===turns)){
+      placer=1;
+      piecesel=-1;
+      document.getElementById('piece'+(i+1)+j).className += " placesel"; if(i===1){placetype=2;}else{placetype=1;}
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===0){
+           document.getElementById('row'+a+'col'+b).className += " potenpc" ;
+          }
+        }}
+    }else if(placer===1){
+      document.getElementById("game").innerHTML = idraw();
+      placer=0;
+      piecesel=0;
+    }
+  }
+ function place(i,j){
+   if(piecesel===-1&&Board[i][j]===0&&placer===1){
+     if(placetype===1){
+    Board[i][j]=1;
+       placeamount1--;
+     if(turns===0){turns=1;}else{turns=0;}
+      document.getElementById("game").innerHTML = idraw();
+        winner();
+     }else{
+    Board[i][j]=2;
+        placeamount2--;
+     if(turns===0){turns=1;}else{turns=0;}
+      document.getElementById("game").innerHTML = idraw();
+        winner();
+     }
+     placetype=0;
+     placer=0;
+     piecesel=0;
+   }
+ }
+function winner(){
+ var current = turns+1;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===current||Board[a][b]===(current+2)||Board[a][b]===(current+4)||Board[a][b]===(current+6)){
+   var a1,a2,a3,a4,a5,a6;
+   var b1,b2,b3,b4,b5,b6;
+   var neg,pos,neg2,pos2;
+   var k1,k2,k3,k4,k5a,k5b,k6a,k6b;
+   k1=k2=k3=k4=k5a=k5b=k6a=k6b=0;
+         connections=connections-8; 
+   a1=a2=a6=a;
+   a3=a4=a5=a;
+   b1=b3=b6=b;
+   b2=b4=b5=b;
+  block=0;
+   for(;;a1++){
+      if(a1>7){
+        break;
+      }
+     for(y = b1; y===b1;b1++){
+      
+       if(b1>7){
+        break;
+      }
+      neg = a1;
+      pos = a1;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b1;
+      pos2 = b1;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if(pos<=7&&pos2<=7&&0>=neg&&0>=neg2){
+      if(Board[a1][b1]===1){
+block=block+1;  
+         if(Board[neg][neg2]===0){
+        connections=connections+1;
+        }else if(Board[pos][pos2]===0){
+        connections=connections+1;
+        }}else if(Board[a1][b1]===2){
+block=block+1;  
+         if(Board[neg][neg2]===0){
+        connections=connections+1;
+        }else if(Board[pos][pos2]===0){
+        connections=connections+1;
+        }}
+       
+       } }
+      if(block===2){break;}
+    }
+   block=0;
+    for(;;a2++){
+      if(a2>7){
+        break;
+      } 
+     for(y = b2; y===b2;b2--){
+      
+       if(b2<0){
+        break;
+      }
+      neg = a2;
+      pos = a2;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b2;
+      pos2 = b2;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if(pos<=7&&pos2<=7&&0>=neg&&0>=neg2){
+      if(Board[a2][b2]===1){
+block=block+1;  
+         if(Board[pos][neg2]===0){
+        connections=connections+1;
+        }else if(Board[neg][pos2]===0){
+        connections=connections+1;
+        }}else if(Board[a2][b2]===2){
+block=block+1;  
+         if(Board[pos][neg2]===0){
+        connections=connections+1;
+        }else if(Board[neg][pos2]===0){
+        connections=connections+1;
+        }}}
+       
+      
+       
+        }
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a3--){
+      if(a3<0){
+        break;
+      } 
+     for(y = b3; y===b3;b3++){
+      
+       if(b3>7){
+        break;
+      }
+      neg = a3;
+      pos = a3;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b3;
+      pos2 = b3;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if(pos<=7&&pos2<=7&&0>=neg&&0>=neg2){
+      if(Board[a3][b3]===1){
+block=block+1;  
+         if(Board[neg][pos2]===0){
+        connections=connections+1;
+        }else if(Board[pos][neg2]===0){
+        connections=connections+1;
+        }}else if(Board[a3][b3]===2){
+block=block+1;  
+         if(Board[neg][pos2]===0){
+        connections=connections+1;
+        }else if(Board[pos][neg2]===0){
+        connections=connections+1;
+        }}
+       
+       } }
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a4--){
+      if(a4<0){
+        break;
+      } 
+     for(y = b4; y===b4;b4--){
+      
+       if(b4<0){
+        break;
+      }
+      neg = a4;
+      pos = a4;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b4;
+      pos2 = b4;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if(pos<=7&&pos2<=7&&0>=neg&&0>=neg2){
+      if(Board[a4][b4]===1){
+block=block+1;  
+         if(Board[neg][neg2]===0){
+        connections=connections+1;
+        }else if(Board[pos][pos2]===0){
+        connections=connections+1;
+        }}else if(Board[a4][b4]===2){
+block=block+1;  
+         if(Board[neg][neg2]===0){
+        connections=connections+1;
+        }else if(Board[pos][pos2]===0){
+        connections=connections+1;
+        }}
+       
+       } }
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a5--){
+      if(a5<0){
+        break;
+      } 
+     
+      neg = a5;
+      pos = a5;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos<=7&&0<=neg){
+      if(Board[a5][b]===1){
+block=block+1;  
+        if(Board[neg][b]===0){
+        connections=connections+1;
+        }else if(Board[pos][b]===0){
+        connections=connections+1;
+        }
+      }else if(Board[a5][b]===2){
+block=block+1;  
+        if(Board[neg][b]===0){
+        connections=connections+1;
+        }else if(Board[pos][b]===0){
+        connections=connections+1;
+        }
+      } }
+      if(block===2){break;}
+    } 
+   block=0;
+              
+    for(;;b5--){
+      if(b5<0){
+        break;
+      } 
+      neg = b5;
+      pos = b5;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos<=7&&0>=neg){
+      if(Board[a][b5]===1){
+block=block+1;  
+        if(Board[a][neg]===0){
+        connections=connections+1;
+        }else if(Board[a][pos]===0){
+        connections=connections+1;
+          }
+        
+        }else if(Board[a][b5]===2){
+block=block+1;  
+        if(Board[a][neg]===0){
+        connections=connections+1;
+        }else if(Board[a][pos]===0){
+        connections=connections+1;
+          }
+        
+        }}
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a6++){
+      if(a6>7){
+        break;
+      } 
+     
+      neg = a6;
+      pos = a6;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos>=7&&0>=neg){
+      if(Board[a6][b]===1){
+block=block+1;  
+        if(Board[neg][b]===0){
+        connections=connections+1;
+        }else if(Board[pos][b]===0){
+        connections=connections+1;
+        }
+      }else if(Board[a6][b]===2){
+block=block+1;  
+        if(Board[neg][b]===0){
+        connections=connections+1;
+        }else if(Board[pos][b]===0){
+        connections=connections+1;
+        }
+      }}
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;b6++){
+      if(b6>7){
+        break;
+      } 
+      neg = b6;
+      pos = b6;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos<=7&&0>=neg){
+      if(Board[a][b6]===1){
+block=block+1;  
+        if(Board[a][neg]===0){
+        connections=connections+1;
+        }else if(Board[a][pos]===0){
+        connections=connections+1;
+          }
+        
+        }else if(Board[a][b6]===2){
+block=block+1;  
+        if(Board[a][neg]===0){
+        connections=connections+1;
+        }else if(Board[a][pos]===0){
+        connections=connections+1;
+          }
+        
+        }
+      }
+      
+      if(block===2){break;}
+    } 
+            }  
+          }
+        }
+  if(turns===0){
+    if(placeamount1===0&&connections===0){
+      win=1; document.getElementById("game").innerHTML = idraw();
+    }
+  } else{
+    if(placeamount2===0&&connections===0){
+      win=1; document.getElementById("game").innerHTML = idraw();     
+    }
+  }
+  connections=0;
+}
+</script>
+<script src="http://static.jsbin.com/js/render/edit.js?3.14.1"></script>
+<script>jsbinShowEdit({"static":"http://static.jsbin.com","root":"http://jsbin.com","csrf":"5SOwY6u6XViNSV/JKQ77yfG7"});</script>
+<script src="http://static.jsbin.com/js/vendor/eventsource.js?3.14.1"></script>
+<script src="http://static.jsbin.com/js/spike.js?3.14.1"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1656750-34']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+})();
+</script>
