@@ -19,7 +19,7 @@ link3path: /play/
 ---
 These are the Quick rules for Kalamala and act as an instructional guide if necessary but primarily act as a reference guide.
 
-For a more instructional orienatated guide, we urge extreme patience as one will soon be uploaded.
+For a more instructionally orientated guide, we urge extreme patience as one will soon be uploaded.
  
 These rules are chosen due to clarity and a lack of the vagueness that snuck in to the ultra-concise version, while still retaining brevity because it only explains the points essential for the perceived average reader to start playing the game.
 
