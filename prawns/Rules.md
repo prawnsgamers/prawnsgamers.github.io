@@ -190,11 +190,86 @@ The wall-jump takes place when a diagonal jump occurs beside the edge of the sea
 
 *This wall-jump is disallowed because the krill is not jumping over a prawn of the same colour (side).*
 
+Tasty Prawns
+============
 
+Now that we have finished with jumping, it is time to face the harsh realities of Prawns. Prawns is like many other complex ecosystems, and, in most complex ecosystems, the animals like to eat other animals. In Prawns, it is no different.
 
+In order to win a game of prawns, you must eat every one of the opponents pieces, before they eat every one of your pieces. In order to eat an enemy piece, simply move one of your pieces into a square occupied by the opponent you wish to eat. You will now occupy that square, their piece will have been eaten and will return to their gene pool.
 
+Please remember, also, that it is impossible to take an enemy piece with a jump (either jump-start, ordinary jump, or wall-jump) this is because the landing space for the jump must be vacant (if you're still confused, re-read the previous 3 chapters). On the other hand, it is perfectly legal for a shrimp to eat, having landed in a square using its hop - remember that the hop and the jump are very different things.
 
+As a final point, it is useful to know that it is illegal to eat prawns of your own team, meaning that you can only eat enemy prawns (no assisted suicide, only murder).
 
+![Many Prawns eating each other.]({{ site.baseurl }}/images/prawns/eating.gif)
+
+*Halfway through this game there seems to have been an all-you-can-eat buffet! Not all the prawns were that pleased, however. (Even though this .gif is quite fast, try to pick out as when one prawn eats another as much as possible.)*
+
+The Evaporation Rule
+====================
+
+The first thing you need to know about draws (ties / stalemates) in the game of prawns is that there are none! In prawns, it is impossible for the game to end in a draw (tie / stalemate) due to the evaporation rule (this was actually the main reason we thought this rule up).
+
+The way this rule works is that when the total number of pieces on the board is reduced to five, the the sea will start to evaporate (the board will shrink) into the shape of the smallest rectangle necessary to fit the remaining prawns on the board. From then on, this continues after every move, forcing the players together, until one outsmarts the other and the game ends suddenly. It has the advantage that it adds lots of excitement and intrigue to the end-game, sometimes with the result being the exact opposite of what you expected!
+
+The most common method of showing this in real life is the use of four corner pieces which, for a large portion of the game, sit at the corners of the board, but as soon as there are only five prawns left, move in to mark the edges of the now shrunken sea. In the diagram below, they shall be represented as red L-shapes.
+
+![Diagram showing how evaporation works in a game.]({{ site.baseurl }}/images/prawns/evaporation.gif)
+
+*In this example of a relatively inexperienced blue player against the green player, the green player uses evaporation to his/her advantage to ensure his/her victory. The important thing, however, is not that you can follow the game (which is very difficult in a fast moving .gif) but that you understand that the sea is always shrinking to the rectangle that is only just big enough to hold the remaining prawns.*
+
+What happens when the evaporation rule leaves a player with no available moves? It is difficult to think of a case where this is true, but one example is given in the diagram below. Here, the lobster must move along a diagonal, but the sea has evaporated in such a way that no diagonal is available. In this unfortunate case, the lobster must move out of the sea, where it will asphyxiate (it is committing suicide), and meaning the game is won by the blue team. Committing suicide in this way is not allowed in any other situation, but it is necessary here as it is the only move available. It may seem unfair that blue still wins when this is the only move possible, but avoiding these situations or forcing them onto the other team is simply another part of the end-game tactics, and another way to win.
+
+![Diagram showing a rare case where a player doesn't seem to be able to make a move.]({{ site.baseurl }}/images/prawns/nomove.png)
+
+*(Green's turn to move)*
+
+*Here, the lobster cannot make a move, and must therefore commit suicide.*
+
+The Evolution Rule
+==================
+
+Despite being more like the Pokemon version that its real counterpart, evolution in Prawns still turns one species into another, and is a very important part of the game. The least evolved stage is krill, with the equally developed species of shrimp, crab, and lobster making up the evolved stage.
+
+![The starting layout, with colour-coded end rows showing the evolution zones.]({{ site.baseurl }}/images/prawns/evolutionzones.png)
+
+*This is the same picture as the one you saw in Chapter 5, but with the evolution zones added. The blue krill (top) need to get to the blue evolution zone (bottom) while the green krill (bottom) need to get to the green evolution zone (top).*
+
+To become evolved, a krill needs to get all the way to the opposite end of the board (see the diagram and its caption), often called the evolution zone, where it has the ability to evolve. If the sea has started evaporating, the evolution zone becomes the row closest to the original evolution zone. The evolution itself can be easily summed up using just four points:
+
+ - An evolution will always take place in the evolution zone corresponding to that krill.
+ - An evolution does not take up a move.
+ - Because it doesn't take up a move, you can perform as many evolutions as you can in a move, either at the beginning of the move, the end, or both!
+ - During an evolution, a krill is swapped with a prawn of any evolved species (shrimp, crab, or lobster) that you have in your gene pool.
+
+However, there is actually a second type of evolution: re-evolution. This is when an evolved species (shrimp, crab, or lobster) changes into a different evolved species. This works almost exactly the same way a standard evolution does (just not using a krill - either as a start or endpoint) except that, with re-evolution, there is one extra rule:
+
+ - For re-evolution to occur, there must be at least six prawns on the board.
+
+This rule has the effect that, once the sea is able to start shrinking, all re-evolution is banned.
+
+Finally, it is important to remember that there is no such thing as de-evolution. Anyone who tells you that there is is either lying or horribly mistaken (they may throw the excuse that 'the old rules had de-evolution in them' at you. If they say this they are still lying, it may have been harder to interpret the old rules correctly [and it may have also been a while since they last played, causeing them to forget a few exactitudes] but the only correct interpretation was [and still is] that there is not de-evolution).
+
+Who's King Prawn?
+=================
+
+A winner is decided (and the game ends) when all the prawns on the board are of the same side (colour / team). When that has happened, the player who's prawns they were can be declared the winner, and graciously accept their prize (whether that be a trophy, admiration from their fellow prawns players, or just hatred from the beaten opposition is, however, another story).
+
+Additional Information
+======================
+
+In Prawns, we do not have a rule that says, if you've touched the piece, you have to move it. Instead, we almost always say that you can redo your move, provided that the next person hasn't started their move. However, we also consider it very bad etiquette to "start" your move, when in reality you're just touching a piece so that the other person can't redo their move.
+
+Other Flavours
+==============
+
+It is occasionally (and wrongly) stated that Prawns is simply another variant of Chess. It is, instead, actually a separate game. However, this does not make it immune to having variations made of it - in fact, we will often actively encourage the making of variations (please don't make too many though, as that can stop you from enjoying normal Prawns).
+
+An interesting variation is that of the game of Q-Prawns, with a larger board, and twice as many pieces, which means it can accommodate 4 players, as well as the usual 2 (hopefully, rules will soon be appearing for this game).
+
+There are, however, more minor variations that can be made, for example, in the standard game of prawns, once a piece is taken, it is returned to the players inventory and can be revived when a prawn reaches the opposite side of the board without being taken. In one variation, it may be agreed prior to the game by the participants that once a piece is taken once, it is gone for good.
+
+Another variation to try is to play the game on a reduced board size (with a reduced quantity of normal prawns to fit), such as 7x7 or 6x6. below 5x5 is not recommended as it would not allow for much freedom of movement and the game (which isn't long to begin with) would not last for very long at all. In fact, the board needn't even be a square! Try playing with boards of 5x8 etc. - different shapes bring different qualities to the game! Some people have played Chess on a hexagonal board, so if you can do that, why not try the same with Prawns - the possibilities are endless.
 
 
 
