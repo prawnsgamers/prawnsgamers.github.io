@@ -120,7 +120,7 @@ html, body {
     position: relative;
     padding: 25px 0;
 }
-#focus > div {
+#focus > div > div {
     height: 350px;
     width: 350px;
     position: absolute;
@@ -130,23 +130,23 @@ html, body {
     color: #ffffff;
     text-align: center;
 }
-#focus > div:nth-child(1) {
-    animation: fade 18s 0s infinite;
-    -webkit-animation: fade 18s 0s infinite;
-}
-#focus > div:nth-child(2) {
-    animation: fade 18s 6s infinite;
-    -webkit-animation: fade 18s 6s infinite;
-}
-#focus > div:nth-child(3) {
-    animation: fade 18s 12s infinite;
-    -webkit-animation: fade 18s 12s infinite;
-}
-#focus > div > img {
+#focus > div > div > img {
     display: block;
     max-height: 350px;
     max-width: 100%;
     margin: auto;
+}
+#focus > #triple > div:nth-child(1) {
+    animation: fade 18s 0s infinite;
+    -webkit-animation: fade 18s 0s infinite;
+}
+#focus > #triple > div:nth-child(2) {
+    animation: fade 18s 6s infinite;
+    -webkit-animation: fade 18s 6s infinite;
+}
+#focus > #triple > div:nth-child(3) {
+    animation: fade 18s 12s infinite;
+    -webkit-animation: fade 18s 12s infinite;
 }
 #content {
     padding: 10px;
