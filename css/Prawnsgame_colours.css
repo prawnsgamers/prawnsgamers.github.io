@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(#008000 10%, #55cc00 100%) fixed;
 }
-#focus, #content a.post {
+#fullfocus, #content a.post {
     background: linear-gradient(#55cc00 0%, #008000 100%);
 }
 #content h1, #content a {
