@@ -30,7 +30,7 @@ Everyone knows that prawns live in the sea, and this game knows it too. Prawns i
 
 A prawn must, if possible, stay within the sea, however, in a very particular case (as explained in the evaporation rule), it may be forced to move out of the sea and onto dry land, where it will asphyxiate.
 
-![Diagram of a prawns board (The sea)]({{ site.baseurl }}/images/prawns/board.png)
+![Diagram of a prawns board (The sea)]({{ site.baseurl }}/images{{ page.folder }}/board.png)
 
 *The board used in all the diagrams in these rules, showing what its layout is.*
 
@@ -41,10 +41,10 @@ There are many different species of prawn, with their own symbols and their own 
 
 | New (Standard) Name | Old (Outdated) Name | Symbol | Description of Move | Diagram showing Move |
 |---------------------+---------------------+--------+---------------------+----------------------+
-| Krill | Unflavoured Prawn | ![Symbol of krill]({{ site.baseurl }}/images/prawns/krill.png) | Moves one space in any direction. | ![Move of krill]({{ site.baseurl }}/images/prawns/krillmove.gif) |
-| Shrimp | L-Flavoured Prawn | ![Symbol of shrimp]({{ site.baseurl }}/images/prawns/shrimp.png) | Jumps in an L-shape or moves one space diagonally. | ![Move of shrimp]({{ site.baseurl }}/images/prawns/shrimpmove.gif) |
-| Crab | Perpendicularly-Flavoured Prawn | ![Symbol of crab]({{ site.baseurl }}/images/prawns/crab.png) | Moves any distance along a row or a column. | ![Move of crab]({{ site.baseurl }}/images/prawns/crabmove.gif) |
-| Lobster | Diagonally-Flavoured Prawn | ![Symbol of lobster]({{ site.baseurl }}/images/prawns/lobster.png) | Moves any distance along a diagonal. | ![Move of lobster]({{ site.baseurl }}/images/prawns/lobstermove.gif) |
+| Krill | Unflavoured Prawn | ![Symbol of krill]({{ site.baseurl }}/images{{ page.folder }}/krill.png) | Moves one space in any direction. | ![Move of krill]({{ site.baseurl }}/images{{ page.folder }}/krillmove.gif) |
+| Shrimp | L-Flavoured Prawn | ![Symbol of shrimp]({{ site.baseurl }}/images{{ page.folder }}/shrimp.png) | Jumps in an L-shape or moves one space diagonally. | ![Move of shrimp]({{ site.baseurl }}/images{{ page.folder }}/shrimpmove.gif) |
+| Crab | Perpendicularly-Flavoured Prawn | ![Symbol of crab]({{ site.baseurl }}/images{{ page.folder }}/crab.png) | Moves any distance along a row or a column. | ![Move of crab]({{ site.baseurl }}/images{{ page.folder }}/crabmove.gif) |
+| Lobster | Diagonally-Flavoured Prawn | ![Symbol of lobster]({{ site.baseurl }}/images{{ page.folder }}/lobster.png) | Moves any distance along a diagonal. | ![Move of lobster]({{ site.baseurl }}/images{{ page.folder }}/lobstermove.gif) |
 
 In the diagrams showing the moves, the first image shows that prawn in an arbitrary starting position, while the second, shows where it could go from that position<!-- (remember that you can click on pictures to see them enlarged in a new tab)-->.
 
@@ -71,7 +71,7 @@ The Primordial Soup
 
 To begin the game, the board is set out like this:
 
-![The initial board setup.]({{ site.baseurl }}/images/prawns/setup.png)
+![The initial board setup.]({{ site.baseurl }}/images{{ page.folder }}/setup.png)
 
 *The different coloured pieces signify different sides (i.e. player 1 is blue and player 2 is green - note that the pieces in a Prawns set do not have to be blue and green, any two easily differentiable colours are fine).*
 
@@ -93,11 +93,11 @@ You have actually already seen the ways that the different species of prawn move
 
 For shrimp, this detail is relatively simple - they do not have to swim. Instead, they are able to hop to their next position if necessary, which means that they can get there even if something is in their way (they simply hop over it). They can hop over anything: a friendly prawn, an enemy prawn , even an empty bit of sea, but they can only hop to the squares they would normally be able to swim to. See the diagram below for clarification:
 
-![A shrimp hops over some krill of its own side.]({{ site.baseurl }}/images/prawns/shrimphop.gif)
+![A shrimp hops over some krill of its own side.]({{ site.baseurl }}/images{{ page.folder }}/shrimphop.gif)
 
 For crabs and lobsters, however, pieces can get in the way (note that this does not happen with krill as they only go a distance of 1). If a piece gets in the way of a crab or lobster, the crab or lobster cannot end up on a square behind it. Again, we have provided a diagram for clarification:
 
-![A crab is blocked by krill.]({{ site.baseurl }}/images/prawns/crabblock.gif)
+![A crab is blocked by krill.]({{ site.baseurl }}/images{{ page.folder }}/crabblock.gif)
 
 *In this diagram, the small red x's indicate squares that are blocked from the crab because of the krill.*
 
@@ -110,23 +110,23 @@ In the game of Prawns, there are two and a half related, but relatively separate
 
 The jump-start can be performed solely by krill, and even then, only on their first move. It involves them jumping two spaces forward (i.e. it jumps over one square, and lands in the one directly after), over anything apart from an enemy prawn, and then landing in an empty square. The following six diagrams and explanations show different situations and whether or not a jump-start is permitted:
 
-![A single krill performing a jump-start.]({{ site.baseurl }}/images/prawns/jumpstart1.gif) ![A krill performing a jump-start over a lobster.]({{ site.baseurl }}/images/prawns/jumpstart2.gif)
+![A single krill performing a jump-start.]({{ site.baseurl }}/images{{ page.folder }}/jumpstart1.gif) ![A krill performing a jump-start over a lobster.]({{ site.baseurl }}/images{{ page.folder }}/jumpstart2.gif)
 
 *Jump-starts are allowed in these two situations because it is the krill's first move, they are not jumping over an enemy, and they are landing in an empty square.*
 
-![Attempted jump-start over an enemy piece.]({{ site.baseurl }}/images/prawns/nojumpstart1.gif)
+![Attempted jump-start over an enemy piece.]({{ site.baseurl }}/images{{ page.folder }}/nojumpstart1.gif)
 
 *This jump-start is illegal because the krill is jumping over an enemy piece.*
 
-![Attempted jump-start into an occupied square.]({{ site.baseurl }}/images/prawns/nojumpstart2.gif)
+![Attempted jump-start into an occupied square.]({{ site.baseurl }}/images{{ page.folder }}/nojumpstart2.gif)
 
 *This jump-start is illegal because the krill would land in a square that is not empty.*
 
-![Attempted jump-start after krill's first move.]({{ site.baseurl }}/images/prawns/nojumpstart3.gif)
+![Attempted jump-start after krill's first move.]({{ site.baseurl }}/images{{ page.folder }}/nojumpstart3.gif)
 
 *This jump-start is illegal because it is not the krill's first move.*
 
-![Attempted jump-start by a lobster.]({{ site.baseurl }}/images/prawns/nojumpstart4.gif)
+![Attempted jump-start by a lobster.]({{ site.baseurl }}/images{{ page.folder }}/nojumpstart4.gif)
 
 *This jump-start is illegal because it is not being performed by a krill.*
 
@@ -143,23 +143,23 @@ As mentioned in the last chapter, the second type of jumping that can occur, is 
 
 Finally, it is definitely worth adding that jumping can occur horizontally (left / right), vertically (up / down), and even diagonally, as well as that it can be performed by any prawn. Look at the following diagrams, read the explanations, and make sure you understand them before moving on.
 
-![A krill jumping diagonally over another krill.]({{ site.baseurl }}/images/prawns/diagonaljump.gif) ![A krill jumping vertically over another krill.]({{ site.baseurl }}/images/prawns/verticaljump.gif)
+![A krill jumping diagonally over another krill.]({{ site.baseurl }}/images{{ page.folder }}/diagonaljump.gif) ![A krill jumping vertically over another krill.]({{ site.baseurl }}/images{{ page.folder }}/verticaljump.gif)
 
 *These are examples of legal jumps because they satisfy all the conditions above.*
 
-![An attempted jump where the jumping krill lands on another krill of the opposing side.]({{ site.baseurl }}/images/prawns/nodiagonaljump1.gif)
+![An attempted jump where the jumping krill lands on another krill of the opposing side.]({{ site.baseurl }}/images{{ page.folder }}/nodiagonaljump1.gif)
 
 *This jump is illegal because the krill isn't landing in an empty square.*
 
-![An attempted jump where the jumping krill jumps over a krill of the opposing side.]({{ site.baseurl }}/images/prawns/nodiagonaljump2.gif)
+![An attempted jump where the jumping krill jumps over a krill of the opposing side.]({{ site.baseurl }}/images{{ page.folder }}/nodiagonaljump2.gif)
 
 *This jump is illegal because the krill isn't jumping over a prawn of the same side.*
 
-![An attempted jump where a krill jumps over an empty square.]({{ site.baseurl }}/images/prawns/nodiagonaljump3.gif)
+![An attempted jump where a krill jumps over an empty square.]({{ site.baseurl }}/images{{ page.folder }}/nodiagonaljump3.gif)
 
 *This jump is illegal because the krill does not have a prawn from its side to jump over.*
 
-![A crab jumping diagonally over a krill.]({{ site.baseurl }}/images/prawns/crabjump.gif)
+![A crab jumping diagonally over a krill.]({{ site.baseurl }}/images{{ page.folder }}/crabjump.gif)
 
 *This diagram shows that jumping works exactly the same with shrimp, crabs, and lobsters as it does with krill.*
 
@@ -170,23 +170,23 @@ The wall-jump is probably the weirdest rule in Prawns, the other candidate being
 
 The wall-jump takes place when a diagonal jump occurs beside the edge of the sea, so that the square the jumping prawn would land on is just outside the boundary. In this case, instead of the move being illegal (which we thought was too boring), or the jumping prawn committing suicide (which we thought was too violent), the jumping prawn bounces off a wall and lands in the square adjacent to both the wall and the prawn being jumped over, but on the opposite side (see the diagrams if that was a bit confusing). Because the wall-jump is technically still an ordinary jump, all the usual rules apply (i.e. it must jump over a prawn of the same team, the landing square must be empty, etc - see the previous chapter for the details) however it has some details specific to itself (i.e. the jumping prawn must not begin by touching the wall that will be bounced off, while the prawn that is being jumped over must, and the fact that the wall-jump cannot be performed in reverse). Again it is worth remembering that, although we have only used krill in the diagrams, any prawn can take part in a wall-jump.
 
-![One krill wall-jumps over another.]({{ site.baseurl }}/images/prawns/walljump1.gif)
+![One krill wall-jumps over another.]({{ site.baseurl }}/images{{ page.folder }}/walljump1.gif)
 
 *A good example of a perfectly legal wall-jump.*
 
-![One krill wall-jumps over another, bouncing off the top wall.]({{ site.baseurl }}/images/prawns/walljump2.gif)
+![One krill wall-jumps over another, bouncing off the top wall.]({{ site.baseurl }}/images{{ page.folder }}/walljump2.gif)
 
 *Another good example of a perfectly legal wall-jump, showing that any wall will do.*
 
-![One krill attempts to wall-jump over another at 90° to the wall.]({{ site.baseurl }}/images/prawns/nowalljump1.gif)
+![One krill attempts to wall-jump over another at 90° to the wall.]({{ site.baseurl }}/images{{ page.folder }}/nowalljump1.gif)
 
 *This wall-jump is disallowed because it is not based on a diagonal jump.*
 
-![One krill attempts to perform a reverse wall-jump.]({{ site.baseurl }}/images/prawns/nowalljump2.gif)
+![One krill attempts to perform a reverse wall-jump.]({{ site.baseurl }}/images{{ page.folder }}/nowalljump2.gif)
 
 *This wall-jump is disallowed because the krill starts next to the wall, and lands away from it, while the correct version is the other way round.*
 
-![One krill attempts to wall-jump over an enemy krill.]({{ site.baseurl }}/images/prawns/nowalljump3.gif)
+![One krill attempts to wall-jump over an enemy krill.]({{ site.baseurl }}/images{{ page.folder }}/nowalljump3.gif)
 
 *This wall-jump is disallowed because the krill is not jumping over a prawn of the same colour (side).*
 
@@ -201,7 +201,7 @@ Please remember, also, that it is impossible to take an enemy piece with a jump 
 
 As a final point, it is useful to know that it is illegal to eat prawns of your own team, meaning that you can only eat enemy prawns (no assisted suicide, only murder).
 
-![Many Prawns eating each other.]({{ site.baseurl }}/images/prawns/eating.gif)
+![Many Prawns eating each other.]({{ site.baseurl }}/images{{ page.folder }}/eating.gif)
 
 *Halfway through this game there seems to have been an all-you-can-eat buffet! Not all the prawns were that pleased, however. (Even though this .gif is quite fast, try to pick out as when one prawn eats another as much as possible.)*
 
@@ -214,13 +214,13 @@ The way this rule works is that when the total number of pieces on the board is 
 
 The most common method of showing this in real life is the use of four corner pieces which, for a large portion of the game, sit at the corners of the board, but as soon as there are only five prawns left, move in to mark the edges of the now shrunken sea. In the diagram below, they shall be represented as red L-shapes.
 
-![Diagram showing how evaporation works in a game.]({{ site.baseurl }}/images/prawns/evaporation.gif)
+![Diagram showing how evaporation works in a game.]({{ site.baseurl }}/images{{ page.folder }}/evaporation.gif)
 
 *In this example of a relatively inexperienced blue player against the green player, the green player uses evaporation to his/her advantage to ensure his/her victory. The important thing, however, is not that you can follow the game (which is very difficult in a fast moving .gif) but that you understand that the sea is always shrinking to the rectangle that is only just big enough to hold the remaining prawns.*
 
 What happens when the evaporation rule leaves a player with no available moves? It is difficult to think of a case where this is true, but one example is given in the diagram below. Here, the lobster must move along a diagonal, but the sea has evaporated in such a way that no diagonal is available. In this unfortunate case, the lobster must move out of the sea, where it will asphyxiate (it is committing suicide), and meaning the game is won by the blue team. Committing suicide in this way is not allowed in any other situation, but it is necessary here as it is the only move available. It may seem unfair that blue still wins when this is the only move possible, but avoiding these situations or forcing them onto the other team is simply another part of the end-game tactics, and another way to win.
 
-![Diagram showing a rare case where a player doesn't seem to be able to make a move.]({{ site.baseurl }}/images/prawns/nomove.png)
+![Diagram showing a rare case where a player doesn't seem to be able to make a move.]({{ site.baseurl }}/images{{ page.folder }}/nomove.png)
 
 *(Green's turn to move)*
 
@@ -231,7 +231,7 @@ The Evolution Rule
 
 Despite being more like the Pokemon version than its real counterpart, evolution in Prawns still turns one species into another, and is a very important part of the game. The least evolved stage is krill, with the equally developed species of shrimp, crab, and lobster making up the evolved stage.
 
-![The starting layout, with colour-coded end rows showing the evolution zones.]({{ site.baseurl }}/images/prawns/evolutionzones.png)
+![The starting layout, with colour-coded end rows showing the evolution zones.]({{ site.baseurl }}/images{{ page.folder }}/evolutionzones.png)
 
 *This is the same picture as the one you saw in Chapter 5, but with the evolution zones added. The blue krill (top) need to get to the blue evolution zone (bottom) while the green krill (bottom) need to get to the green evolution zone (top).*
 
