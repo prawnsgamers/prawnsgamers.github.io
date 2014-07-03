@@ -147,6 +147,9 @@ html, body {
     animation: fade 18s 12s infinite;
     -webkit-animation: fade 18s 12s infinite;
 }
+#fullfocus > #single > div {
+    opacity: 1;
+}
 #content {
     padding: 10px;
 }
