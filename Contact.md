@@ -5,7 +5,7 @@ zone: Prawnsgame
 
 #Path and Metadata
 folder: 
-permalink: /contact/
+permalink: /Contact/
 layout: default
 published: true
 
@@ -13,11 +13,11 @@ published: true
 link1name: Home
 link1path: /
 link2name: About
-link2path: /about/
+link2path: /About/
 link3name: Blog
-link3path: /blog/
+link3path: /Blog/
 link4name: Contact Us
-link4path: /contact/
+link4path: /Contact/
 ---
 
 The easiest way to contact us is by email, and we would love to hear from you (especially if you've spotted a mistake we should fix somewhere on this site). Each member has their own email address, listed below:

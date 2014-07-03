@@ -5,7 +5,7 @@ zone: Prawnsgame
 
 #Path and Metadata
 folder:
-permalink: /blog/
+permalink: /Blog/
 layout: default
 published: true
 
@@ -13,11 +13,11 @@ published: true
 link1name: Home
 link1path: /
 link2name: About
-link2path: /about/
+link2path: /About/
 link3name: Blog
-link3path: /blog/
+link3path: /Blog/
 link4name: Contact Us
-link4path: /contact/
+link4path: /Contact/
 ---
 
 This blog is where we will be posting any news about website updates, new games or rules, app releases and more! Check back often to see what's going on.
