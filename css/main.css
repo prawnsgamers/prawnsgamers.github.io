@@ -115,11 +115,9 @@ html, body {
 }
 #fullfocus {
     height: 350px;
+    width: 100%;
     position: relative;
     padding: 25px 0;
-}
-#fullfocus, #thinfocus {
-    width: 100%;
 }
 #fullfocus > div > div {
     height: 350px;
@@ -148,9 +146,6 @@ html, body {
 #fullfocus > #triple > div:nth-child(3) {
     animation: fade 18s 12s infinite;
     -webkit-animation: fade 18s 12s infinite;
-}
-#thinfocus {
-    height: 20px;
 }
 #content {
     padding: 10px;
