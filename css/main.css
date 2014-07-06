@@ -150,6 +150,9 @@ html, body {
 #fullfocus > #single > div {
     opacity: 1;
 }
+#content {
+    padding: 10px;
+}
 #content > #sublinks {
     position: relative;
     margin: -10px -10px 10px;
@@ -192,9 +195,6 @@ html, body {
     border-top: 5px solid #ffffff;
     border-bottom: 0;
     transition: all 0.2s ease;
-}
-#content {
-    padding: 10px;
 }
 #content h1 {
     margin: 20px 0 0 0;
