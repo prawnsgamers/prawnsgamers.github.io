@@ -6,15 +6,16 @@ darkcolour: #cc0000
 colouredtextislight: false
 ---
 
-{% assign bob = "pink" %}
-{% assign bobson = "purple" %}
+{% assign light = "pink" %}
+{% assign dark = "purple" %}
+{% assign colouredtextislight = false %}
 
 
 {% include subsite.css %}
 
-body {
+/*body {
     background: linear-gradient({{ bob }} 10%, {{ bobson }} 100%) fixed;
-}/*
+}
 #fullfocus, #content a.post {
     background: linear-gradient(#ddff00 0%, #cc0000 100%);
 }

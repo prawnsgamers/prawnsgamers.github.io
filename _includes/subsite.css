@@ -1,6 +1,5 @@
-
 body {
-    background: linear-gradient({{ page.darkcolour }} 10%, {{ page.lightcolour }} 100%) fixed;
+    background: linear-gradient({{ dark }} 10%, {{ light }} 100%) fixed;
 }
 #fullfocus, #content a.post {
     background: linear-gradient({{ page.lightcolour }} 0%, {{ page.darkcolour }} 100%);
