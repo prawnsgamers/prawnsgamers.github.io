@@ -16,6 +16,3 @@ body {
 #content hr {
     border: 2px solid {{ dark }};
 }
-#content th {
-    color: {{ light }};
-}

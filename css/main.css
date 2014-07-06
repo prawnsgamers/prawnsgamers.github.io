@@ -223,6 +223,9 @@ html, body {
     padding: 5px;
     border: 2px solid #ffffff;
 }
+#content table th {
+    color: #ffffff;
+}
 #content table a {
     color: #000000;
 }
