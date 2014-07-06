@@ -22,6 +22,8 @@ sublinktopname: Rules
 sublinktoppath: /rules/
 sublink1name: Quick Rules
 sublink1path: /rules/quick/
+sublink2name: Short Rules
+sublink2path: /rules/short/
 ---
 These are the Quick rules for Kalamala and act as an instructional guide if necessary but primarily act as a reference guide.
 
