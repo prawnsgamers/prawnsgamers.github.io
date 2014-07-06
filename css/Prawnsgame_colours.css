@@ -1,18 +1,7 @@
-body {
-    background: linear-gradient(#008000 10%, #66cc00 100%) fixed;
-}
-#fullfocus, #content a.post {
-    background: linear-gradient(#66cc00 0%, #008000 100%);
-}
-#sublinks {
-    background: #008000;
-}
-#sublinkbar, #sublinks > a {
-    background: #66cc00;
-}
-#content h1, #content a {
-    color: #66cc00;
-}
-#content hr {
-    border: 2px solid #66cc00;
-}
+---
+---
+
+{% assign light = "#66cc00" %}
+{% assign dark = "#008000" %}
+{% assign colouredtextislight = true %}
+{% include subsite.css %}

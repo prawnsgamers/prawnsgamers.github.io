@@ -5,29 +5,3 @@
 {% assign dark = "#cc0000" %}
 {% assign colouredtextislight = false %}
 {% include subsite.css %}
-
-/*body {
-    background: linear-gradient({{ bob }} 10%, {{ bobson }} 100%) fixed;
-}
-#fullfocus, #content a.post {
-    background: linear-gradient(#ddff00 0%, #cc0000 100%);
-}
-#sublinks {
-    background: #cc0000;
-    border-bottom: 10px solid #ddff00;
-}
-#sublinks > a.here {
-    background: #ddff00;
-}
-#sublinks {
-    background: #cc0000;
-}
-#sublinkbar, #sublinks > a {
-    background: #ddff00;
-}
-#content h1, #content a {
-    color: #cc0000;
-}
-#content hr {
-    border: 2px solid #cc0000;
-}*/
