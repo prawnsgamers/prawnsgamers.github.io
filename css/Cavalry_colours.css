@@ -1,16 +1,9 @@
 ---
-#SubSite Colours CSS
-#layout: css
-lightcolour: #ddff00
-darkcolour: #cc0000
-colouredtextislight: false
 ---
 
-{% assign light = "pink" %}
-{% assign dark = "purple" %}
+{% assign light = "#ddff00" %}
+{% assign dark = "#cc0000" %}
 {% assign colouredtextislight = false %}
-
-
 {% include subsite.css %}
 
 /*body {

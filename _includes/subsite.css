@@ -2,20 +2,20 @@ body {
     background: linear-gradient({{ dark }} 10%, {{ light }} 100%) fixed;
 }
 #fullfocus, #content a.post {
-    background: linear-gradient({{ page.lightcolour }} 0%, {{ page.darkcolour }} 100%);
+    background: linear-gradient({{ light }} 0%, {{ dark }} 100%);
 }
 #content > #sublinks, #content th {
-    background: {{ page.darkcolour }};
+    background: {{ dark }};
 }
 #content > #sublinks > #sublinkbar, #content > #sublinks > a, #content table{
-    background: {{ page.lightcolour }};
+    background: {{ light }};
 }
 #content h1, #content a {
-    color: {% if page.colouredtextislight %}{{ page.lightcolour }}{% else %}{{ page.darkcolour }}{% endif %};
+    color: {% if colouredtextislight %}{{ light }}{% else %}{{ dark }}{% endif %};
 }
 #content hr {
-    border: 2px solid {{ page.darkcolour }};
+    border: 2px solid {{ dark }};
 }
 #content th {
-    color: {{ page.lightcolour }};
+    color: {{ light }};
 }
