@@ -19,7 +19,7 @@
         <div id="page">
             <div id="top">
                 <div>Prawnsgame</div>
-                <div>{% if page.zone == "Prawnsgame" %}Games{% else %}{{ page.zone }}{% endif %}</div>
+                <div>{% if page.zone != "Prawns" and page.zone != "Kalamala" %}Games{% else %}{{ page.zone }}{% endif %}</div>
                 <div>
                     {% if page.link1name %}<div {% if page.link1path == page.permalink %} class="here" {% endif %}>{{ page.link1name }}</div>{% endif %}
                     {% if page.link2name %}<div {% if page.link2path == page.permalink %} class="here" {% endif %}>{{ page.link2name }}</div>{% endif %}
