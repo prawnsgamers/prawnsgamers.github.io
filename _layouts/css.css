@@ -1,24 +1,4 @@
 ---
 ---
-body {
-    background: linear-gradient({{ page.darkcolour }} 10%, {{ page.lightcolour }} 100%) fixed;
-}
-#fullfocus, #content a.post {
-    background: linear-gradient({{ page.lightcolour }} 0%, {{ page.darkcolour }} 100%);
-}
-#content > #sublinks, #content th {
-    background: {{ page.darkcolour }};
-}
-#content > #sublinks > #sublinkbar, #content > #sublinks > a, #content table{
-    background: {{ page.lightcolour }};
-}
-#content h1, #content a {
-    color: {% if page.colouredtextislight %}{{ page.lightcolour }}{% else %}{{ page.darkcolour }}{% endif %};
-}
-#content hr {
-    border: 2px solid {{ page.darkcolour }};
-}
-#content th {
-    color: {{ page.lightcolour }};
-}
+{% include subsite.css %}
 {{ content }}
