@@ -1,3 +1,11 @@
+---
+#SubSite Colours CSS
+layout: css
+lightcolour: #ddff00
+darkcolour: #cc0000
+colouredtextislight: false
+---
+/*
 body {
     background: linear-gradient(#cc0000 10%, #ddff00 100%) fixed;
 }
@@ -22,4 +30,4 @@ body {
 }
 #content hr {
     border: 2px solid #cc0000;
-}
+}*/
