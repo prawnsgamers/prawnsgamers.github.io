@@ -3,13 +3,13 @@ layout: default
 ---
 
                 <div id="sublinks">
-                <div id="sublinkbar"></div>
-                {% if page.sublinktopname %}<a href="{{ page.folder }}{{ page.sublinktoppath }}">{% if page.sublinktoppath != page.permalink %}Back to {% endif %}{{ page.sublinktopname }}</a>{% endif %}
-                {% if page.sublink1name %}<a href="{{ page.folder }}{{ page.sublink1path }}" {% if page.sublink1path == page.permalink %}class="here"{% endif %}>{{ page.sublink1name }}</a>{% endif %}
-                {% if page.sublink2name %}<a href="{{ page.folder }}{{ page.sublink2path }}" {% if page.sublink2path == page.permalink %}class="here"{% endif %}>{{ page.sublink2name }}</a>{% endif %}
-                {% if page.sublink3name %}<a href="{{ page.folder }}{{ page.sublink3path }}" {% if page.sublink3path == page.permalink %}class="here"{% endif %}>{{ page.sublink3name }}</a>{% endif %}
-                {% if page.sublink4name %}<a href="{{ page.folder }}{{ page.sublink4path }}" {% if page.sublink4path == page.permalink %}class="here"{% endif %}>{{ page.sublink4name }}</a>{% endif %}
-                {% if page.sublink5name %}<a href="{{ page.folder }}{ page.sublink5path }}" {% if page.sublink5path == page.permalink %}class="here"{% endif %}>{{ page.sublink5name }}</a>{% endif %}
+                    {% if page.sublinktopname %}<a href="{{ page.folder }}{{ page.sublinktoppath }}">{% if page.sublinktoppath != page.permalink %}Back to {% endif %}{{ page.sublinktopname }}</a>{% endif %}
+                    {% if page.sublink1name %}<a href="{{ page.folder }}{{ page.sublink1path }}" {% if page.sublink1path == page.permalink %}class="here"{% endif %}>{{ page.sublink1name }}</a>{% endif %}
+                    {% if page.sublink2name %}<a href="{{ page.folder }}{{ page.sublink2path }}" {% if page.sublink2path == page.permalink %}class="here"{% endif %}>{{ page.sublink2name }}</a>{% endif %}
+                    {% if page.sublink3name %}<a href="{{ page.folder }}{{ page.sublink3path }}" {% if page.sublink3path == page.permalink %}class="here"{% endif %}>{{ page.sublink3name }}</a>{% endif %}
+                    {% if page.sublink4name %}<a href="{{ page.folder }}{{ page.sublink4path }}" {% if page.sublink4path == page.permalink %}class="here"{% endif %}>{{ page.sublink4name }}</a>{% endif %}
+                    {% if page.sublink5name %}<a href="{{ page.folder }}{ page.sublink5path }}" {% if page.sublink5path == page.permalink %}class="here"{% endif %}>{{ page.sublink5name }}</a>{% endif %}
+                    <div id="sublinkbar"></div>
                 </div>
 
 {{ content }}
