@@ -1,8 +1,8 @@
 body {
-    background: linear-gradient(#5588aa 10%, #aaffff 100%) fixed;
+    background: linear-gradient(#5555aa 10%, #aaffff 100%) fixed;
 }
 #fullfocus, #content a.post {
-    background: linear-gradient(#aaffff 0%, #5588aa 100%);
+    background: linear-gradient(#aaffff 0%, #5555aa 100%);
 }
 #content h1, #content a {
     color: #aaffff;
