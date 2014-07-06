@@ -6,7 +6,7 @@ zone: Kalamala
 #Path and Metadata
 folder: /kalamala
 permalink: /rules/
-layout: default
+layout: subpage
 published: true
 
 #Links
@@ -16,6 +16,12 @@ link2name: Rules
 link2path: /rules/
 link3name: Play
 link3path: /play/
+
+#SubLinks
+sublinktopname: Rules
+sublinktoppath: /rules/
+sublink1name: Quick Rules
+sublink1path: /rules/quick/
 ---
 These are the Quick rules for Kalamala and act as an instructional guide if necessary but primarily act as a reference guide.
 
