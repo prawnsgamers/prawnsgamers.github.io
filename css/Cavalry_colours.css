@@ -5,6 +5,12 @@ lightcolour: #ddff00
 darkcolour: #cc0000
 colouredtextislight: false
 ---
+
+{% assign bob = "pink" %}
+{% assign bobson = "purple" %}
+
+
+{% include subsite.css %}
 /*
 body {
     background: linear-gradient(#cc0000 10%, #ddff00 100%) fixed;
