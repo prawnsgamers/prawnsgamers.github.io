@@ -163,6 +163,10 @@ html, body {
     font-weight: normal;
     background: #ffffff;
 }
+#sublinks > a:nth-child(1) {
+    color: #ffffff;
+    background: none;
+}
 #sublinks > a.here {
     font-weight: bold;
 }
