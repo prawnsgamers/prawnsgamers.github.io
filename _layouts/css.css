@@ -21,3 +21,4 @@ body {
 #content th {
     color: {{ page.lightcolour }};
 }
+{{ content }}
