@@ -4,6 +4,13 @@ body {
 #fullfocus, #content a.post {
     background: linear-gradient(#aaffff 0%, #5555aa 100%);
 }
+#sublinks {
+    background: #5555aa;
+    border-bottom: 10px solid #aaffff;
+}
+#sublinks > a.here {
+    background: #aaffff;
+}
 #content h1, #content a {
     color: #5555aa;
 }
