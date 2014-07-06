@@ -215,6 +215,13 @@ html, body {
     max-height: 250px;
     max-width: 250px;
 }
+#content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#content table, #content th, #content td {
+    padding: 5px;
+}
 #content a.post {
     display: block;
     margin: 20px;

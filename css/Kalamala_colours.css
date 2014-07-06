@@ -4,15 +4,18 @@ body {
 #fullfocus, #content a.post {
     background: linear-gradient(#aaffff 0%, #5555aa 100%);
 }
-#sublinks {
+#content > #sublinks, #content th {
     background: #5555aa;
 }
-#sublinkbar, #sublinks > a {
+#content > #sublinks > #sublinkbar, #content > #sublinks > a, #content table{
     background: #aaffff;
 }
 #content h1, #content a {
     color: #5555aa;
 }
-#content hr {
+#content hr, #content table, #content th, #content td {
     border: 2px solid #5555aa;
+}
+#content th {
+    color: #aaffff;
 }
