@@ -2,7 +2,7 @@
 			<div id="bar">
 				<a href="/">Prawnsgame</a>
 				<div id="sites">
-                    {% if page.zone != "Prawns" or page.zone != "Kalamala" %} <a class="here listitle"><img src="{{ site.baseurl }}/images/list-icon.png"> Games</a> {% endif %}
+                    {% if page.zone != "Prawns" and page.zone != "Kalamala" %} <a class="here listitle"><img src="{{ site.baseurl }}/images/list-icon.png"> Games</a> {% endif %}
 					<a href="/prawns/" {% if page.zone == "Prawns" %} class="here" {% endif %}><img src="{{ site.baseurl }}/images/prawns/icon.png"> Prawns</a>
 					<a href="/kalamala/" {% if page.zone == "Kalamala" %} class="here" {% endif %}><img src="{{ site.baseurl }}/images/kalamala/icon.png"> Kalamala</a>
 					{% comment %}<a href="/cavalry/" {% if page.zone == "Cavalry" %} class="here" {% endif %}><img src="{{ site.baseurl }}/images/cavalry/icon.png"> Cavalry</a>{% endcomment %}
