@@ -6,9 +6,8 @@ body {
 }
 #sublinks {
     background: #008000;
-    border-bottom: 10px solid #66cc00;
 }
-#sublinks > a.here {
+#sublinkbar, #sublinks > a {
     background: #66cc00;
 }
 #content h1, #content a {

@@ -11,6 +11,12 @@ body {
 #sublinks > a.here {
     background: #ddff00;
 }
+#sublinks {
+    background: #cc0000;
+}
+#sublinkbar, #sublinks > a {
+    background: #ddff00;
+}
 #content h1, #content a {
     color: #cc0000;
 }
