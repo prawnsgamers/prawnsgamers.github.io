@@ -5,8 +5,8 @@ body {
     background: linear-gradient(#aaffff 0%, #5555aa 100%);
 }
 #content h1, #content a {
-    color: #aaffff;
+    color: #5555aa;
 }
 #content hr {
-    border: 2px solid #aaffff;
+    border: 2px solid #5555aa;
 }
