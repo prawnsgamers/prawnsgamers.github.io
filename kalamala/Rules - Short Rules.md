@@ -1,11 +1,11 @@
 ---
 #Title and Zone:
-title: Quick Rules
+title: Short Rules
 zone: Kalamala
 
 #Path and Metadata
 folder: /kalamala
-permalink: /rules/quick/
+permalink: /rules/short/
 layout: subpage
 published: true
 
