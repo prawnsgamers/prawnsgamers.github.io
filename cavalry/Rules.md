@@ -18,4 +18,4 @@ link3name: Contact
 link3path: /contact/
 ---
 
-Salih will put some rules here. Enjoy them when he gets round to it.
+We will put some rules here. Enjoy them when we get round to it.
