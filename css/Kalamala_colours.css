@@ -1,12 +1,12 @@
 body {
-    background: linear-gradient(#e76a1b 10%, #e7d01b 100%) fixed;
+    background: linear-gradient(#5588aa 10%, #aaffff 100%) fixed;
 }
 #fullfocus, #content a.post {
-    background: linear-gradient(#e7d01b 0%, #e76a1b 100%);
+    background: linear-gradient(#aaffff 0%, #5588aa 100%);
 }
 #content h1, #content a {
-    color: #e7d01b;
+    color: #aaffff;
 }
 #content hr {
-    border: 2px solid #e7d01b;
+    border: 2px solid #aaffff;
 }
