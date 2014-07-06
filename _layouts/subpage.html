@@ -3,6 +3,7 @@ layout: default
 ---
 
                 <div id="sublinks">
+                <div id="sublinkbar"></div>
                 {% if page.sublinktopname %}<a href="{{ page.folder }}{{ page.sublinktoppath }}">{% if page.sublinktoppath != page.permalink %}Back to {% endif %}{{ page.sublinktopname }}</a>{% endif %}
                 {% if page.sublink1name %}<a href="{{ page.folder }}{{ page.sublink1path }}" {% if page.sublink1path == page.permalink %}class="here"{% endif %}>{{ page.sublink1name }}</a>{% endif %}
                 {% if page.sublink2name %}<a href="{{ page.folder }}{{ page.sublink2path }}" {% if page.sublink2path == page.permalink %}class="here"{% endif %}>{{ page.sublink2name }}</a>{% endif %}
