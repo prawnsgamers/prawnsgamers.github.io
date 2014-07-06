@@ -1,10 +1,10 @@
 body {
     background: linear-gradient({{ dark }} 10%, {{ light }} 100%) fixed;
 }
-#fullfocus, #content a.post {
+#fullfocus {
     background: linear-gradient({{ light }} 0%, {{ dark }} 100%);
 }
-#content > #sublinks, #content th {
+#content > #sublinks, #content th, #content a.post {
     background: {{ dark }};
 }
 #content > #sublinks > #sublinkbar, #content > #sublinks > a, #content table{
@@ -15,4 +15,8 @@ body {
 }
 #content hr {
     border: 2px solid {{ dark }};
+}
+#content a.post:hover {
+    border-top: 5px solid {{ light }};
+    border-bottom: 5px solid {{ light }};
 }

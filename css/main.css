@@ -234,6 +234,9 @@ html, body {
     margin: 20px;
     padding: 5px;
 }
+#content a.post:hover {
+    transition: all 0.2s ease;
+}
 #content a.post p {
     margin: 5px 0 0 15px;
     color: #ffffff;

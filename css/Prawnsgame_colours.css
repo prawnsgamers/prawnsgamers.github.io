@@ -3,5 +3,5 @@
 
 {% assign light = "#c0ff00" %}
 {% assign dark = "#4cbb17" %}
-{% assign colouredtextislight = true %}
+{% assign colouredtextislight = false %}
 {% include subsite.css %}
