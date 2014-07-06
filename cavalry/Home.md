@@ -12,8 +12,12 @@ published: true
 #Links
 link1name: Home
 link1path: /
+link2name: Rules
+link2path: /rules/
+link3name: Contact
+link3path: /contact/
 ---
 
-Cavalry is a 2 player board game that is derived from chess and is solely intended to be a more warlike chess. It is designed in a format that uses several pieces with an apparent conflicting interest. While this may seem like a strange concept, this is designed to replicate the battlefield of old such as the grassy fields of the battle of bosworth and the modern battlefield like the urban surroundings key during the libyan civil war. The fact that Cavalry replicates a battlefield is paramount throughout the game and smoothes the apparent discord between pieces on the same side.
+Cavalry is a two-sided board game that is akin to Chess and Shogi and is intended to be a more accurate reflection of a battlefield, believing both that other games place too little value on the fast paced nature of conflict and believing that a battlefield should be more brutal, death should be more common and that even the dead should play a role in the outcome of the game.
 
-All questions about cavalry should be directed to the email provided in the contact section of the website. If in doubt about any aspects of the game, please e-mail me to air your concerns. I recognise that cavalry is a difficult game to grasp (it is often said that it is harder than other, interesting strategy games - e.g. Prawns [www.prawnsgame.org.uk] ) but its design is highly individual and often requires an entirely new take on board games (this, of course, depends on your original take on board games).
+All questions about Cavalry should be directed to the emails provided in the contact section of the website. If in doubt about aspects of the game, there are instructions available to straighten out any differences, and for any reasons you wish to contact the section of the organisation that runs Cavalry - we are contactable through the contact page.
