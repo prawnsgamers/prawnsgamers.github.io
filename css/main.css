@@ -224,3 +224,8 @@ html, body {
     text-align: center;
     color: #ffffff;
 }
+#foot a{
+	text-decoration:none;
+	color: inherit;
+	font-weight:bold;
+}
