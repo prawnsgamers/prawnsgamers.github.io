@@ -215,6 +215,10 @@ html, body {
     max-height: 250px;
     max-width: 250px;
 }
+#content img[alt^="big: "] {
+    max-height: 600px;
+    max-width: 600px;
+}
 #content table {
     width: 100%;
     border-collapse: collapse;
