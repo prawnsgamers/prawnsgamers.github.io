@@ -7,6 +7,7 @@ zone: Prawnsgame
 folder: 
 permalink: /contact/
 layout: default
+description: The contact page of prawnsgame.org.uk, letting you get in touch (write to in emails) the creators of the abstract strategy board games of Prawns, Kalamala, and more!
 published: true
 
 #Links

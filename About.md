@@ -7,6 +7,7 @@ zone: Prawnsgame
 folder: 
 permalink: /about/
 layout: default
+description: The about page of prawnsgame.org.uk, where you'll find more about the organisation and the people who make the board games of Prawns, Kalamala, and more!
 published: true
 
 #Links

@@ -7,6 +7,7 @@ zone: Prawnsgame
 folder:
 permalink: /blog/
 layout: default
+description: The blog for prawnsgame.org.uk, where you can keep track of everything happening to do with prawnsgame.org.uk. Featuring news, game updates (for Prawns and Kalamala), and posts about new site features.
 published: true
 
 #Links
