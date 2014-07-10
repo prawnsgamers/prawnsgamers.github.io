@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Prawnsgame Zone -->
+    <url>
+        <loc>http://prawnsgame.org.uk/</loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/about/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/contact/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/copyright/</loc>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Prawns Zone -->
+    <url>
+        <loc>http://prawnsgame.org.uk/prawns/</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/prawns/rules/</loc>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Kalamala Zone -->
+    <url>
+        <loc>http://prawnsgame.org.uk/kalamala/</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/kalamala/rules/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/kalamala/rules/quick/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/kalamala/rules/short/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/kalamala/play/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/kalamala/proto/</loc>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Blog -->
+    <url>
+        <loc>http://prawnsgame.org.uk/blog/</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/blog/2014/06/21/site-works/</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/blog/2014/06/22/kalamala-rules-uploaded/</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/blog/2014/06/22/current-pages-completed/</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/blog/2014/06/30/prawns-rules-uploaded</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>http://prawnsgame.org.uk/blog/2014/06/30/new-colours/</loc>
+        <priority>0.3</priority>
+    </url>
+</urlset> 
