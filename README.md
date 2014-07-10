@@ -21,6 +21,6 @@ Unfortunately these four pages haven't yet been programmed to act upon pages tha
 
 This means that for external resources (such as images or external .css documents), it is necessary to prefix the src or href with {{ site.baseurl }}, like this:
 
-code for an image: *![image description]({{ site.baseurl }}/images/example.png)*
+    code for an image: *![image description]({{ site.baseurl }}/images/example.png)*
 
 Links to pages should be done as usual, with external links starting with http:// and internal links starting with the root directory / 
