@@ -30,7 +30,7 @@ This sitemap is meant primarily for human reading, and is therefore presented as
  - [About](/about/) *A little information about this site and the people behind it.*
  - [Blog](/blog/) *This site's blog, where we put all our news and updates. Not that individual blog posts are listed below, in the blog section.*
  - [Contact Us](/contact/) *This site's overall contact page, for how to reach us.*
- - [Sitmap](/sitemap/) *This page. Nothing new here. (Actually, that's not true 100% of the time.)*
+ - [Sitemap](/sitemap/) *This page. Nothing new here. (Actually, that's not true 100% of the time.)*
  - [Copyright](/copyright/) *The copyright notice. Please pay attention to it before copying things.*
 
 [Prawns Site (Prawns Zone)](/prawns/)
