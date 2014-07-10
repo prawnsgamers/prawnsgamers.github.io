@@ -7,7 +7,7 @@ zone: Prawns
 folder: /prawns
 permalink: /rules/
 layout: default
-description: The rules page for Prawns on prawnsgame.org.uk, where you can learn how to play the abstract strategy board game Prawns with your friends. Remember: Prawns is Fun!
+description: "The rules page for Prawns on prawnsgame.org.uk, where you can learn how to play the abstract strategy board game Prawns with your friends. Remember: 'Prawns is Fun!'"
 published: true
 
 #Links
