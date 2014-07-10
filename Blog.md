@@ -30,7 +30,7 @@ Posts:
 
 {% for post in site.posts %}
 <div>
-<a href="{{ site.url }}{{ post.url }}" class="post">
+<a href="{{ post.url }}" class="post">
 <p>{{ post.date | date: "%b %-d, %Y" }}</p>
 <h2>{{ post.title }}</h2>
 </a>
