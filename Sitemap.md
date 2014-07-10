@@ -53,5 +53,5 @@ This sitemap is meant primarily for human reading, and is therefore presented as
 ====================
 
 {% for post in site.posts %}
- - [{{ post.title }}]({{ post.url }})
+ - [{{ post.title }}]({{ post.url }}) *{{ post.date | date: "%b %-d, %Y" }}*
 {% endfor %}
