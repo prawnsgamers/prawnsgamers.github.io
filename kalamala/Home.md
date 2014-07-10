@@ -7,6 +7,7 @@ zone: Kalamala
 folder: /kalamala
 permalink: /
 layout: default
+description: The home page of the Kalamala subsite on prawnsgame.org.uk. Learn about the interesting abstract strategy board game Kalamala, invented by Daniel Sherlock and Salih Kadri, and its history.
 published: true
 
 #Links

@@ -7,6 +7,7 @@ zone: Kalamala
 folder: /kalamala
 permalink: /rules/
 layout: subpage
+description: The rules page for Kalamala on prawnsgame.org.uk, where you can learn how to play the abstract strategy board game Kalamala with your friends.
 published: true
 
 #Links

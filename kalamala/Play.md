@@ -7,6 +7,7 @@ zone: Kalamala
 folder: /kalamala
 permalink: /play/
 layout: default
+description: The play page on the Kalamala subsite at prawnsgame.org.uk. Here you can play the game Kalamala in your browser.
 published: true
 
 #Links
