@@ -17,10 +17,16 @@ Hostinger currently has four files live:
  - robots.txt <-- This allows access to the relevant pages for search engines
  - sitemap.xml <-- This is a list of pages for search engines
 
-Unfortunately these four pages haven't yet been programmed to act upon pages that aren't HTML (Jekyll/github-pages convertd .md and .markdown to .html).
+Unfortunately these four pages haven't yet been programmed to act upon pages that aren't HTML (Jekyll/github-pages converts .md and .markdown to .html).
 
 This means that for external resources (such as images or external .css documents), it is necessary to prefix the src or href with {{ site.baseurl }}, like this:
 
-    code for an image: *![image description]({{ site.baseurl }}/images/example.png)*
+    code for an image: ![image description]({{ site.baseurl }}/images/exampleimage.png)
 
 Links to pages should be done as usual, with external links starting with http:// and internal links starting with the root directory / 
+
+    code for an internal link: [link description](/examplepage/examplesubpage/)
+
+    code for an external link: [link description](http://examplesite.com/examplepage/)
+
+Unfortunately this also means that the sitemap doesn't update automatically. To update the sitemap, you should update the github version, then contact Daniel to ask him to update it manually. It's not ideal, but it's all we can do for the moment, because otherwise the web thinks that we're cross-site scripting.
