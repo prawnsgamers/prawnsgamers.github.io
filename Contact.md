@@ -28,6 +28,6 @@ The easiest way to contact us is by email, and we would love to hear from you (e
 
 If you find a really serious issue that we can't fix, please feel free to do as Daniel does, and blame Salih.
 
-*Comment by Salih:* Oh, and Salih recently got a webpage and has been all smug about it so visit it at [salihkadri.com](http://salihkadri.com/)
+*Comment by Salih:* I also have a website which you can visit at [salihkadri.com](http://salihkadri.com/)
 
 *Comment by Daniel:* Really, I'm not entirely sure why Salih felt the need to link his website here, but if you find that you want to annoy him by sending him far too many emails, then as well as using the one above (and the one for cavalry) he has a nice selection of emails on his site for you to annoy him with. Enjoy.
