@@ -7,6 +7,7 @@ zone: Prawnsgame
 folder: 
 permalink: /copyright/
 layout: default
+description: The copyright page of prawnsgame.org.uk. This contains the copyright declarations to be followed respectfully when distributing or copying [from] our games or website.
 published: true
 
 #Links
