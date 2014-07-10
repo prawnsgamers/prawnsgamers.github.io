@@ -29,4 +29,4 @@ Links to pages should be done as usual, with external links starting with http:/
 
     code for an external link: [link description](http://examplesite.com/examplepage/)
 
-Unfortunately this also means that the sitemap doesn't update automatically. To update the sitemap, you should update the github version, then contact Daniel to ask him to update it manually. It's not ideal, but it's all we can do for the moment, because otherwise the web thinks that we're cross-site scripting.
+Unfortunately this also means that the sitemap doesn't update automatically. To update the sitemap, you should update the github version (both the .xml file and the .md file, unless you have added a blog post, in which case the .md file will auto-update), then contact Daniel to ask him to update it manually. It's not ideal, but it's all we can do for the moment, because otherwise the web thinks that we're cross-site scripting.
