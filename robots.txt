@@ -1,4 +1,7 @@
-﻿User-agent: *
+
+# Disallow everything, except resources.
+
+User-agent: *
 Allow: /css/
 Allow: /images/
 Disallow: /
