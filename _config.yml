@@ -1,16 +1,10 @@
 # Site settings
 title: Prawnsgame
 email: prawnsgame@gmail.com
-description: "Prawnsgame is a website dedicated to bringing you new and interesting abstract strategy board games. Enjoy!!"
+description: "Prawnsgame.org.uk is a website dedicated to bringing you new and interesting abstract strategy board games. So far, we've invented many games, and published Prawns and Kalamala."
 baseurl: "http://prawnsgamers.github.io"
 url: "http://prawnsgame.org.uk"
 
 # Build settings
 markdown: kramdown
 permalink: pretty
-
-#Collections
-collections:
-  cavalry:
-    output: true
-    name: Cavalry
