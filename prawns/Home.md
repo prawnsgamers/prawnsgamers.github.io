@@ -7,7 +7,7 @@ zone: Prawns
 folder: /prawns
 permalink: /
 layout: default
-description: The home page of the Prawns subsite on prawnsgame.org.uk. Learn about the original abstract strategy board game Prawns, invented by Zachary Barnett and Daniel Sherlock, and its history. Remember: Prawns is fun!
+description: "The home page of the Prawns subsite on prawnsgame.org.uk. Learn about the original abstract strategy board game Prawns, invented by Zachary Barnett and Daniel Sherlock, and its history. Remember: 'Prawns is Fun!'"
 published: true
 
 #Links
