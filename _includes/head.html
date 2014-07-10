@@ -3,8 +3,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ page.title }} | {{ page.zone }}</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="{{ site.description }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="canonical" href="{{ prepend: site.url }}{{ page.url | replace:'index.html','' }}">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/{{ page.zone }}_colours.css">
     <link rel="icon" href="{{ site.baseurl }}/images/favicons/{{ page.zone }}.png">
