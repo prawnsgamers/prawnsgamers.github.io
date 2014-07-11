@@ -191,9 +191,8 @@ html, body {
     transition: all 0.2s ease;
 }
 #content > #sublinks > a:nth-child(1):hover {
-    padding: 0 0 15px;
-    border-top: 5px solid #ffffff;
-    border-bottom: 0;
+    padding: 5px 0 10px 0;
+    border-bottom: 5px solid #44AA44;
     transition: all 0.2s ease;
 }
 #content h1 {
