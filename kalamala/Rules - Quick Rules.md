@@ -21,10 +21,12 @@ link3path: /play/
 #SubLinks
 sublinktopname: Rules
 sublinktoppath: /rules/
-sublink1name: Quick Rules
-sublink1path: /rules/quick/
-sublink2name: Short Rules
-sublink2path: /rules/short/
+sublink1name: Teaching Rules
+sublink1path: /rules/teaching/
+sublink2name: Quick Rules
+sublink2path: /rules/quick/
+sublink3name: Short Rules
+sublink3path: /rules/short/
 ---
 
 These are the Quick rules for Kalamala which act primarily as a reference guide.

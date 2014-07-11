@@ -21,10 +21,12 @@ link3path: /play/
 #SubLinks
 sublinktopname: Rules
 sublinktoppath: /rules/
-sublink1name: Quick Rules
-sublink1path: /rules/quick/
-sublink2name: Short Rules
-sublink2path: /rules/short/
+sublink1name: Teaching Rules
+sublink1path: /rules/teaching/
+sublink2name: Quick Rules
+sublink2path: /rules/quick/
+sublink3name: Short Rules
+sublink3path: /rules/short/
 ---
 
 Since different people will have different playing abilities and levels of understanding of Kalamala, we have decided to write a few different rulesets which cater for these different needs. Either navigate to the required rules using the tabs above, or click the link next to the discription of each ruleset below.
