@@ -46,7 +46,7 @@ This sitemap is meant primarily for human reading, and is therefore presented as
  - [Rules](/kalamala/rules/) *The rules page for Kalamala. Select which ruleset you need.*
     + [Teaching Rules](/kalamala/rules/teaching/) *The teaching rules: a guide letting beginners grasp the basics of Kalamala*
     + [Quick Rules](/kalamala/rules/quick/) *The quick rules: ideal for use as a basic reference, memory-jog, or argument settler.*
-    + [Short Rules](/kalamala/rules/short/) *The short rules: realy only of academic interest, a sort of competition.*
+    + [Short Rules](/kalamala/rules/short/) *The short rules: really only of academic interest, a sort of competition.*
  - [Play](/kalamala/play/) *The page where you'll so be able to play the exciting game called Kalamala in your browser.*
     + [Proto-Game](/kalamala/proto/) *A sneak peek at what's coming - we had this game thrown together, even though it doesn't yet have all the features.*
 

@@ -35,6 +35,6 @@ We have tried not to use too much difficult or abstract terminology, and tried t
 
 If you feel you have understood the majority of these rules, but would like clarification on a specific issue, [the quick rules](/kalamala/rules/quick/) have been written to be more black and white about complex topics.
 
-Currently these rules are only abailable ad a .pdf at A4 size, but we hope to republish them at A5 and duplicate the content on this webpage.
+Currently these rules are only available ad a .pdf at A4 size, but we hope to republish them at A5 and duplicate the content on this webpage.
 
 <a href="{{ site.baseurl }}/files/kalamala/teachingrulesA4.pdf" download="KalamalaRulesA4.pdf">Download the Teaching rules as a .pdf at A4</a>

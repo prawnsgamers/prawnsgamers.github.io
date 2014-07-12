@@ -21,4 +21,4 @@ link3path: /play/
 
 We're currently working on a way to let you play Kalamala, both as an app and on this very webpage. Check back later, or take a look at our [Blog](/blog/) to see if there has been any news regarding progress.
 
-At the moment, we have an unfinished online version written. Dubbed the "proto-game" by its creator (despite the fact that it by no means represents any version of Kalamala as it was when it was in development) is avaliable to [play](/kalamala/proto/) on our site, even though it does leave out the concept of groups: one of the most impostant elements of the game.
+At the moment, we have an unfinished online version written. Dubbed the "proto-game" by its creator (despite the fact that it by no means represents any version of Kalamala as it was when it was in development) is available to [play](/kalamala/proto/) on our site, even though it does leave out the concept of groups: one of the most important elements of the game.
