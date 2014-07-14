@@ -1,0 +1,2571 @@
+---
+#Title and Zone:
+title: Full Game
+zone: Kalamala
+
+#Path and Metadata
+folder: /kalamala
+permalink: /fullonline/
+layout: default
+description: The full game at long last online!
+published: true
+
+#Links
+link1name: Home
+link1path: /
+link2name: Rules
+link2path: /rules/
+link3name: Play
+link3path: /play/
+---
+
+<p> We finally have a digital version of Kalamala! Courtesy of Salih Kadri, who informs us it's around two and a half thousand lines of javascript code, we have the first of hopefully very many alternative ways to play the game available. It's worth pointing out however, that while the game obeys all the in play rules, it does not observe the Ko or Super Ko rules and you probably want to disable the winner function at the start. This is because Salih was too lazy to fully complete it and was whining about it taking another fortnight or two, so it occasionally calls a winner prematurely. If you find any other bugs, e-mail them to Daniel who will promptly scold Salih and get him to fix them or e-mail them to Salih who will fix them quickly and quietly, hoping Daniel won't notice. As for how to play the game, we'll have some instructions soon but for now enjoy working it out by yourself!</p>
+<style>
+*{
+    margin:0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#game {
+margin: 0 auto;
+width: 400px;
+}
+.light{
+    background-color: purple;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+}
+.dark{
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+}
+.replace{
+    background-color: pink;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+}
+.reinforce1{
+    display:inline;
+}
+.reinforce2{
+    display:inline;
+}
+.bluetoo{
+   
+    height: 50px;
+    width: 50px;
+    display:inline-block; background:url("http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Chess_pdt45.svg/50px-Chess_pdt45.svg.png");
+}
+.blueyou{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background: url("http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Chess_tile_pl.svg/50px-Chess_tile_pl.svg.png");
+}
+.gapstopper{
+    height: 50px;
+    width: 400px;
+}
+.anchor{
+    background-color:orange;
+}
+.poten{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background-color:green;
+}
+.sel{;
+    background-color:yellow;
+}
+.placesel{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background-color:yellow;
+}
+.potenpc{
+    background-image:url('http://upload.wikimedia.org/wikipedia/commons/thumb/0/07/LetterP.svg/50px-LetterP.svg.png');
+}
+.potenmv{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    background-color:red;
+}
+.count{
+  width:400px;
+  text-align:center;
+  font-family:tahoma;
+}
+.winner{
+  width:400px;
+  text-align:center; 
+  font-family:tahoma;
+  background-image:url('http://i44.servimg.com/u/f44/14/74/52/91/prod_410.gif');
+}
+</style>
+
+<div id="game"></div>
+
+<script>
+var Board = [
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,1,2,0,0,0],
+    [0,0,1,0,0,2,0,0],
+    [0,0,2,0,0,1,0,0],
+    [0,0,0,2,1,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0]];
+var piecesel = 0;
+var placer=0;
+var placetype =0;
+var placeamount1 =4;
+var placeamount2 =4;
+var kill=0;
+var turns=0;
+var win=0;
+var connections=0;
+var block=0;
+var direction;
+var anchorno=0;
+var selno=0;
+var maximv=0;
+var distance=0;
+var runwin=0;
+function ko(){
+if (turns===1){
+if(Board===Board1&&pl11=placeamount1&&pl12=placeamount2){
+document.getElementById("game").innerHTML = "Ko rule activated - This is identical to this time last turn - White's turn";
+}
+Board1 = Board;
+pl11= placeamount1;
+pl12= placeamount2;
+}else{
+if(Board===Board0&&pl01===placeamount1&&pl02===placeamount2){
+document.getElementById("game").innerHTML = "Ko rule activated - This is identical to this time last turn - Black's turn";
+}
+Board2 = Board;
+pl21= placeamount1;
+pl22= placeamount2;
+}
+function idraw (){
+var drawn = '';
+  if(win!==1){
+    for(i=0;i<8;i++){
+    drawn += '<div id="row'+i+'" class="gapstopper">';
+        for(j=0;j<8;j++){
+            if((i+j)%2===0){colort='light';}else{colort='dark';}
+    drawn+= '<div id="row'+i+'col'+j+'" class="'+ colort +'" onclick="place('+i+','+j+')">';
+            if(Board[i][j]===2||Board[i][j]===4||Board[i][j]===6||Board[i][j]===8){ Board[i][j]=2;
+             drawn+='<div class="bluetoo" onclick="Cpiece(this,'+i+','+j+')"></div>';
+            }else if(Board[i][j]===1||Board[i][j]===3||Board[i][j]===5||Board[i][j]===7){
+              Board[i][j]=1;
+             drawn+='<div class="blueyou" onclick="Cpiece(this,'+i+','+j+')"></div>';
+            }
+            drawn+= '</div>';
+        }
+        drawn+='</div>';
+    }
+     drawn+='<div class="reinforce1">';
+   for(i=0;i<placeamount1;i++){
+       drawn+='<div class="replace"  id="piece1'+i+'" ><div class="blueyou" onclick="placinger(0,'+i+')"></div></div>';
+    }
+     drawn+='</div><div class="reinforce2">';
+   for(j=0;j<placeamount2;j++){
+       drawn+='<div class="replace"  id="piece2'+j+'" ><div class="bluetoo" onclick="placinger(1,'+j+')"></div></div>';
+   } 
+     drawn+='</div><div id="kill"><div id="button"></div></div>';
+   
+  if(turns===0){
+    drawn+='<div class="count">White\'s turn</div>';
+  }else{
+    drawn+='<div class="count">Black\'s turn</div>';
+  } 
+    if(runwin===0){drawn+='<button onclick="disable()">The function to check for the winner is super unreliable so click this button to disable it</button>';
+                  runwin++;}
+    return drawn;} else {
+      
+    for(i=0;i<8;i++){
+    drawn += '<div id="row'+i+'" class="gapstopper">';
+        for(j=0;j<8;j++){
+            if((i+j)%2===0){colort='light';}else{colort='dark';}
+    drawn+= '<div id="row'+i+'col'+j+'" class="'+ colort +'" >';
+            if(Board[i][j]===2||Board[i][j]===4||Board[i][j]===6||Board[i][j]===8){ Board[i][j]=2;
+             drawn+='<div id="row'+i+'col'+j+'" class="bluetoo"></div>';
+            }else if(Board[i][j]===1||Board[i][j]===3||Board[i][j]===5||Board[i][j]===7){
+              Board[i][j]=1;
+             drawn+='<div class="blueyou" ></div>';
+            }
+            drawn+= '</div>';
+        }
+        drawn+='</div>';
+    }
+     drawn+='<div class="reinforce1">';
+   for(i=0;i<placeamount1;i++){
+       drawn+='<div class="replace"  id="piece1'+i+'" ><div class="blueyou"></div></div>';
+    }
+     drawn+='</div><div class="reinforce2">';
+   for(j=0;j<placeamount2;j++){
+       drawn+='<div class="replace"  id="piece2'+j+'" ><div class="bluetoo"></div></div>';
+   } drawn+='</div>';
+        if(turns===0){
+          drawn+='<div class="winner"> Black probably wins</div>';
+        }else{
+          drawn+='<div class="winner"> White probably wins</div>';
+        }
+      drawn+='<button onclick="rerun()">Click here if you disagree</button>';
+    }
+   win=0;
+    return drawn;
+}
+function disable(){
+    win=2; 
+  
+    rerun();
+}
+function rerun(){
+document.getElementById("game").innerHTML = idraw();
+}
+document.getElementById("game").innerHTML = idraw();
+function removeElement(node) {
+    node.parentNode.removeChild(node);
+}
+function Remove(i,j){
+   maximv = Math.floor(anchorno/selno);
+      switch(direction){
+          case 4:direction=8;
+          break;
+          case 8:direction=4;
+          break;
+      }
+  
+       switch(direction){
+        case 1:if(i>=j){
+          distance = 1+j;
+                      }else{
+          distance = 1+i;
+                      }
+          break;
+          case 2:distance = 1+i;
+          break;
+          case 3:if((i+1)>=(-j+8)){
+          distance = -j+8;
+                      }else{
+          distance = 1+i;
+                      }
+          break;
+          case 4:distance = -j+8;
+          break;
+          case 5:if((-i+8)>=(-j+8)){
+          distance = -j+8;
+                      }else{
+          distance = -i+8;
+                      }
+          break;
+          case 6:distance = -i+8;console.log(distance);
+          break;
+        case 7:if((i+1)>=(-j+8)){
+          distance = -i+8;
+                      }else{
+          distance = j+1;
+                      }
+          break;
+          case 8:distance = 1+j;
+          break;
+      }
+      counter=0;
+      for(type=0;type<2;type++){
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===type+7){
+          counter=counter+1;
+          if(counter===1){
+          switch(direction){
+            case 1:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+              for(z=y;z===y;y++){
+                Board[x][y]=0;
+                c++;
+              }}
+                y=b;
+                x=a;
+              c=0;
+              for(;c<(selno-distance);x++){
+              for(z=y;z===y;y++){
+                Board[x][y]=type+1;
+                c++;
+              }}
+              
+              break;
+          case 2:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+                Board[x][y]=0;
+                c++;
+              }
+                y=b;
+                x=a;
+              c=0;
+              for(;c<(selno-distance);x++){
+                Board[x][y]=type+1;
+                c++;
+              }
+              
+              break;
+          case 3:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+              for(z=y;z===y;y--){
+                Board[x][y]=0;
+                c++;
+              }
+              }
+                y=b;
+                x=a;
+              c=0;
+              for(;c<(selno-distance);x++){
+              for(z=y;z===y;y--){
+                Board[x][y]=type+1;
+                c++;
+              }
+              }
+              
+              break;
+          case 4:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;y--){
+                Board[x][y]=0;
+                c++;
+              }
+                y=b;
+                x=a;
+              c=0;
+              for(;c<(selno-distance);y--){
+                Board[x][y]=type+1;
+                c++;
+              }
+              
+              break;}}else if(counter===selno){
+                switch(direction){
+          case 5:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x--){
+              for(z=y;z===y;y--){
+                Board[x][y]=0;
+                c++;
+              }
+              }
+                y=b;
+                x=a;
+              c=0;
+              for(;c<(selno-distance);x--){
+              for(z=y;z===y;y--){
+                Board[x][y]=type+1;
+                c++;}
+              }
+              
+              break;
+          case 6:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x--){
+                Board[x][y]=0;
+                c++;
+              }
+              y=b;
+              x=a;
+              c=0;
+              for(;c<(selno-distance);x--){
+                Board[x][y]=type+1;
+                c++;
+              }
+              
+              break;
+          case 7:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x--){
+              for(z=y;z===y;y++){
+                Board[x][y]=0;
+                c++;
+              }
+              }
+                y=b;
+                x=a;
+              c=0;
+              for(;c<(selno-distance);x--){
+              for(z=y;z===y;y++){
+                Board[x][y]=type+1;
+                c++;}
+              }
+              
+              break;
+          case 8:
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;y++){
+                Board[x][y]=0;
+                c++;
+              }
+                y=b;
+                x=a;
+              c=0;
+              for(;c<(selno-distance);y++){
+                Board[x][y]=type+1;
+                c++;
+              }
+              
+                    break;}}}}}}
+  if(turns===0){turns=1;}else{turns=0;}
+  document.getElementById("game").innerHTML = idraw();
+  winner();
+            piecesel=0;
+}
+function Cpiece(x,i,j){
+  if(piecesel===0&&(Board[i][j]===turns+1)){
+    if(anchorno===0){ 
+      selno=0;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+    direction=0;
+    anchorno=anchorno+1;
+    }else if(anchorno===1){
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===3||Board[a][b]===4){
+            up=a-1;
+            dwn=a+1;
+            lft=b-1;
+            rgt=b+1;
+            if(up===i&&lft===j){
+              direction=1;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }else if(up===i&&b===j){
+              direction=2;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }else if(up===i&&rgt===j){
+              direction=3;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }else if(a===i&&rgt===j){
+              direction=4;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }else if(dwn===i&&rgt===j){
+              direction=5;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }else if(dwn===i&&b===j){
+              direction=6;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }else if(dwn===i&&lft===j){
+              direction=7;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }else if(a===i&&lft===j){
+              direction=8;
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}
+            }
+          }
+        }
+    }
+      if(direction!==0){
+    anchorno=anchorno+1;}
+    }else if(anchorno>1){
+            up=i-1;
+            dwn=i+1;
+            lft=j-1;
+            rgt=j+1;
+          switch(direction){
+            case 1:if(Board[up][lft]===turns+3||Board[dwn][rgt]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+            case 2:if(Board[up][j]===turns+3||Board[dwn][j]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+            case 3:if(Board[up][rgt]===turns+3||Board[dwn][lft]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+            case 4:if(Board[i][rgt]===turns+3||Board[i][lft]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+            case 5:if(Board[up][lft]===turns+3||Board[dwn][rgt]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+            case 6:if(Board[up][j]===turns+3||Board[dwn][j]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+            case 7:if(Board[up][rgt]===turns+3||Board[dwn][lft]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+            case 8:if(Board[i][lft]===turns+3||Board[i][rgt]===turns+3){
+x.className += " anchor";
+    colour = Board[i][j];
+    if(colour===1){Board[i][j]=3;}else{Board[i][j]=4;}     anchorno=anchorno+1;  
+            }break;
+          }
+        }
+  }else if(piecesel===0&&(Board[i][j]===turns+3)){
+    piecesel =1;
+      switch(direction){
+        case 0:
+          fer=0;
+   var i1,i2,i3,i4,i5,i6;
+   var j1,j2,j3,j4,j5,j6;
+   i1=i2=i3=i4=i5=i6=i;
+   j1=j2=j3=j4=j5=j6=j;
+    for(;;i1++){
+      if(i1>7){
+        break;
+      } 
+     for(y = j1; y==j1;j1++){
+      
+       if(j1>7){
+        break;
+      }
+      if(Board[i1][j1]===1){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+      Board[i1][j1]=5;
+        fer=fer+1;
+      }else if(Board[i1][j1]===2){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+        Board[i1][j1] = 6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    }
+    
+   fer=0;
+    for(;;i2++){
+      if(i2>7){
+        break;
+      } 
+     for(y = j2; y==j2;j2--){
+      
+       if(j2<0){
+        break;
+      }
+      if(Board[i2][j2]===1){
+        document.getElementById('row'+i2+'col'+j2).className += 
+          " poten";
+      Board[i2][j2]=5;
+        fer=fer+1;
+      }else if(Board[i2][j2]===2){
+        document.getElementById('row'+i2+'col'+j2).className += 
+          " poten";
+        Board[i2][j2] = 6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i3--){
+      if(i3<0){
+        break;
+      } 
+     for(y = j3; y==j3;j3++){
+      
+       if(j3>7){
+        break;
+      }
+      if(Board[i3][j3]===1){
+        document.getElementById('row'+i3+'col'+j3).className += 
+          " poten";
+      Board[i3][j3]=5;
+        fer=fer+1;
+      }else if(Board[i3][j3]===2){
+        document.getElementById('row'+i3+'col'+j3).className += 
+          " poten";
+        Board[i3][j3] = 6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i4--){
+      if(i4<0){
+        break;
+      } 
+     for(y = j4; y==j4;j4--){
+      
+       if(j4<0){
+        break;
+      }
+      if(Board[i4][j4]===1){
+        document.getElementById('row'+i4+'col'+j4).className += 
+          " poten";
+      Board[i4][j4]=5;
+        fer=fer+1;
+      }else if(Board[i4][j4]===2){
+        document.getElementById('row'+i4+'col'+j4).className += 
+          " poten";
+        Board[i4][j4] =6;
+        fer=fer+1;
+      }
+       
+      } 
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i5--){
+      if(i5<0){
+        break;
+      } 
+     
+      if(Board[i5][j]===1){
+        document.getElementById('row'+i5+'col'+j).className += 
+          " poten";
+      Board[i5][j]=5;
+        fer=fer+1;
+      
+       
+      } else if(Board[i5][j]===2){
+        document.getElementById('row'+i5+'col'+j).className += 
+          " poten";
+        Board[i5][j] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;j5--){
+      if(j5<0){
+        break;
+      } 
+     
+      if(Board[i][j5]===1){
+        document.getElementById('row'+i+'col'+j5).className += 
+          " poten";
+        fer=fer+1;
+      Board[i][j5]=5;
+       
+      } else if(Board[i][j5]===2){
+        document.getElementById('row'+i+'col'+j5).className += 
+          " poten";
+        Board[i][j5] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;i6++){
+      if(i6>7){
+        break;
+      } 
+      if(Board[i6][j]===1){
+        document.getElementById('row'+i6+'col'+j).className += 
+          " poten";
+        Board[i6][j]= 5;
+        fer=fer+1;
+      
+       
+      } else if(Board[i6][j]===2){
+        document.getElementById('row'+i6+'col'+j).className += 
+          " poten";
+        Board[i6][j] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+   fer=0;
+    for(;;j6++){
+      if(j6>7){
+        break;
+      } 
+      if(Board[i][j6]===1){
+        document.getElementById('row'+i+'col'+j6).className += 
+          " poten";
+        Board[i][j6] = 5;
+        fer=fer+1;
+      
+       
+      } else if(Board[i][j6]===2){
+        document.getElementById('row'+i+'col'+j6).className += 
+          " poten";
+        Board[i][j6] = 6;
+        fer=fer+1;
+      }
+      if(fer===1){break;}
+    } 
+          break;
+      
+    case 1:
+        case 5:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[i][j]===turns+3){
+            if(counter===0){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;i1--){
+      if(i1<0){
+        break;
+      } 
+     for(y = j1; y==j1;j1--){
+      
+       if(j1<0){
+        break;
+      }
+      if(Board[i1][j1]===1){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+      Board[i1][j1]=5;
+        stop=stop+1;
+      }else if(Board[i1][j1]===2){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+        Board[i1][j1] =6;
+        stop=stop+1;
+      }
+       
+      } 
+      if(stop===1){break;}
+    }         
+            }else if(counter===anchorno){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;i1++){
+      if(i1>7){
+        break;
+      } 
+     for(y = j1; y==j1;j1++){
+      
+       if(j1>7){
+        break;
+      }
+      if(Board[i1][j1]===1){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+      Board[i1][j1]=5;
+        stop=stop+1;
+      }else if(Board[i1][j1]===2){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+        Board[i1][j1] =6;
+        stop=stop+1;
+      }
+       
+      } 
+      if(stop===1){break;}
+    }         
+            }
+            counter=counter+1;
+          }
+        }}
+          
+          break;
+        
+    case 2:
+        case 6:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[i][j]===turns+3){
+            if(counter===0){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;i1--){
+      if(i1<0){
+        break;
+      } 
+      
+      if(Board[i1][j]===1){
+        document.getElementById('row'+i1+'col'+j).className += 
+          " poten";
+      Board[i1][j]=5;
+       stop=stop+1;
+      }else if(Board[i1][j]===2){
+        document.getElementById('row'+i1+'col'+j).className += 
+          " poten";
+        Board[i1][j] =6;
+        stop=stop+1;
+      
+       
+      } 
+      if(stop===1){break;}
+    }         
+            }else if(counter===anchorno){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;i1++){
+      if(i1>7){
+        break;
+      } 
+      
+      if(Board[i1][j]===1){
+        document.getElementById('row'+i1+'col'+j).className += 
+          " poten";
+      Board[i1][j]=5;
+        stop=stop+1;
+      }else if(Board[i1][j1]===2){
+        document.getElementById('row'+i1+'col'+j).className += 
+          " poten";
+        Board[i1][j] =6;
+        stop=stop+1;
+      }
+       
+      
+      if(stop===1){break;}
+    }         
+            }
+            counter=counter+1;
+          }
+        }}
+          
+          break;
+     case 3:
+        case 7:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[i][j]===turns+3){
+            if(counter===0){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;i1--){
+      if(i1<0){
+        break;
+      } 
+     for(y = j1; y==j1;j1++){
+      
+       if(j1>7){
+        break;
+      }
+      if(Board[i1][j1]===1){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+      Board[i1][j1]=5;
+        stop=stop+1;
+      }else if(Board[i1][j1]===2){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+        Board[i1][j1] =6;
+        stop=stop+1;
+      }
+       
+      } 
+      if(stop===1){break;}
+    }         
+            }else if(counter===anchorno){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;i1++){
+      if(i1>7){
+        break;
+      } 
+     for(y = j1; y==j1;j1--){
+      
+       if(j1<0){
+        break;
+      }
+      if(Board[i1][j1]===1){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+      Board[i1][j1]=5;
+        stop=stop+1;
+      }else if(Board[i1][j1]===2){
+        document.getElementById('row'+i1+'col'+j1).className += 
+          " poten";
+        Board[i1][j1] =6;
+        stop=stop+1;
+      }
+       
+      } 
+      if(stop===1){break;}
+    }         
+            }
+            counter=counter+1;
+          }
+        }}
+          
+          break;
+          case 4:
+        case 8:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[i][j]===turns+3){
+            if(counter===0){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;j1--){
+      if(j1<0){
+        break;
+      } 
+      
+      if(Board[i][j1]===1){
+        document.getElementById('row'+i+'col'+j1).className += 
+          " poten";
+      Board[i][j1]=5;
+        stop=stop+1;
+      }else if(Board[i][j1]===2){
+        document.getElementById('row'+i+'col'+j1).className += 
+          " poten";
+        Board[i][j1] =6;
+        stop=stop+1;
+      
+       
+      } 
+      if(stop===1){break;}
+    }         
+            }else if(counter===anchorno){
+              i1=i;
+              j1=j;
+   stop=0;
+    for(;;j1++){
+      if(j1>7){
+        break;
+      } 
+      
+      if(Board[i][j1]===1){
+        document.getElementById('row'+i+'col'+j1).className += 
+          " poten";
+      Board[i][j1]=5;
+        stop=stop+1;
+      }else if(Board[i][j1]===2){
+        document.getElementById('row'+i+'col'+j1).className += 
+          " poten";
+        Board[i][j1] =6;
+        stop=stop+1;
+      }
+       
+      
+      if(stop===1){break;}
+    }         
+            }
+            counter=counter+1;
+          }
+        }}
+          
+          break;
+          
+      }
+  } else if(piecesel===1){
+    
+    if(Board[i][j]===3||Board[i][j]===4){
+      document.getElementById("game").innerHTML = idraw();
+      piecesel=0;anchorno=0;
+    }else if(Board[i][j]===5){
+      
+      document.getElementById('row'+i+'col'+j).className = "blueyou sel"; Board[i][j]=7;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===5){
+            Board[a][b]=1; 
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;
+          }else if(Board[a][b]===6){
+            Board[a][b]=2;  
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;     
+          }
+        }}
+      if(selno===0){
+      a=i;
+      b=j;
+    fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;dwn++){
+      if(dwn>7){
+        break;
+      } 
+     for(y = rgt; y==rgt;rgt++){
+      
+       if(rgt>7){
+        break;
+      }
+      if(Board[dwn][rgt]===(turns+3)){
+direction=1;
+      }
+       
+      } 
+      if(fer>1){break;}
+if(Board[dwn][rgt]!==0){
+fer=fer+1;
+}
+    }
+    
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;dwn++){
+      if(dwn>7){
+        break;
+      } 
+     for(y = lft; y==lft;lft--){
+      
+       if(lft<0){
+        break;
+      }
+      if(Board[dwn][lft]===(turns+3)){
+direction=3;
+      }
+      } 
+      if(fer>1){break;}
+if(Board[dwn][lft]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;up--){
+      if(up<0){
+        break;
+      } 
+     for(y = rgt; y==rgt;rgt++){
+      
+       if(rgt>7){
+        break;
+      }
+      if(Board[up][rgt]===(turns+3)){
+direction=7;
+      }
+       
+      } 
+      if(fer>1){break;}
+if(Board[up][rgt]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;up--){
+      if(up<0){
+        break;
+      } 
+     for(y = lft; y==lft;lft--){
+      
+       if(lft<0){
+        break;
+      }
+      if(Board[up][lft]===(turns+3)){
+direction=5;
+      }
+       
+      } 
+      if(fer>1){break;}
+if(Board[up][lft]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;up--){
+      if(up<0){
+        break;
+      } 
+     
+      if(Board[up][j]===(turns+3)){
+direction=6;
+       
+      } 
+      if(fer>1){break;}
+if(Board[up][j]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;lft--){
+      if(lft<0){
+        break;
+      } 
+     
+      if(Board[i][lft]===(turns+3)){
+direction=8;
+      }
+      if(fer>1){break;}
+if(Board[i][lft]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;dwn++){
+      if(dwn>7){
+        break;
+      } 
+      if(Board[dwn][j]===(turns+3)){
+direction=2;
+      }
+      if(fer>1){break;}
+if(Board[dwn][j]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;rgt++){
+      if(rgt>7){
+        break;
+      } 
+      if(Board[i][rgt]===(turns+3)){
+direction=4;
+      } 
+      if(fer>1){break;}
+if(Board[i][rgt]!==0){
+fer=fer+1;
+}
+    } 
+      }
+  switch(direction){
+        case 5:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===7){
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1++){
+      if(a1>7){
+        break;
+      } 
+     for(y = b1; y==b1;b1++){
+      
+       if(b1>7){
+        break;
+      }
+      if(Board[a1][b1]===1){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=5;
+        stop=stop+1;
+      }
+       if(Board[a1][b1]!==1){
+        stop=stop+1;
+       } }
+      if(stop>1){break;} 
+     } 
+              
+            }
+          }
+        }}
+          
+          break;
+          case 1:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===7){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1--){
+      if(a1<0){
+        break;
+      } 
+     for(y = b1; y==b1;b1--){
+      
+       if(b1<0){
+        break;
+      }
+      if(Board[a1][b1]===1){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=5;
+        stop=stop+1;
+      }
+       if(Board[a1][b1]!==1){
+        stop=stop+1;
+       } }
+      if(stop>1){break;} 
+     }
+       
+             
+            }
+          }
+        }}
+          
+          break;
+        
+    case 2:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===7){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1--){
+      if(a1<0){
+        break;
+      } 
+      
+      if(Board[a1][b]===1){
+        document.getElementById('row'+a1+'col'+b).className += 
+          " poten";
+      Board[a1][b]=5;
+        stop=stop+1;
+      }
+       if(Board[a1][b]!==1){
+        stop=stop+1;
+      } 
+      if(stop>1){break;} 
+    }
+            }
+          }
+        }}
+          
+          break;
+        case 6:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===7){
+            
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1++){
+      if(a1>7){
+        break;
+      } 
+      
+      if(Board[a1][b]===1){ document.getElementById('row'+a1+'col'+b).className += 
+          " poten";
+      Board[a1][b]=5;
+        stop=stop+1;
+      }
+      if(Board[a1][b]!==1){
+        stop=stop+1;
+      } 
+      if(stop>1){break;} 
+       
+        
+    }}
+          }
+        }}
+          
+          break;
+     case 3:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===7){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1--){
+      if(a1<0){
+        break;
+      } 
+     for(y = b1; y==b1;b1++){
+      
+       if(b1>7){
+        break;
+      }
+      if(Board[a1][b1]===1){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=5;
+        stop=stop+1;
+      }
+       
+      if(Board[a1][b1]!==1){
+        stop=stop+1;
+      } }
+       if(stop>1){break;}    
+    }}
+          }
+        }}
+          
+          break;
+       case 7:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===7){
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1++){
+      if(a1>7){
+        break;
+      } 
+     for(y = b1; y==b1;b1--){
+      
+       if(b1<0){
+        break;
+      }
+      if(Board[a1][b1]===1){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=5;
+        stop=stop+1;
+      }
+       
+      
+       if(Board[a1][b1]!==1){
+        stop=stop+1;
+       } }
+       if(stop>1){break;}  }     
+            }
+          }
+        }}
+          
+          break;
+          case 4:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===7){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;b1--){
+      if(b1<0){
+        break;
+      } 
+      
+      if(Board[a][b1]===1){
+        document.getElementById('row'+a+'col'+b1).className += 
+          " poten";
+      Board[a][b1]=5;
+        stop=stop+1;
+      }
+       if(Board[a][b1]!==1){
+        stop=stop+1;
+      } 
+      if(stop>1){break;}  
+    }}
+          }
+        }}
+          
+          break;
+        case 8:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===7){
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;b1++){
+      if(b1>7){
+        break;
+      } 
+      
+      if(Board[a][b1]===1){
+        document.getElementById('row'+a+'col'+b1).className += 
+          " poten";
+      Board[a][b1]=5;
+        stop=stop+1;
+      }
+     
+    
+       if(Board[a][b1]!==1){
+        stop=stop+1;
+      } 
+      if(stop>1){break;}
+      
+    }
+             
+            }
+          }
+        }}
+      
+          break;}
+          
+      selno=selno+1;
+      
+    }else if(Board[i][j]===7||Board[i][j]===8){
+      piecesel =2;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===5){
+            Board[a][b]=1; 
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;
+          }else if(Board[a][b]===6){
+            Board[a][b]=2;  
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;     
+          }
+        }}
+     maximv = Math.floor(anchorno/selno);
+        for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+       if(Board[a][b]===3||Board[a][b]===4){
+                var anchori = a;
+                var anchorb = b;
+                var plus, minus,death;
+       if(anchori<i){
+          if(anchorb<j){
+                death = maximv;            
+          if(i+death>7||j+death>7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            for(minus=1;minus<=maximv;minus++){
+              if(Board[i-minus][j-minus]!==0){break;}
+              if(i-minus<0||j-minus<0){break;}
+              
+          if(Board[i-minus][j-minus]===0){
+            document.getElementById('row'+(i-minus)+'col'+(j-minus)).innerHTML = '<div id="row'+(i-minus)+'col'+(j-minus)+'" class="potenmv" onclick="Cpiece(this,'+(i-minus)+','+(j-minus)+')"></div>';
+          }}
+            for(plus=1;plus<=maximv;plus++){
+              if(Board[i+plus][j+plus]!==0){break;}
+          if(Board[i+plus][j+plus]===0){
+            document.getElementById('row'+(i+plus)+'col'+(j+plus)).innerHTML = '<div id="row'+(i+plus)+'col'+(j+plus)+'" class="potenmv" onclick="Cpiece(this,'+(i+plus)+','+(j+plus)+')"></div>';
+            
+          }}
+          } else if(anchorb===j){
+            death = maximv;            
+          if(i+death>7){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            for(minus=1;minus<=maximv;minus++){
+              if(Board[i-minus][j]!==0){break;}
+          if(Board[i-minus][j]===0){
+            document.getElementById('row'+(i-minus)+'col'+j).innerHTML = '<div id="row'+(i-minus)+'col'+j+'" class="potenmv" onclick="Cpiece(this,'+(i-minus)+','+j+')"></div>';
+          }}
+            for(plus=1;plus<=maximv;plus++){
+              if(Board[i+plus][j]!==0){break;}
+          if(Board[i+plus][j]===0){
+            document.getElementById('row'+(i+plus)+'col'+j).innerHTML = '<div id="row'+(i+plus)+'col'+j+'" class="potenmv" onclick="Cpiece(this,'+(i+plus)+','+j+')"></div>';
+            
+          }}
+          }else{
+          
+            death = maximv;  
+          if((i+death)>7||(j-death)<0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            for(minus=1;minus<=maximv;minus++){
+              if(Board[i-minus][j+minus]!==0){break;}
+          if(Board[i-minus][j+minus]===0){
+            document.getElementById('row'+(i-minus)+'col'+(j+minus)).innerHTML = '<div id="row'+(i-minus)+'col'+(j+minus)+'" class="potenmv" onclick="Cpiece(this,'+(i-minus)+','+(j+minus)+')"></div>';
+          }}
+            for(plus=1;plus<=maximv;plus++){
+              if(Board[i+plus][j-plus]!==0){break;}
+          if(Board[i+plus][j-plus]===0){
+            document.getElementById('row'+(i+plus)+'col'+(j-plus)).innerHTML = '<div id="row'+(i+plus)+'col'+(j-plus)+'" class="potenmv" onclick="Cpiece(this,'+(i+plus)+','+(j-plus)+')"></div>';
+            
+          }}
+          }
+        
+          
+        }else if(anchori===i){
+        
+            death = maximv; 
+          if(j+death>7||j-death<0){ /*here*/
+            br=0;
+            if((j+death)>7){
+            for(y=j+1;y<7;y++){
+              if(Board[i][y]==='undefined'||Board[i][y]!==0){br=1;
+                break;
+              }
+            }   }else if((j-death)<0){
+            for(y=j-1;y>0;y--){
+              if(Board[i][y]!=='undefined'||Board[i][y]!==0){br=1;
+                break;
+              }
+            }     }
+            if(br===0){         removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';}     
+          }
+            for(minus=1;minus<=maximv;minus++){  
+              if(Board[i][j-minus]!==0){break;}
+          if(Board[i][j-minus]===0){
+            document.getElementById('row'+(i)+'col'+(j-minus)).innerHTML = '<div id="row'+(i)+'col'+(j-minus)+'" class="potenmv" onclick="Cpiece(this,'+(i)+','+(j-minus)+')"></div>';
+          }}
+            for(plus=1;plus<=maximv;plus++){
+              if(Board[i][j+plus]!==0){break;}
+          if(Board[i][j+plus]===0){
+            document.getElementById('row'+(i)+'col'+(j+plus)).innerHTML = '<div id="row'+(i)+'col'+(j+plus)+'" class="potenmv" onclick="Cpiece(this,'+(i)+','+(j+plus)+')"></div>';
+            
+          }}
+          
+        }else{
+            
+        
+          if(anchorb<j){ 
+            
+         death=maximv;
+          if(j+death>7||i-death<0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            for(minus=1;minus<=maximv;minus++){
+              if(Board[i-minus][j+minus]!==0){break;}
+          if(Board[i-minus][j+minus]===0){
+            document.getElementById('row'+(i-minus)+'col'+(j+minus)).innerHTML = '<div id="row'+(i-minus)+'col'+(j+minus)+'" class="potenmv" onclick="Cpiece(this,'+(i-minus)+','+(j+minus)+')"></div>';
+          }}
+            for(plus=1;plus<=maximv;plus++){
+              if(Board[i+plus][j-plus]!==0){break;}
+          if(Board[i+plus][j-plus]===0){
+            document.getElementById('row'+(i+plus)+'col'+(j-plus)).innerHTML = '<div id="row'+(i+plus)+'col'+(j-plus)+'" class="potenmv" onclick="Cpiece(this,'+(i+plus)+','+(j-plus)+')"></div>';
+            
+          }}
+        
+          } else if(anchorb===j){
+            
+          death = maximv;            
+          if(i-death<0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }for(plus=1;plus<=maximv;plus++){
+            
+              if(Board[i+plus][j]!==0){break;}
+          if(Board[i+plus][j]===0){
+            document.getElementById('row'+(i+plus)+'col'+j).innerHTML = '<div id="row'+(i+plus)+'col'+j+'" class="potenmv" onclick="Cpiece(this,'+(i+plus)+','+j+')"></div>';
+            
+          }}
+            for(minus=1;minus<=maximv;minus++){
+              if(Board[i-minus][j]!==0){break;}
+          if(Board[i-minus][j]===0){
+            document.getElementById('row'+(i-minus)+'col'+j).innerHTML = '<div id="row'+(i-minus)+'col'+j+'" class="potenmv" onclick="Cpiece(this,'+(i-minus)+','+j+')"></div>';
+          }}
+            
+        
+          }else{ 
+         death = maximv;            
+          if(i-death<0||j-death<0){           removeElement(document.getElementById('button')); document.getElementById('kill').innerHTML = '<button  onclick="Remove('+i+','+j+')">Remove piece</button>';     
+          }
+            for(minus=1;minus<=maximv;minus++){
+              if(Board[i-minus][j-minus]!==0){break;}
+          if(Board[i-minus][j-minus]===0){
+            document.getElementById('row'+(i-minus)+'col'+(j-minus)).innerHTML = '<div id="row'+(i-minus)+'col'+(j-minus)+'" class="potenmv" onclick="Cpiece(this,'+(i-minus)+','+(j-minus)+')"></div>';
+          }}
+            for(plus=1;plus<=maximv;plus++){
+              if(Board[i+plus][j+plus]!==0){break;}
+          if(Board[i+plus][j+plus]===0){
+            document.getElementById('row'+(i+plus)+'col'+(j+plus)).innerHTML = '<div id="row'+(i+plus)+'col'+(j+plus)+'" class="potenmv" onclick="Cpiece(this,'+(i+plus)+','+(j+plus)+')"></div>';
+            
+          }}
+          }
+        }
+        
+        
+       }
+        }       
+        }
+      
+    }else if(Board[i][j]===6){
+       document.getElementById('row'+i+'col'+j).className = "bluetoo sel";
+      Board[i][j]=8;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===5){
+            Board[a][b]=1;  
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;
+          }else if(Board[a][b]===6){
+            Board[a][b]=2;   
+            if((a+b)%2===0){colort='light';}else{colort='dark';}   document.getElementById('row'+a+'col'+b).className = 
+          colort;
+          }
+        }
+      }
+      if(selno===0){
+      a=i;
+      b=j;
+           fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;dwn++){
+      if(dwn>7){
+        break;
+      } 
+     for(y = rgt; y==rgt;rgt++){
+      
+       if(rgt>7){
+        break;
+      }
+      if(Board[dwn][rgt]===(turns+3)){
+direction=1;
+      }
+       
+      } 
+      if(fer>1){break;}
+if(Board[dwn][rgt]!==0){
+fer=fer+1;
+}
+    }
+    
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;dwn++){
+      if(dwn>7){
+        break;
+      } 
+     for(y = lft; y==lft;lft--){
+      
+       if(lft<0){
+        break;
+      }
+      if(Board[dwn][lft]===(turns+3)){
+direction=3;
+      }
+      } 
+      if(fer>1){break;}
+if(Board[dwn][lft]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;up--){
+      if(up<0){
+        break;
+      } 
+     for(y = rgt; y==rgt;rgt++){
+      
+       if(rgt>7){
+        break;
+      }
+      if(Board[up][rgt]===(turns+3)){
+direction=7;
+      }
+       
+      } 
+      if(fer>1){break;}
+if(Board[up][rgt]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;up--){
+      if(up<0){
+        break;
+      } 
+     for(y = lft; y==lft;lft--){
+      
+       if(lft<0){
+        break;
+      }
+      if(Board[up][lft]===(turns+3)){
+direction=5;
+      }
+       
+      } 
+      if(fer>1){break;}
+if(Board[up][lft]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;up--){
+      if(up<0){
+        break;
+      } 
+     
+      if(Board[up][j]===(turns+3)){
+direction=6;
+       
+      } 
+      if(fer>1){break;}
+if(Board[up][j]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;lft--){
+      if(lft<0){
+        break;
+      } 
+     
+      if(Board[i][lft]===(turns+3)){
+direction=8;
+      }
+      if(fer>1){break;}
+if(Board[i][lft]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;dwn++){
+      if(dwn>7){
+        break;
+      } 
+      if(Board[dwn][j]===(turns+3)){
+direction=2;
+      }
+      if(fer>1){break;}
+if(Board[dwn][j]!==0){
+fer=fer+1;
+}
+    } 
+   fer=0;
+dwn=up=i;
+rgt=lft=j;
+    for(;;rgt++){
+      if(rgt>7){
+        break;
+      } 
+      if(Board[i][rgt]===(turns+3)){
+direction=4;
+      } 
+      if(fer>1){break;}
+if(Board[i][rgt]!==0){
+fer=fer+1;
+}
+    } 
+      
+      }
+      
+  switch(direction){
+        case 5:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===8){
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1++){
+      if(a1>7){
+        break;
+      } 
+     for(y = b1; y==b1;b1++){
+      
+       if(b1>7){
+        break;
+      }
+      if(Board[a1][b1]===2){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=6;
+        stop=stop+1;
+      }
+       if(Board[a1][b1]!==2){
+        stop=stop+1;
+       } }
+      if(stop>1){break;} 
+     } 
+              
+            }
+          }
+        }}
+          
+          break;
+          case 1:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===8){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1--){
+      if(a1<0){
+        break;
+      } 
+     for(y = b1; y==b1;b1--){
+      
+       if(b1<0){
+        break;
+      }
+      if(Board[a1][b1]===2){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=6;
+        stop=stop+1;
+      }
+       if(Board[a1][b1]!==2){
+        stop=stop+1;
+       } }
+      if(stop>1){break;} 
+     }
+       
+             
+            }
+          }
+        }}
+          
+          break;
+        
+    case 2:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===8){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1--){
+      if(a1<0){
+        break;
+      } 
+      
+      if(Board[a1][b]===2){
+        document.getElementById('row'+a1+'col'+b).className += 
+          " poten";
+      Board[a1][b]=6;
+        stop=stop+1;
+      }
+       if(Board[a1][b]!==2){
+        stop=stop+1;
+      } 
+      if(stop>1){break;} 
+    }
+            }
+          }
+        }}
+          
+          break;
+        case 6:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===8){
+            
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1++){
+      if(a1>7){
+        break;
+      } 
+      
+      if(Board[a1][b]===2){ document.getElementById('row'+a1+'col'+b).className += 
+          " poten";
+      Board[a1][b]=6;
+        stop=stop+1;
+      }
+      if(Board[a1][b]!==2){
+        stop=stop+1;
+      } 
+      if(stop>1){break;} 
+       
+        
+    }}
+          }
+        }}
+          
+          break;
+     case 3:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===8){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1--){
+      if(a1<0){
+        break;
+      } 
+     for(y = b1; y==b1;b1++){
+      
+       if(b1>7){
+        break;
+      }
+      if(Board[a1][b1]===2){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=6;
+        stop=stop+1;
+      }
+       
+      if(Board[a1][b1]!==2){
+        stop=stop+1;
+      } }
+       if(stop>1){break;}    
+    }}
+          }
+        }}
+          
+          break;
+       case 7:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===8){
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;a1++){
+      if(a1>7){
+        break;
+      } 
+     for(y = b1; y==b1;b1--){
+      
+       if(b1<0){
+        break;
+      }
+      if(Board[a1][b1]===2){
+        document.getElementById('row'+a1+'col'+b1).className += 
+          " poten";
+      Board[a1][b1]=6;
+        stop=stop+1;
+      }
+       
+      
+       if(Board[a1][b1]!==2){
+        stop=stop+1;
+       } }
+       if(stop>1){break;}  }     
+            }
+          }
+        }}
+          
+          break;
+          case 4:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===8){
+            counter=counter+1;
+            if(counter===1){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;b1--){
+      if(b1<0){
+        break;
+      } 
+      
+      if(Board[a][b1]===2){
+        document.getElementById('row'+a+'col'+b1).className += 
+          " poten";
+      Board[a][b1]=6;
+        stop=stop+1;
+      }
+       if(Board[a][b1]!==2){
+        stop=stop+1;
+      } 
+      if(stop>1){break;}  
+    }}
+          }
+        }}
+          
+          break;
+        case 8:
+          counter=0;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===turns+3){
+            counter=counter+1;
+          }
+          if(Board[a][b]===8){
+            counter=counter+1;
+            if(counter===(anchorno+selno+1)){
+              a1=a;
+              b1=b;
+   stop=0;
+    for(;;b1++){
+      if(b1>7){
+        break;
+      } 
+      
+      if(Board[a][b1]===2){
+        document.getElementById('row'+a+'col'+b1).className += 
+          " poten";
+      Board[a][b1]=6;
+        stop=stop+1;
+      }
+     
+    
+       if(Board[a][b1]!==2){
+        stop=stop+1;
+      } 
+      if(stop>1){break;}
+      
+    }
+             
+            }
+          }
+        }}
+      
+          break;}
+          
+          
+      selno=selno+1;
+    }
+   
+  }else if(piecesel===2){
+               if(Board[i][j]===3||Board[i][j]===4){
+ anchorno=0;
+      document.getElementById("game").innerHTML = idraw();
+      piecesel=0;
+    }else if(Board[i][j]===0){
+     maximv = Math.floor(anchorno/selno);
+      switch(direction){
+          case 4:direction=8;
+          break;
+          case 8:direction=4;
+          break;
+      }
+    
+      counter=0;
+      for(type=0;type<2;type++){
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===type+7){
+          counter=counter+1;
+          if(counter===1){
+          switch(direction){
+            case 1:case 5:
+            if(i>a){
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+              for(z=y;z===y;y++){
+                Board[x][y]=0;
+                c++;
+              }}
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;x--){
+              for(z=y;z===y;y--){
+                Board[x][y]=type+1;
+                c++;
+              }}
+              }else{
+              
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+              for(z=y;z===y;y++){
+                Board[x][y]=0;
+                c++;
+              }}
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;x++){
+              for(z=y;z===y;y++){
+                Board[x][y]=type+1;
+                c++;
+              }} 
+            }
+              break;
+              case 2:case 6:
+            if(i>a){
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+                Board[x][y]=0;
+                c++;
+              }
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;x--){
+                Board[x][y]=type+1;
+                c++;
+              }
+              }else{
+              
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+                Board[x][y]=0;
+                c++;
+              }
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;x++){
+                Board[x][y]=type+1;
+                c++;
+              }
+            }
+              break;
+              case 3:case 7:
+            if(i>a){
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+              for(z=y;z===y;y--){
+                Board[x][y]=0;
+                c++;
+              }}
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;x--){
+              for(z=y;z===y;y++){
+                Board[x][y]=type+1;
+                c++;
+              }}
+              }else{
+              
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;x++){
+              for(z=y;z===y;y--){
+                Board[x][y]=0;
+                c++;
+              }}
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;x++){
+              for(z=y;z===y;y--){
+                Board[x][y]=type+1;
+                c++;
+              }} 
+            }
+              break;
+              case 4:case 8:
+            if(j>b){
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;y++){
+                Board[x][y]=0;
+                c++;
+              }
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;y--){
+                Board[x][y]=type+1;
+                c++;
+              }
+              }else{
+              
+            c=0;
+                y=b;
+                x=a;
+              for(;c<selno;y++){
+                Board[x][y]=0;
+                c++;
+              }
+              y=j;
+              x=i;
+              c=0;
+              for(;c<selno;y++){
+                Board[x][y]=type+1;
+                c++;
+              }
+            }
+              break;
+          }}}}}}
+              if(turns===0){turns=1;}else{turns=0;}
+document.getElementById("game").innerHTML = idraw();
+            winner();
+			ko();
+            piecesel=0;
+          
+          
+        
+    }else if(Board[i][j]===7||Board[i][j]===8){
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===3||Board[a][b]===4){document.getElementById("game").innerHTML = idraw();
+       Cpiece(document.getElementById('row'+a+'col'+b),a,b); 
+           
+          }
+        }
+      }
+ piecesel=0;
+ anchorno=0;
+        }
+        }
+}
+  function placinger(i,j){
+    if(piecesel===0&&placer===0&&(i===turns)){
+      placer=1;
+      piecesel=-1;
+      document.getElementById('piece'+(i+1)+j).className += " placesel"; if(i===1){placetype=2;}else{placetype=1;}
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===0){
+           document.getElementById('row'+a+'col'+b).className += " potenpc" ;
+          }
+        }}
+    }else if(placer===1){
+      document.getElementById("game").innerHTML = idraw();
+      placer=0;
+      piecesel=0;
+      anchorno=0;
+    }
+  }
+ function place(i,j){
+   if(piecesel===-1&&Board[i][j]===0&&placer===1){
+     if(placetype===1){
+    Board[i][j]=1;
+       placeamount1--;
+     if(turns===0){turns=1;}else{turns=0;}
+      document.getElementById("game").innerHTML = idraw();
+        winner();
+     }else{
+    Board[i][j]=2;
+        placeamount2--;
+     if(turns===0){turns=1;}else{turns=0;}
+      document.getElementById("game").innerHTML = idraw();
+        winner();
+     }
+     placetype=0;
+     placer=0;
+     piecesel=0;
+   }
+ }
+function winner(){
+ anchorno=0;
+  if(win!=2){
+    var current = turns+1;
+      for(a=0;a<8;a++){
+        for(b=0;b<8;b++){
+          if(Board[a][b]===current){
+   var a1,a2,a3,a4,a5,a6;
+   var b1,b2,b3,b4,b5,b6;
+   var neg,pos,neg2,pos2;
+  
+   a1=a2=a6=a+1;
+   a3=a4=a5=a-1;
+   b1=b3=b6=b+1;
+   b2=b4=b5=b-1;
+           
+               block=0;
+   for(;;a1++){
+      if(a1>7){
+        break;
+      }
+     for(y = b1; y===b1;b1++){
+      
+       if(b1>7){
+        break;
+      }
+      neg = a1;
+      pos = a1;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b1;
+      pos2 = b1;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if((pos<=7)&&(pos2<=7)&&(0<=neg)&&(0<=neg2)){
+         if(Board[a1][b1]!==0){
+block=block+1;  
+         if(Board[neg][neg2]===0){ 
+        connections=connections+1;
+        }else if(Board[pos][pos2]===0){
+        connections=connections+1;
+        }}
+       
+       } }
+      if(block===2){break;}
+    }
+   block=0;
+    for(;;a2++){
+      if(a2>7){
+        break;
+      } 
+     for(y = b2; y===b2;b2--){
+      
+       if(b2<0){
+        break;
+      }
+      neg = a2;
+      pos = a2;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b2;
+      pos2 = b2;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if((pos<=7)&&(pos2<=7)&&(0<=neg)&&(0<=neg2)){
+      if(Board[a2][b2]!==0){
+block=block+1;  
+         if(Board[pos][neg2]===0){
+        connections=connections+1;
+        }else if(Board[neg][pos2]===0){
+        connections=connections+1;
+        }}}
+         
+       
+      
+       
+        }
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a3--){
+      if(a3<0){
+        break;
+      } 
+     for(y = b3; y===b3;b3++){
+      
+       if(b3>7){
+        break;
+      }
+      neg = a3;
+      pos = a3;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b3;
+      pos2 = b3;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if((pos<=7)&&(pos2<=7)&&(0<=neg)&&(0<=neg2)){
+      if(Board[a3][b3]!==0){
+block=block+1;  
+         if(Board[neg][pos2]===0){
+        connections=connections+1;
+        }else if(Board[pos][neg2]===0){
+        connections=connections+1;
+        }}
+       
+       } }
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a4--){
+      if(a4<0){
+        break;
+      } 
+     for(y = b4; y===b4;b4--){
+      
+       if(b4<0){
+        break;
+      }
+      neg = a4;
+      pos = a4;
+      neg=neg-1;
+      pos=pos+1;
+      neg2 = b4;
+      pos2 = b4;
+      neg2=neg2-1;
+      pos2=pos2+1;
+       if((pos<=7)&&(pos2<=7)&&(0<=neg)&&(0<=neg2)){
+      if(Board[a4][b4]!==0){
+block=block+1;  
+         if(Board[neg][neg2]===0){
+        connections=connections+1;
+        }else if(Board[pos][pos2]===0){
+        connections=connections+1;
+        }
+       
+      } }}
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a5--){
+      if(a5<0){
+        break;
+      } 
+     
+      neg = a5;
+      pos = a5;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos<=7&&0<=neg){
+      if(Board[a5][b]!==0){
+block=block+1;  
+        if(Board[neg][b]===0){
+        connections=connections+1;
+        }else if(Board[pos][b]===0){
+        connections=connections+1;
+        }
+      }}
+      if(block===2){break;}
+    } 
+   block=0;
+              
+    for(;;b5--){
+      if(b5<0){
+        break;
+      } 
+      neg = b5;
+      pos = b5;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos<=7&&0<=neg){
+      if(Board[a][b5]!==0){
+block=block+1;  
+        if(Board[a][neg]===0){
+        connections=connections+1;
+        }else if(Board[a][pos]===0){
+        connections=connections+1;
+          }
+        
+        }
+        }
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;a6++){
+      if(a6>7){
+        break;
+      } 
+     
+      neg = a6;
+      pos = a6;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos<=7&&0<=neg){
+      if(Board[a6][b]!==0){
+block=block+1;  
+        if(Board[neg][b]===0){
+        connections=connections+1;
+        }else if(Board[pos][b]===0){
+        connections=connections+1;
+        }
+      }}
+      if(block===2){break;}
+    } 
+   block=0;
+    for(;;b6++){
+      if(b6>7){
+        break;
+      } 
+      neg = b6;
+      pos = b6;
+      neg=neg-1;
+      pos=pos+1;
+      if(pos<=7&&0<=neg){
+      if(Board[a][b6]!==0){
+block=block+1;  
+        if(Board[a][neg]===0){
+        connections=connections+1;
+        }else if(Board[a][pos]===0){
+        connections=connections+1;
+          }
+        
+        
+        
+        }
+      }
+      
+      if(block===2){break;}
+    } 
+            }  
+          }
+        }
+  if(turns===0){
+    if(placeamount1===0&&connections===0){
+      win=1; document.getElementById("game").innerHTML = idraw();
+    }
+  } else{
+    if(placeamount2===0&&connections===0){
+      win=1; document.getElementById("game").innerHTML = idraw();     
+    }
+  }
+    connections=0;}
+  selno=0;
+}
+</script>
