@@ -140,7 +140,12 @@ var selno=0;
 var maximv=0;
 var distance=0;
 var runwin=0;
-var Board0, Board1, pl01, pl02, pl11, pl12;
+Board1 = Board;
+pl11= placeamount1;
+pl12= placeamount2;
+Board0 = Board;
+pl01= placeamount1;
+pl02= placeamount2;
 function ko(){
 if (turns===1){
 if((Board.toString() == Board1.toString())&&(pl11===placeamount1)&&(pl12===placeamount2)){
