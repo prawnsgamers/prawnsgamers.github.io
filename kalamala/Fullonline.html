@@ -144,14 +144,14 @@ var Board0, Board1, pl01, pl02, pl11, pl12;
 function ko(){
 if (turns===1){
 if((Board===Board1)&&(pl11===placeamount1)&&(pl12===placeamount2)){
-document.getElementById("turns").innerHTML = "Ko rule activated - This is identical to this time last turn - White's turn";
+document.getElementById("turns").innerHTML = "Ko rule activated - This is identical to this time last turn - Black's turn";
 }
 Board1 = Board;
 pl11= placeamount1;
 pl12= placeamount2;
 }else{
 if((Board===Board0)&&(pl01===placeamount1)&&(pl02===placeamount2)){
-document.getElementById("turns").innerHTML = "Ko rule activated - This is identical to this time last turn - Black's turn";
+document.getElementById("turns").innerHTML = "Ko rule activated - This is identical to this time last turn - White's turn";
 }
 Board0 = Board;
 pl01= placeamount1;
