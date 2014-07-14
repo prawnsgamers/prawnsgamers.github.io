@@ -143,15 +143,15 @@ var runwin=0;
 var Board0, Board1, pl01, pl02, pl11, pl12;
 function ko(){
 if (turns===1){
-if(Board===Board1&&pl11===placeamount1&&pl12===placeamount2){
-document.getElementById("count").innerHTML = "Ko rule activated - This is identical to this time last turn - White's turn";
+if((Board===Board1)&&(pl11===placeamount1)&&(pl12===placeamount2)){
+document.getElementById("turns").innerHTML = "Ko rule activated - This is identical to this time last turn - White's turn";
 }
 Board1 = Board;
 pl11= placeamount1;
 pl12= placeamount2;
 }else{
-if(Board===Board0&&pl01===placeamount1&&pl02===placeamount2){
-document.getElementById("count").innerHTML = "Ko rule activated - This is identical to this time last turn - Black's turn";
+if((Board===Board0)&&(pl01===placeamount1)&&(pl02===placeamount2)){
+document.getElementById("turns").innerHTML = "Ko rule activated - This is identical to this time last turn - Black's turn";
 }
 Board0 = Board;
 pl01= placeamount1;
@@ -186,9 +186,9 @@ var drawn = '';
      drawn+='</div><div id="kill"><div id="button"></div></div>';
    
   if(turns===0){
-    drawn+='<div class="count">White\'s turn</div>';
+    drawn+='<div class="count" id="turns">White\'s turn</div>';
   }else{
-    drawn+='<div class="count">Black\'s turn</div>';
+    drawn+='<div class="count" id="turns">Black\'s turn</div>';
   } 
     if(runwin===0){drawn+='<button onclick="disable()">The function to check for the winner is super unreliable so click this button to disable it</button>';
                   runwin++;}
