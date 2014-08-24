@@ -37,4 +37,4 @@ If you feel you have understood the majority of these rules, but would like clar
 
 Currently these rules are only available ad a .pdf at A4 size, but we hope to republish them at A5 and duplicate the content on this webpage.
 
-<a href="{{ site.baseurl }}/files/kalamala/teachingrulesA4.pdf" download="KalamalaRulesA4.pdf">Download</a> or <a href="{{ site.baseurl }}/files/kalamala/teachingrulesA4.pdf">view</a> the Teaching rules as a .pdf at A4.
+<a href="{{ site.baseurl }}/files/kalamala/teachingrulesA4.pdf" download="KalamalaRulesA4.pdf">Download</a> or <a href="{{ site.baseurl }}/files/kalamala/teachingrulesA4.pdf">View</a> the Teaching rules as a .pdf at A4.
