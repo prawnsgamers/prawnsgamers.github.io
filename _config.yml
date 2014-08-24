@@ -8,4 +8,4 @@ url: "http://prawnsgame.org.uk"
 # Build settings
 markdown: kramdown
 permalink: pretty
-relative_permalinks: false
+relative_permalinks: true
