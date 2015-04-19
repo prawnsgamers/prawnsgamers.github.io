@@ -51,12 +51,12 @@ These are called unplaced stones.
 Objective
 =========
 
-Put your opponent in a position where it is their turn, but they are unable to do anything.
+To take the last turn of the game (i.e. to put your opponent in a position where it is their turn, but they are unable to do anything).
 
 Turns
 =====
 
-Players must decide before the game who goes takes the first turn.
+Players must decide before the game who takes the first turn.
 
  - Play alternates, with each player making one movement or one placement in each turn.
 
@@ -80,7 +80,8 @@ The line that defines the group is the one on which all the stones in that group
     + There must be no occupied spaces directly between the two groups.
  - The player may then push the P-group (move it away from the A-group), or pull the P-group (move it towards the A-group) following four rules:
     + The movement must be along the shared line that defines the groups.
-    + The number of spaces each stone in the P-group is moved by is calculated by the formula: ([number of stones in the A-group]÷[number of stones in the P-group]), which is rounded down if it is not whole.
+    + The number of spaces each stone in the P-group is moved by is calculated by the formula: 
+      ([number of spaces] = [number of stones in the A-group] ÷ [number of stones in the P-group]), which is rounded down if it is not whole.
     + Stones in the P-group must not pass through, or land on an occupied space, but can land off of the board.
     + Any stones in the P-group that are pushed off the board are removed from play.
 
@@ -92,7 +93,7 @@ The state of the game includes the position and number of stones on the board, a
 A turn is illegal if:
 
  - It makes no change to the state of the game.
- - It causes the state of the game to be identical to one earlier in the game.
+ - It causes the state of the game to be identical to any one earlier in the game.
 
 End of the Game
 ===============
