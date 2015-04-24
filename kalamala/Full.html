@@ -110,6 +110,14 @@ width: 400px;
   font-family:tahoma;
   background-image:url('http://i44.servimg.com/u/f44/14/74/52/91/prod_410.gif');
 }
+.SKO{
+  text-align:center; 
+  font-family:tahoma;
+}
+.KO{
+  text-align:center; 
+  font-family:tahoma;
+}
 </style>
 
 <div id="game"></div>
@@ -140,6 +148,7 @@ var selno=0;
 var maximv=0;
 var distance=0;
 var runwin=0;
+var History = [[Board+"",placeamount1,placeamount2]];
 function idraw (){
 var drawn = '';
   if(win!==1){
@@ -175,6 +184,7 @@ var drawn = '';
   } 
     if(runwin===0){drawn+='<button onclick="disable()">The function to check for the winner is super unreliable so click this button to disable it</button>';
                   runwin++;}
+                 drawn+='<button onclick="undo()">Undo</button>';
     return drawn;} else {
       
     for(i=0;i<8;i++){
@@ -2252,6 +2262,18 @@ fer=fer+1;
           }}}}}}
               if(turns===0){turns=1;}else{turns=0;}
 document.getElementById("game").innerHTML = idraw();
+      for(i=0;i<1;i++){
+        History[History.length] = [Board+"",placeamount1,placeamount2];
+      }
+      for(i=0;i<History.length-1;i++){
+        if((History[i][0] == Board+"")&&(History[i][1]==placeamount1)&&(History[i][2]==placeamount2)){
+          
+document.getElementById("game").innerHTML = idraw()+'<div id="SKO">Super Ko breached. You probably want to press undo.</div>';
+        }else if(History[i][0] == Board+""){
+          
+document.getElementById("game").innerHTML = idraw()+'<div id="KO">Ko breached. You might want to press undo.</div>';
+        }
+      }
             winner();
             piecesel=0;
           
@@ -2552,5 +2574,26 @@ block=block+1;
   }
     connections=0;}
   selno=0;
+}
+function undo(){
+  if(History.length!=1){
+    var str = History[History.length-2][0];
+    var temp = Array();
+    temp = str.split(",");
+    for (var a in temp) {
+      temp[a] = parseInt(temp[a], 10);
+    }
+    var arr = Array();
+    while(temp.length) {
+      arr[arr.length] = temp.splice(0,8);
+    }
+    Board = arr;
+    placeamount1 = History[History.length-2][1];
+    placeamount2 = History[History.length-2][2];
+    History.pop();
+    turns= (turns+1)%2;
+    win = 0;
+    document.getElementById("game").innerHTML = idraw();
+  }
 }
 </script>
