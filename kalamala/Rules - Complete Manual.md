@@ -39,6 +39,6 @@ If you feel you want to learn how to play rather than clarification on a specifi
 
 Currently these rules are only available as a .pdf like the teaching rules, but we hope to convert the content into webpage form some day.
 
-Note: Be aware that these rules may change, to deal with even more detail and become even more comprehensive. Also, the .pdf is moderately large at ~23Mb.
+Note: Be aware that these rules may change, to deal with even more detail and become even more comprehensive. Also, the .pdf is moderately large at ~23MB.
 
 <a href="{{ site.baseurl }}/files/kalamala/TheCompleteManualforKalamala.pdf" download="TheCompleteManualforKalamala.pdf">Download</a> or <a href="{{ site.baseurl }}/files/kalamala/TheCompleteManualforKalamala.pdf">View</a> the Complete Manual as a .pdf.
