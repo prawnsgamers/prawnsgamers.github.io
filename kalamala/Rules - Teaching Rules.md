@@ -7,7 +7,7 @@ zone: Kalamala
 folder: /kalamala
 permalink: /rules/teaching/
 layout: subpage
-discription: The teaching rules page for Kalamala on prawnsgame.org.uk, where you can learn how to play the abstract strategy board game Kalamala. These rules are great for beginners who want to start playing and need to grasp the basics.
+description: The teaching rules page for Kalamala on prawnsgame.org.uk, where you can learn how to play the abstract strategy board game Kalamala. These rules are great for beginners who want to start playing and need to grasp the basics.
 published: true
 
 #Links
@@ -27,6 +27,8 @@ sublink2name: Quick Rules
 sublink2path: /rules/quick/
 sublink3name: Short Rules
 sublink3path: /rules/short/
+sublink4name: Complete Manual
+sublink3path: /rules/manual/
 ---
 
 These are the Teaching rules for Kalamala which act primarily as a short, introductory course into Kalamala.

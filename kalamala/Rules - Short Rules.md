@@ -7,7 +7,7 @@ zone: Kalamala
 folder: /kalamala
 permalink: /rules/short/
 layout: subpage
-discription: The short rules page for Kalamala on prawnsgame.org.uk, where you can learn how to play the abstract strategy board game Kalamala. These rules are more for academic interest than utility.
+description: The short rules page for Kalamala on prawnsgame.org.uk, where you can learn how to play the abstract strategy board game Kalamala. These rules are more for academic interest than utility.
 published: true
 
 #Links
@@ -27,6 +27,8 @@ sublink2name: Quick Rules
 sublink2path: /rules/quick/
 sublink3name: Short Rules
 sublink3path: /rules/short/
+sublink4name: Complete Manual
+sublink3path: /rules/manual/
 ---
 
 These are the Short rules for Kalamala which act primarily as an item of academic interest. They are utterly useless for any practical purpose, but due to the fact that the rules of Kalamala are both few, simple to grasp, and hard to write down we decided to 'compete' to get a ruleset that describes the entire game in as few words and characters as possible. The result you see below.
