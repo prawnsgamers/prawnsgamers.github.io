@@ -33,7 +33,9 @@ sublink4path: /rules/manual/
 
 Since different people will have different playing abilities and levels of understanding of Kalamala, we have decided to write a few different rulesets which cater for these different needs. Either navigate to the required rules using the tabs above, or click the link next to the description of each ruleset below.
 
-Unfortunately, we haven't yet finished writing up all the rulesets (I promise we will soon), but once we have there will be:
+All the rulesets are listed below, but they'll almost certainly undergo modification, and clarification, as well as conversions into alternative formats.
+
+Rulesets:
 
  - [The Teaching Rules](/kalamala/rules/teaching/): This contains a short, visual collection of possible moves and examples to create an immediate understanding of Kalamala for those who want to learn but haven't yet played a game.
  - [The Quick Rules](/kalamala/rules/quick/): These almost entirely text-only rules are designed to be quick yet precise. While not suitable for learning from, the rules are ideal as a reference to settle most disputes and jog their memory if they haven't played in a while.
