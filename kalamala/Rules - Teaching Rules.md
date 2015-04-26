@@ -28,7 +28,7 @@ sublink2path: /rules/quick/
 sublink3name: Short Rules
 sublink3path: /rules/short/
 sublink4name: Complete Manual
-sublink3path: /rules/manual/
+sublink4path: /rules/manual/
 ---
 
 These are the Teaching rules for Kalamala which act primarily as a short, introductory course into Kalamala.

@@ -28,7 +28,7 @@ sublink2path: /rules/quick/
 sublink3name: Short Rules
 sublink3path: /rules/short/
 sublink4name: Complete Manual
-sublink3path: /rules/manual/
+sublink4path: /rules/manual/
 ---
 
 This the complete manual for Kalamala, it is a comprehensive guide how to play the game but should not be used as an introduction, but rather a supplement for those who can already play or want clarification on specific issues.

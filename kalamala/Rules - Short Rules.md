@@ -28,7 +28,7 @@ sublink2path: /rules/quick/
 sublink3name: Short Rules
 sublink3path: /rules/short/
 sublink4name: Complete Manual
-sublink3path: /rules/manual/
+sublink4path: /rules/manual/
 ---
 
 These are the Short rules for Kalamala which act primarily as an item of academic interest. They are utterly useless for any practical purpose, but due to the fact that the rules of Kalamala are both few, simple to grasp, and hard to write down we decided to 'compete' to get a ruleset that describes the entire game in as few words and characters as possible. The result you see below.

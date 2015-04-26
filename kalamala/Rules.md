@@ -28,7 +28,7 @@ sublink2path: /rules/quick/
 sublink3name: Short Rules
 sublink3path: /rules/short/
 sublink4name: Complete Manual
-sublink3path: /rules/manual/
+sublink4path: /rules/manual/
 ---
 
 Since different people will have different playing abilities and levels of understanding of Kalamala, we have decided to write a few different rulesets which cater for these different needs. Either navigate to the required rules using the tabs above, or click the link next to the description of each ruleset below.
